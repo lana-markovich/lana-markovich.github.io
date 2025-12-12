@@ -1,13 +1,14 @@
 {
-  "permissions": {
-    "allow": [
-      "Bash(rm:*)",
-      "Bash(cat:*)",
-      "Bash(npm install:*)",
-      "Bash(tree:*)",
-      "Bash(npm uninstall:*)"
-    ],
-    "deny": [],
-    "ask": []
-  }
+	"permissions": {
+		"allow": [
+			"Bash(rm:*)",
+			"Bash(cat:*)",
+			"Bash(npm install:*)",
+			"Bash(tree:*)",
+			"Bash(npm uninstall:*)",
+			"Bash(dir:*)"
+		],
+		"deny": [],
+		"ask": []
+	}
 }

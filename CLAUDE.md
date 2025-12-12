@@ -27,6 +27,7 @@ npm run check
 ## Architecture
 
 ### Build Setup
+
 - **Bundler**: Uses Rolldown (via `rolldown-vite@7.2.5`) instead of standard Vite
 - **Preprocessor**: `vitePreprocess()` for Svelte component preprocessing
 - **Entry Point**: `index.html` → `/src/main.ts` → mounts `App.svelte` to `#app`
@@ -49,6 +50,7 @@ src/
 ```
 
 **Key Conventions:**
+
 - `src/lib/` contains all reusable code (Svelte convention)
 - `src/lib/components/base/` - Reusable UI building blocks
 - `src/lib/components/sections/` - Composed sections used in pages
@@ -58,12 +60,15 @@ src/
 - `public/` - Public static files (copied as-is to build output)
 
 ### Svelte 5 Specifics
+
 This project uses **Svelte 5**, which has breaking changes from Svelte 4:
+
 - Uses `mount()` instead of `new Component()` for initialization
 - Component API and lifecycle methods may differ from older Svelte versions
 - Refer to Svelte 5 documentation when making component changes
 
 ### TypeScript Configuration
+
 - `tsconfig.app.json` - App source code configuration
 - `tsconfig.node.json` - Build tooling configuration (Vite config files)
 - `tsconfig.json` - Base configuration
@@ -71,9 +76,12 @@ This project uses **Svelte 5**, which has breaking changes from Svelte 4:
 ## Development Notes
 
 ### Type Checking
+
 The `check` script runs both:
+
 1. `svelte-check` for Svelte component type checking
 2. `tsc` for TypeScript files (build config)
 
 ### HMR State
+
 HMR state preservation is disabled by default in this template. For persistent state, use external Svelte stores (see README.md for pattern).
