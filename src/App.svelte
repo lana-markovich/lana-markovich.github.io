@@ -1,9 +1,9 @@
 <script lang="ts">
-  import Home from './pages/Home.svelte';
+  import HomePage from './pages/HomePage.svelte';
 </script>
 
 <main>
-  <Home />
+  <HomePage />
 </main>
 
 <style>

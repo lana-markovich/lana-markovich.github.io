@@ -1,14 +1,17 @@
 {
-	"permissions": {
-		"allow": [
-			"Bash(rm:*)",
-			"Bash(cat:*)",
-			"Bash(npm install:*)",
-			"Bash(tree:*)",
-			"Bash(npm uninstall:*)",
-			"Bash(dir:*)"
-		],
-		"deny": [],
-		"ask": []
-	}
+  "permissions": {
+    "allow": [
+      "Bash(rm:*)",
+      "Bash(cat:*)",
+      "Bash(npm install:*)",
+      "Bash(tree:*)",
+      "Bash(npm uninstall:*)",
+      "Bash(dir:*)",
+      "Bash(mkdir:*)",
+      "mcp__figma-desktop__get_design_context",
+      "mcp__figma-desktop__get_screenshot"
+    ],
+    "deny": [],
+    "ask": []
+  }
 }
