@@ -1,5 +1,7 @@
+type ArtPieceName = string;
+
 export interface ArtPiece {
-	name: string;
+	name: ArtPieceName;
 	description: string;
 	image: string;
 	year: number;
@@ -7,7 +9,7 @@ export interface ArtPiece {
 
 export interface ResponsiveImageProps {
 	/** Base image name (without size suffix or extension) */
-	imageName: string;
+	name: ArtPieceName;
 	/** Alt text for accessibility */
 	alt: string;
 	/** Optional CSS class */

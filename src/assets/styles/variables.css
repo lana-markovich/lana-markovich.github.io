@@ -1,6 +1,7 @@
 :root {
 	/* Typography */
-	--font-heading: system-ui, -apple-system, sans-serif;
+	--font-base: "Jost", system-ui, -apple-system, sans-serif;
+	--font-heading: var(--font-base);
 
 	/* Layout */
 	--container-max-width: 82.5rem;
