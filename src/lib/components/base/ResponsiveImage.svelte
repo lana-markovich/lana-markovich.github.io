@@ -1,8 +1,10 @@
 <script lang="ts">
   import type { ResponsiveImageProps } from '$lib/types';
 
+  type Size = NonNullable<ResponsiveImageProps['sizes']>[number];
+
   let {
-    imageName,
+    name,
     alt,
     class: className = '',
     sizes = [2560, 1280, 720],
@@ -11,18 +13,18 @@
   }: ResponsiveImageProps = $props();
 
   // Sort sizes in descending order for proper srcset
-  const sortedSizes = $derived(sizes.toSorted((a, b) => b - a));
+  const sortedSizes = $derived(sizes.toSorted((a: Size, b: Size) => b - a)) satisfies number[];
 
   // Generate srcset string
   const srcset = $derived(
     sortedSizes
-      .map(width => `/images/${imageName}-${width}.webp ${width}w`)
+      .map((width: Size) => `/images/${name}-${width}.webp ${width}w`)
       .join(', ')
   );
 
-  // Fallback to smallest size
+  // Fallback to the smallest size
   const fallbackSrc = $derived(
-    `/images/${imageName}-${sortedSizes[sortedSizes.length - 1]}.webp`
+    `/images/${name}-${sortedSizes.at(-1)}.webp`
   );
 </script>
 

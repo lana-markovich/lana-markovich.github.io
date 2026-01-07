@@ -5,6 +5,7 @@ import HomeHero from "$lib/components/sections/HomeHero.svelte";
 
 <BasePage>
 	<HomeHero/>
+
 </BasePage>
 
 <style>

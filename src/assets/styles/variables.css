@@ -5,8 +5,8 @@
 
 	/* Layout */
 	--container-max-width: 82.5rem;
-	--container-padding-inline: 2.5rem;
-	--section-padding-block: 7.5rem;
+	--section-padding-inline: 2.5rem;
+	--container-padding-block: 7.5rem;
 
 	/* Colors */
 	--black-800: #2b2b2b;

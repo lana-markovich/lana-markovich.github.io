@@ -1,3 +1,6 @@
+<script>
+</script>
+
 <div class="badge">
 	<div class="heading heading--xs">
 		<slot />
@@ -18,11 +21,9 @@
 		box-shadow: inset 2px 2px 15px 0px rgba(0, 0, 0, 0.45);
 	}
 
-	.heading--xs {
-		white-space: nowrap;
-	}
-
+	.heading--xs,
 	.text--secondary {
 		white-space: nowrap;
+		line-height: 1em;
 	}
 </style>
