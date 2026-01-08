@@ -64,3 +64,10 @@ body {
 .line-height-normal {
 	line-height: normal;
 }
+
+.color-primary {
+	color: var(--text-primary);
+}
+.color-secondary {
+	color: var(--text-secondary);
+}

@@ -3,11 +3,19 @@
 
 	type SectionType = 'primary' | 'secondary';
 
-	let { type = 'primary' }: { type?: SectionType } = $props();
+	let {
+		type = 'primary',
+		class: className = '',
+		...restProps
+	}: {
+		type?: SectionType;
+		class?: string;
+		[key: string]: any;
+	} = $props();
 </script>
 
-<section class="section" class:section--secondary={type === 'secondary'}>
-
+<section class="section {className}" class:section--secondary={type === 'secondary'} {...restProps}>
+	<slot name="prepend" />
 	<BaseContainer>
 		<slot />
 	</BaseContainer>

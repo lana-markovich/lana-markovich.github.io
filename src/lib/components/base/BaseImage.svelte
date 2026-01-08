@@ -1,7 +1,7 @@
 <script lang="ts">
-  import type { ResponsiveImageProps } from '$lib/types';
+  import type { BaseImageProps } from '$lib/types';
 
-  type Size = NonNullable<ResponsiveImageProps['sizes']>[number];
+  type Size = NonNullable<BaseImageProps['sizes']>[number];
 
   let {
     name,
@@ -10,7 +10,7 @@
     sizes = [2560, 1280, 720],
     loading = 'lazy',
     sizesAttr = '100vw'
-  }: ResponsiveImageProps = $props();
+  }: BaseImageProps = $props();
 
   // Sort sizes in descending order for proper srcset
   const sortedSizes = $derived(sizes.toSorted((a: Size, b: Size) => b - a)) satisfies number[];

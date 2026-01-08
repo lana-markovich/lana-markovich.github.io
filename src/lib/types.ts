@@ -7,7 +7,7 @@ export interface ArtPiece {
 	year: number;
 }
 
-export interface ResponsiveImageProps {
+export interface BaseImageProps {
 	/** Base image name (without size suffix or extension) */
 	name: ArtPieceName;
 	/** Alt text for accessibility */
