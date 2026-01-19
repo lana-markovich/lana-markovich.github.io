@@ -28,7 +28,7 @@
   );
 </script>
 
-<picture class={className}>
+<picture class="image image--{name} {className}">
   <source
     type="image/webp"
     {srcset}
@@ -43,13 +43,14 @@
 </picture>
 
 <style>
-  picture {
-    display: block;
-  }
-
-  img {
-    width: 100%;
-    height: auto;
-    display: block;
-  }
+	.image, img {
+		display: block;
+		width: 100%;
+		height: auto;
+		max-height: 100%
+	}
+	img {
+		object-fit: inherit;
+		object-position: inherit;
+	}
 </style>

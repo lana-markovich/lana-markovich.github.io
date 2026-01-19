@@ -21,3 +21,8 @@ export interface BaseImageProps {
 	/** Sizes attribute for responsive images (e.g., "(min-width: 1280px) 50vw, 100vw") */
 	sizesAttr?: string;
 }
+
+export interface DecoratedImageProps extends BaseImageProps {
+	/** Position of the decoration element */
+	decorationPosition: `${"top" | "bottom"}-${"left" | "right"}`;
+}

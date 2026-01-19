@@ -61,9 +61,7 @@
 
 	<div class="home-intro__text-container">
 		<p class="heading heading--lg home-intro__text">
-			<span class="color-primary">I create art</span>
-			across painting, graphics, and sculpture
-
+			I create art across painting, graphics, and sculpture
 		</p>
 		<p class="heading heading--lg home-intro__text">
 			exploring complex themes while preserving beauty in every piece.
@@ -97,7 +95,6 @@
 	}
 
 	.home-intro__text {
-		color: var(--text-secondary);
 		max-inline-size: 26ch;
 		text-wrap-style: balance;
 		&:nth-child(1) {
