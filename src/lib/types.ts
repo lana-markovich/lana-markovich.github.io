@@ -26,3 +26,23 @@ export interface DecoratedImageProps extends BaseImageProps {
 	/** Position of the decoration element */
 	decorationPosition: `${"top" | "bottom"}-${"left" | "right"}`;
 }
+
+export interface MouseTrackingMaskProps {
+	/** Size of the circular mask in pixels */
+	maskSize?: number;
+	/** Interpolation smoothness (0-1, lower = smoother) */
+	lerpFactor?: number;
+	/** Initial X position before mouse moves */
+	initialX?: string;
+	/** Initial Y position before mouse moves */
+	initialY?: string;
+	/** CSS mask-image gradient */
+	maskImage?: string;
+	/** Additional CSS class */
+	class?: string;
+}
+
+export interface MouseTrackingMaskInstance {
+	/** Handle mouse move events and update mask position */
+	handleMouseMove: (event: MouseEvent) => void;
+}

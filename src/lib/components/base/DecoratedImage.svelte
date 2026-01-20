@@ -27,6 +27,7 @@
 			block-size: 8.125em;
 			inline-size: 2.5em;
 			border: 1px solid var(--text-primary);
+			opacity: 0.5;
 		}
 
 		&.decorated-image--top-left {
