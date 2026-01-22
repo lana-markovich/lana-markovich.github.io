@@ -1,6 +1,7 @@
 <script lang="ts">
 	import BaseSection from "$lib/components/layout/BaseSection.svelte";
-	import DecoratedImage from "$lib/components/base/DecoratedImage.svelte";
+	import DecorationWrapper from "$lib/components/base/DecorationWrapper.svelte";
+	import BaseImage from "$lib/components/base/BaseImage.svelte";
 </script>
 
 <BaseSection type="secondary" class="about-me">
@@ -17,12 +18,13 @@
 		</p>
 
 		<div class="about-me__image-wrapper">
-			<DecoratedImage
-				name="about-me"
-				alt="Sviatlana Markovich portrait"
-				sizes={[1280, 720]}
-				decorationPosition="bottom-left"
-			/>
+			<DecorationWrapper decorationPosition="bottom-left">
+				<BaseImage
+					name="about-me"
+					alt="Sviatlana Markovich portrait"
+					sizes={[1280, 720]}
+				/>
+			</DecorationWrapper>
 		</div>
 	</div>
 </BaseSection>
@@ -62,8 +64,6 @@
 		);
 
 		grid-area: image;
-
-		/* */
 		margin-top: calc(-1 * var(--container-padding-block));
 		margin-right: calc(-1 * var(--container-to-screen-side-width));
 		height: var(--fluid-height);

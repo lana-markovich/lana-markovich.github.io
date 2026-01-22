@@ -1,19 +1,23 @@
 <script lang="ts">
-	import type { DecoratedImageProps } from '$lib/types';
-	import BaseImage from './BaseImage.svelte';
+	import type { Snippet } from 'svelte';
 
 	let {
 		decorationPosition,
-		...baseImageProps
-	}: DecoratedImageProps = $props();
+		class: className,
+		children
+	}: {
+		decorationPosition: `${"top" | "bottom"}-${"left" | "right"}`;
+		class?: string;
+		children: Snippet;
+	} = $props();
 </script>
 
-<div class="decorated-image decorated-image--{decorationPosition} decorated-image--{baseImageProps.name}">
-	<BaseImage {...baseImageProps}/>
+<div class="decoration-wrapper decoration-wrapper--{decorationPosition} {className || ''}">
+	{@render children()}
 </div>
 
 <style>
-	.decorated-image {
+	.decoration-wrapper {
 		--padding-size: 1rem;
 		display: flex;
 		position: relative;
@@ -30,7 +34,7 @@
 			opacity: 0.5;
 		}
 
-		&.decorated-image--top-left {
+		&.decoration-wrapper--top-left {
 			padding-top: var(--padding-size);
 			padding-left: var(--padding-size);
 			&::before {
@@ -40,7 +44,7 @@
 				border-right: none;
 			}
 		}
-		&.decorated-image--top-right {
+		&.decoration-wrapper--top-right {
 			padding-top: var(--padding-size);
 			padding-right: var(--padding-size);
 			&::before {
@@ -50,7 +54,7 @@
 				border-left: none;
 			}
 		}
-		&.decorated-image--bottom-left {
+		&.decoration-wrapper--bottom-left {
 			padding-bottom: var(--padding-size);
 			padding-left: var(--padding-size);
 			&::before {
@@ -60,7 +64,7 @@
 				border-right: none;
 			}
 		}
-		&.decorated-image--bottom-right {
+		&.decoration-wrapper--bottom-right {
 			padding-bottom: var(--padding-size);
 			padding-right: var(--padding-size);
 			&::before {

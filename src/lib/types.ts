@@ -22,11 +22,6 @@ export interface BaseImageProps {
 	sizesAttr?: string;
 }
 
-export interface DecoratedImageProps extends BaseImageProps {
-	/** Position of the decoration element */
-	decorationPosition: `${"top" | "bottom"}-${"left" | "right"}`;
-}
-
 export interface MouseTrackingMaskProps {
 	/** Size of the circular mask in pixels */
 	maskSize?: number;
