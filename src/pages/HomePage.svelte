@@ -3,12 +3,14 @@ import BasePage from "$lib/components/layout/BasePage.svelte";
 import HomeHero from "$lib/components/sections/HomeHero.svelte";
 import HomeIntro from "$lib/components/sections/HomeIntro.svelte";
 import AboutMe from "$lib/components/sections/AboutMe.svelte";
+import ImageGallery from "$lib/components/sections/ImageGallery.svelte";
 </script>
 
 <BasePage>
 	<HomeHero/>
 	<HomeIntro/>
 	<AboutMe/>
+	<ImageGallery/>
 </BasePage>
 
 <style>

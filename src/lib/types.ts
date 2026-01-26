@@ -1,3 +1,5 @@
+import type { Snippet } from 'svelte';
+
 type ArtPieceName = string;
 
 export interface ArtPiece {
@@ -40,4 +42,21 @@ export interface MouseTrackingMaskProps {
 export interface MouseTrackingMaskInstance {
 	/** Handle mouse move events and update mask position */
 	handleMouseMove: (event: MouseEvent) => void;
+}
+
+export interface DepthWrapperProps {
+	/** Enable parallax effect (default: true) */
+	parallax?: boolean;
+	/** Content scale factor for zoom effect (default: 1.1) */
+	scale?: number;
+	/** Movement intensity - 0.1 = 10% of distance from center (default: 0.1) */
+	intensity?: number;
+	/** Interpolation smoothness - lower = smoother (default: 0.05) */
+	lerpFactor?: number;
+	/** Perspective distance in pixels for 3D depth (default: 1200) */
+	perspective?: number;
+	/** Additional CSS class */
+	class?: string;
+	/** Child content */
+	children: Snippet;
 }

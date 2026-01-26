@@ -5,15 +5,19 @@ export interface MouseTrackingConfig {
 	offsetX?: number;
 	/** Offset from cursor position Y */
 	offsetY?: number;
+	/** Offset from cursor position Z */
+	offsetZ?: number;
 	/** Callback executed on each animation frame */
-	onUpdate?: (x: number, y: number) => void;
+	onUpdate?: (x: number, y: number, z?: number) => void;
 }
 
 export interface MouseTrackingState {
 	targetX: number;
 	targetY: number;
+	targetZ: number;
 	currentX: number;
 	currentY: number;
+	currentZ: number;
 	animationFrameId: number | null;
 }
 
@@ -38,23 +42,27 @@ export function createMouseTracking(config: MouseTrackingConfig = {}) {
 		lerpFactor = 0.03,
 		offsetX = 0,
 		offsetY = 0,
+		offsetZ = 0,
 		onUpdate
 	} = config;
 
 	const state: MouseTrackingState = {
 		targetX: 0,
 		targetY: 0,
+		targetZ: 0,
 		currentX: 0,
 		currentY: 0,
+		currentZ: 0,
 		animationFrameId: null
 	};
 
 	const animate = () => {
 		state.currentX = lerp(state.currentX, state.targetX, lerpFactor);
 		state.currentY = lerp(state.currentY, state.targetY, lerpFactor);
+		state.currentZ = lerp(state.currentZ, state.targetZ, lerpFactor);
 
 		if (onUpdate) {
-			onUpdate(state.currentX + offsetX, state.currentY + offsetY);
+			onUpdate(state.currentX + offsetX, state.currentY + offsetY, state.currentZ + offsetZ);
 		}
 
 		state.animationFrameId = requestAnimationFrame(animate);
@@ -84,10 +92,12 @@ export function createMouseTracking(config: MouseTrackingConfig = {}) {
 		 * Update the target position
 		 * @param x - Target X coordinate
 		 * @param y - Target Y coordinate
+		 * @param z - Target Z coordinate
 		 */
-		updateTarget(x: number, y: number) {
+		updateTarget(x: number, y: number, z: number = 0) {
 			state.targetX = x;
 			state.targetY = y;
+			state.targetZ = z;
 		},
 
 		/**
@@ -95,12 +105,15 @@ export function createMouseTracking(config: MouseTrackingConfig = {}) {
 		 * Useful for initializing position on first move
 		 * @param x - X coordinate
 		 * @param y - Y coordinate
+		 * @param z - Z coordinate
 		 */
-		setCurrentPosition(x: number, y: number) {
+		setCurrentPosition(x: number, y: number, z: number = 0) {
 			state.currentX = x;
 			state.currentY = y;
+			state.currentZ = z;
 			state.targetX = x;
 			state.targetY = y;
+			state.targetZ = z;
 		},
 
 		/**
@@ -110,7 +123,8 @@ export function createMouseTracking(config: MouseTrackingConfig = {}) {
 		getCurrentPosition() {
 			return {
 				x: state.currentX + offsetX,
-				y: state.currentY + offsetY
+				y: state.currentY + offsetY,
+				z: state.currentZ + offsetZ
 			};
 		}
 	};
