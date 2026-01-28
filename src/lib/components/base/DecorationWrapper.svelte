@@ -4,15 +4,20 @@
 	let {
 		decorationPosition,
 		class: className,
-		children
+		children,
+		width = '2.5em',
+		height = '8.125em'
 	}: {
 		decorationPosition: `${"top" | "bottom"}-${"left" | "right"}`;
 		class?: string;
 		children: Snippet;
+		width?: string;
+		height?: string;
 	} = $props();
 </script>
 
-<div class="decoration-wrapper decoration-wrapper--{decorationPosition} {className || ''}">
+<div class="decoration-wrapper decoration-wrapper--{decorationPosition} {className || ''}"
+	 style="--decoration-width: {width}; --decoration-height: {height};">
 	{@render children()}
 </div>
 
@@ -28,8 +33,8 @@
 			content: "";
 			z-index: 1;
 			position: absolute;
-			block-size: 8.125em;
-			inline-size: 2.5em;
+			block-size: var(--decoration-height);
+			inline-size: var(--decoration-width);
 			border: 1px solid var(--text-primary);
 			opacity: 0.5;
 		}

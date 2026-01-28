@@ -30,7 +30,9 @@ body {
 	font-weight: 600;
 	line-height: 1.25em; /* 30px / 24px */
 	&::before {
-		content: " • ";
+		content: "•";
+		margin-right: 0.5em;
+		margin-left: 0.5em;
 	}
 }
 
