@@ -5,11 +5,11 @@ import DecorationWrapper from "$lib/components/base/DecorationWrapper.svelte";
 import BaseImage from "$lib/components/base/BaseImage.svelte";
 
 const contacts = [
-	{ href: "/#", name: "tg", alt:"tg"},
-	{ href: "/#", name: "inst", alt:"inst"},
-	{ href: "/#", name: "behance", alt:"behance" },
-	{ href: "/#", name: "mail", alt:"mail"},
-	{ href: "/#", name: "in", alt:"in"},
+	{ href: "https://t.me/LanaMarkArt", name: "tg", alt:"tg"},
+	{ href: "https://www.instagram.com/lanamarkovichart", name: "inst", alt:"inst"},
+	{ href: "https://www.behance.net/sviatlanam395c", name: "behance", alt:"behance" },
+	{ href: "mailto:sviatlana.markovich1996@gmail.com", name: "mail", alt:"mail"},
+	{ href: "https://www.linkedin.com/in/sviatlana-markovich-3a39b7209", name: "in", alt:"in"},
 ]
 </script>
 
@@ -21,7 +21,7 @@ const contacts = [
 			<div>
 			<DecorationWrapper decorationPosition="bottom-left" width="2.5em" height="2.5em">
 				<DecorationWrapper decorationPosition="top-right" width="2.5em" height="2.5em">
-					<a class="contact-img" href="{contact.href}">
+					<a class="contact-img" href={contact.href}>
 						<BaseImage
 							name={contact.name}
 							alt={contact.alt}
