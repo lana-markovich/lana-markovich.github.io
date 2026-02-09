@@ -4,6 +4,7 @@ import HomeHero from "$lib/components/sections/HomeHero.svelte";
 import HomeIntro from "$lib/components/sections/HomeIntro.svelte";
 import AboutMe from "$lib/components/sections/AboutMe.svelte";
 import ImageGallery from "$lib/components/sections/ImageGallery.svelte";
+import Footer from "$lib/components/sections/Footer.svelte";
 </script>
 
 <BasePage>
@@ -11,6 +12,7 @@ import ImageGallery from "$lib/components/sections/ImageGallery.svelte";
 	<HomeIntro/>
 	<AboutMe/>
 	<ImageGallery/>
+	<Footer/>
 </BasePage>
 
 <style>
