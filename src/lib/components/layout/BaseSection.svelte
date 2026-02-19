@@ -34,28 +34,4 @@
 		background-color: var(--black-200);
 	}
 
-	.section::before {
-		content: "";
-		position: absolute;
-		inset: 0;
-		background-image: var(--bg-image);
-		background-size: 100%;
-		background-repeat: no-repeat;
-		background-position: center;
-		opacity: 0;
-		transition: opacity 1s ease;
-		pointer-events: none;
-		z-index: 0;
-	}
-
-	.section.has-bg::before {
-		opacity: 1;
-
-	}
-
-	.section > * {
-		position: relative;
-		z-index: 1;
-	}
-
 </style>

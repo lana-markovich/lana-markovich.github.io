@@ -1,13 +1,12 @@
 <script lang="ts">
 	import { createEventDispatcher } from "svelte";
 
-	export let bg: string | null = null;
 	export let dim: boolean = false;
 
 	const dispatch = createEventDispatcher();
 
 	function handleMouseEnter() {
-		dispatch("mouseenter", bg);
+		if (!dim) dispatch("mouseenter");
 	}
 
 	function handleMouseLeave() {
@@ -18,8 +17,9 @@
 <button
 	type="button"
 	class="badge {dim ? 'dim' : ''}"
-	disabled  on:mouseenter={handleMouseEnter}
-	 on:mouseleave={handleMouseLeave}>
+	disabled
+	on:mouseenter={handleMouseEnter}
+	on:mouseleave={handleMouseLeave}>
 	<div class="heading heading--xs">
 		<slot />
 	</div>

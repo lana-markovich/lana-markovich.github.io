@@ -2,11 +2,11 @@
 import BaseSection from "$lib/components/layout/BaseSection.svelte";
 import CopyrightInfo from "$lib/components/base/CopyrightInfo.svelte";
 import DecorationWrapper from "$lib/components/base/DecorationWrapper.svelte";
-import telegram from "../../../assets/images/telegram.svg";
-import instagram from "../../../assets/images/instagram.svg";
-import behance from "../../../assets/images/behance.svg";
-import mail from "../../../assets/images/mail.svg";
-import linkedin from "../../../assets/images/link.svg";
+import telegram from "../../../assets/images/contact-icons/telegram.svg";
+import instagram from "../../../assets/images/contact-icons/instagram.svg";
+import behance from "../../../assets/images/contact-icons/behance.svg";
+import mail from "../../../assets/images/contact-icons/mail.svg";
+import linkedin from "../../../assets/images/contact-icons/link.svg";
 
 const contacts = [
 	{ href: "https://t.me/LanaMarkArt", src: telegram, alt:"telegram"},
