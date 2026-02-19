@@ -1,12 +1,10 @@
 <script lang="ts">
 	import { createEventDispatcher } from "svelte";
 
-	export let dim: boolean = false;
-
 	const dispatch = createEventDispatcher();
 
 	function handleMouseEnter() {
-		if (!dim) dispatch("mouseenter");
+		dispatch("mouseenter");
 	}
 
 	function handleMouseLeave() {
@@ -16,7 +14,7 @@
 
 <button
 	type="button"
-	class="badge {dim ? 'dim' : ''}"
+	class="badge"
 	disabled
 	on:mouseenter={handleMouseEnter}
 	on:mouseleave={handleMouseLeave}>
@@ -39,10 +37,8 @@
 		padding: 0.5rem;
 		width: fit-content;
 		box-shadow: inset 2px 2px 15px 0px rgba(0, 0, 0, 0.45);
+		transition: opacity 0.7s ease;
 	}
-	.badge.dim {
-		 opacity: 0.2;
-	 }
 
 	.heading--xs,
 	.text--secondary {

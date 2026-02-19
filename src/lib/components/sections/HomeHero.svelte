@@ -52,7 +52,7 @@
 	<ul class="home-hero__badges">
 		{#each artworks as artwork, i}
 			<li class="home-hero__badge">
-				<BaseBadge dim={hoveredIndex !== null && hoveredIndex !== i}
+				<BaseBadge
 						   on:mouseenter={() => {
 								hoveredIndex = i;
 							}}
@@ -82,6 +82,9 @@
 		row-gap: 5rem;
 		width: 100%;
 	}
+.home-hero__badges:has(:global(.badge):hover) :global(.badge):not(:hover) {
+	opacity: 0.2;
+}
 
 .home-hero__nav-wrapper {
 		margin-block: 7.5rem 1.5rem;
