@@ -1,17 +1,18 @@
 <script lang="ts">
 	import BaseImage from "$lib/components/base/BaseImage.svelte";
+	import type { ImageItem } from "$lib/types";
 
-	export let images: string[] = [];
-	export let currentImage: number | null = null;
+	export let images: ImageItem[] = [];
+	export let currentImage: string | null = null;
 </script>
 
 <div class="images-slider">
-	{#each images as image, i (image)}
+	{#each images as image (image.id)}
 		<BaseImage
-			name={image}
-			alt={image}
-			class={i === currentImage ? 'is-active' : 'is-hidden'}
-			sizes={[1280, 720]}
+			name={image.id}
+			alt={image.alt}
+			class={image.id === currentImage ? 'is-active' : 'is-hidden'}
+			sizes={image.sizes}
 		/>
 	{/each}
 </div>
