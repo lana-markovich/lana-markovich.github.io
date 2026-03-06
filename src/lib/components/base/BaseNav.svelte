@@ -1,5 +1,5 @@
-<script>
-	export let isHoveredBg;
+<script lang="ts">
+	export let isInverted: boolean = false;
 	const links = [
 		{ title: "about", href: "/#about" },
 		{ title: "services", href: "/#services" },
@@ -8,11 +8,11 @@
 	]
 </script>
 
-<nav class="nav">
+<nav class="nav {isInverted? 'nav--is-inverted': ''}">
 	<ul class="nav__list">
 		{#each links as link}
 			<li class="nav__item">
-				<a class="nav__link {isHoveredBg? 'hoveredBg': ''}" href="{link.href}">-{link.title}</a>
+				<a class="nav__link" href="{link.href}">-{link.title}</a>
 			</li>
 		{/each}
 	</ul>
@@ -35,7 +35,10 @@
 		letter-spacing: -0.02em;
 		transition: color 0.7s ease;
 	}
-	.nav__link.hoveredBg{
-		color: var(--black-200);
+	.nav--is-inverted {
+		.nav__link{
+			color: var(--black-200);
+		}
 	}
+
 </style>
