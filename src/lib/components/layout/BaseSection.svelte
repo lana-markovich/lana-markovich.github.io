@@ -22,10 +22,12 @@
 </section>
 
 <style>
+
 	.section {
 		position: relative;
 		padding-inline: var(--section-padding-inline);
 		background-color: var(--white);
+		overflow: hidden;
 	}
 
 	.section--secondary {

@@ -1,6 +1,3 @@
-<script>
-</script>
-
 <div class="badge">
 	<div class="heading heading--xs">
 		<slot />

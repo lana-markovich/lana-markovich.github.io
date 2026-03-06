@@ -15,7 +15,8 @@
 		container-type: inline-size;
 		container-name: base-container;
 
-		--lines-columns-grid: repeat(3, 1fr);
+		--lines-columns-grid-column-count: 3;
+		--lines-columns-grid: repeat(var(--lines-columns-grid-column-count), 1fr);
 	}
 
 	.section__lines {

@@ -1,17 +1,21 @@
 import type { Snippet } from 'svelte';
 
-type ArtPieceName = string;
+export interface ImageItem {
+	id: string;
+	alt: string;
+	sizes?: number[];
+}
 
 export interface ArtPiece {
-	name: ArtPieceName;
-	description: string;
-	image: string;
+	name: string;
 	year: number;
+	description: string;
+	image: ImageItem;
 }
 
 export interface BaseImageProps {
 	/** Base image name (without size suffix or extension) */
-	name: ArtPieceName;
+	name: string;
 	/** Alt text for accessibility */
 	alt: string;
 	/** Optional CSS class */
