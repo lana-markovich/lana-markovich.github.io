@@ -8,7 +8,7 @@
 
 <style>
 	.container {
-		max-width: var(--container-max-width);
+		width: min(100%, var(--container-max-width));
 		padding-block: var(--container-padding-block);
 		margin-inline: auto;
 		position: relative;
