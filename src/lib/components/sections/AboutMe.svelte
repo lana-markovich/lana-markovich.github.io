@@ -22,7 +22,6 @@
 				<BaseImage
 					name="about-me"
 					alt="Sviatlana Markovich portrait"
-					sizes={[1280, 720]}
 				/>
 			</DecorationWrapper>
 		</div>

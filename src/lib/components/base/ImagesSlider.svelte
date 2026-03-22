@@ -1,9 +1,9 @@
 <script lang="ts">
 	import BaseImage from "$lib/components/base/BaseImage.svelte";
-	import type { ImageItem } from "$lib/types";
+	import type { ImageItem, ImageId } from "$lib/types";
 
 	export let images: ImageItem[] = [];
-	export let currentImage: string | null = null;
+	export let currentImage: ImageId | null = null;
 </script>
 
 <div class="images-slider">

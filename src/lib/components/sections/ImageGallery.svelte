@@ -13,9 +13,9 @@
 	}
 
 	const items: GalleryItem[] = [
-		{ id: "abstract-1", alt: "Abstract artwork 1", sizes: [1280, 720], decorationPosition: "top-right"},
-		{ id: "abstract-2", alt: "Abstract artwork 2", sizes: [1280, 720], decorationPosition: "bottom-left"},
-		{ id: "abstract-3", alt: "Abstract artwork 3", sizes: [1280, 720], decorationPosition: "top-left"},
+		{ id: "abstract-1", alt: "Abstract artwork 1", decorationPosition: "top-right"},
+		{ id: "abstract-2", alt: "Abstract artwork 2", decorationPosition: "bottom-left"},
+		{ id: "abstract-3", alt: "Abstract artwork 3", decorationPosition: "top-left"},
 	];
 
 	let wrapperEl: HTMLDivElement;
@@ -49,7 +49,7 @@
 </script>
 
 <div use:scrollProgress={{
-	screenCoverage: 0.7,
+	screenCoverage: 0.8,
 	onProgress: (p) => scrollTracking.updateTarget(p, 0) }
 }>
 	<BaseSection
@@ -66,7 +66,6 @@
 								<BaseImage
 									name={item.id}
 									alt={item.alt}
-									sizes={item.sizes}
 								/>
 							</DepthWrapper>
 						</DecorationWrapper>
