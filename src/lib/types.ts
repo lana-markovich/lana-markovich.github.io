@@ -13,6 +13,8 @@ export interface ArtPiece {
 	image: ImageItem;
 }
 
+export type Corner = `${"top" | "bottom"}-${"left" | "right"}`;
+
 export interface BaseImageProps {
 	/** Base image name (without size suffix or extension) */
 	name: string;

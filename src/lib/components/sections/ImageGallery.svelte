@@ -6,6 +6,17 @@
 	import { scrollProgress } from "$lib/utilities/scrollProgress";
 	import { createLerpAnimation } from "$lib/utilities/lerpAnimation";
 	import { onMount } from "svelte";
+	import type { Corner, ImageItem } from "$lib/types";
+
+	interface GalleryItem extends ImageItem {
+		decorationPosition: Corner;
+	}
+
+	const items: GalleryItem[] = [
+		{ id: "abstract-1", alt: "Abstract artwork 1", sizes: [1280, 720], decorationPosition: "top-right"},
+		{ id: "abstract-2", alt: "Abstract artwork 2", sizes: [1280, 720], decorationPosition: "bottom-left"},
+		{ id: "abstract-3", alt: "Abstract artwork 3", sizes: [1280, 720], decorationPosition: "top-left"},
+	];
 
 	let wrapperEl: HTMLDivElement;
 	let imagesEl: HTMLDivElement;
@@ -48,39 +59,19 @@
 	>
 		<div class="image-gallery__images-wrapper" bind:this={wrapperEl}>
 			<div class="image-gallery__images" bind:this={imagesEl}>
-				<div class="image-gallery__image-wrapper">
-					<DecorationWrapper decorationPosition="top-right">
-						<DepthWrapper>
-							<BaseImage
-								name="abstract-1"
-								alt="Abstract artwork"
-								sizes={[1280, 720]}
-							/>
-						</DepthWrapper>
-					</DecorationWrapper>
-				</div>
-				<div class="image-gallery__image-wrapper">
-					<DecorationWrapper decorationPosition="top-right">
-						<DepthWrapper>
-							<BaseImage
-								name="abstract-1"
-								alt="Abstract artwork"
-								sizes={[1280, 720]}
-							/>
-						</DepthWrapper>
-					</DecorationWrapper>
-				</div>
-				<div class="image-gallery__image-wrapper">
-					<DecorationWrapper decorationPosition="top-right">
-						<DepthWrapper>
-							<BaseImage
-								name="abstract-1"
-								alt="Abstract artwork"
-								sizes={[1280, 720]}
-							/>
-						</DepthWrapper>
-					</DecorationWrapper>
-				</div>
+				{#each items as item}
+					<div class="image-gallery__image-wrapper">
+						<DecorationWrapper decorationPosition={item.decorationPosition}>
+							<DepthWrapper>
+								<BaseImage
+									name={item.id}
+									alt={item.alt}
+									sizes={item.sizes}
+								/>
+							</DepthWrapper>
+						</DecorationWrapper>
+					</div>
+				{/each}
 			</div>
 		</div>
 	</BaseSection>
@@ -110,16 +101,12 @@
 		margin-inline: auto;
 		flex-shrink: 0;
 		align-items: start;
+		aspect-ratio: 1/1;
 		&:nth-child(2) {
 			margin-block-start: calc(var(--shift-step) * 1);
 		}
 		&:nth-child(3) {
 			margin-block-start: calc(var(--shift-step) * 2);
 		}
-	}
-
-	.image-gallery__images :global(.image) {
-		object-fit: cover;
-		object-position: center;
 	}
 </style>
