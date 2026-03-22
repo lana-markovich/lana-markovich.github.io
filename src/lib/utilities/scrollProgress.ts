@@ -5,6 +5,8 @@ export interface ScrollProgressParams {
 	onProgress: (progress: number) => void;
 	/** Media query — if provided, resets progress to 0 when not matched */
 	breakpoint?: string;
+	/** Fraction of the viewport height used to calculate scroll range (default: 1) */
+	screenCoverage?: number;
 }
 
 export const scrollProgress: Action<HTMLElement, ScrollProgressParams> = (element, params) => {
@@ -12,8 +14,12 @@ export const scrollProgress: Action<HTMLElement, ScrollProgressParams> = (elemen
 	let resizeObserver: ResizeObserver | null = null;
 
 	function getProgress(): number {
-		const scrolled = Math.max(window.scrollY - element.offsetTop, 0);
-		const total = element.scrollHeight - window.innerHeight;
+		const coverage = params.screenCoverage ?? 1;
+		const scrolled = Math.max(
+			window.scrollY - element.offsetTop + (1 - coverage) * window.innerHeight,
+			0
+		);
+		const total = element.scrollHeight + window.innerHeight * (1 - 2 * coverage);
 		if (total <= 0) return 0;
 		return Math.min(scrolled / total, 1);
 	}

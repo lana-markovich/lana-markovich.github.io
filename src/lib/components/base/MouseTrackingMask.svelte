@@ -1,6 +1,6 @@
 <script lang="ts">
 	import type { MouseTrackingMaskProps } from '$lib/types';
-	import { createMouseTracking } from '$lib/utilities/mouseTracking';
+	import { createLerpAnimation } from '$lib/utilities/lerpAnimation';
 	import { onMount } from 'svelte';
 
 	let {
@@ -18,7 +18,7 @@
 	let isAnimating = $state(false);
 
 	// Create tracking instance
-	const tracking = createMouseTracking({
+	const tracking = createLerpAnimation({
 		lerpFactor,
 		offsetX: 0,
 		offsetY: 0,

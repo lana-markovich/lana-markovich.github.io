@@ -4,12 +4,24 @@
 	import DepthWrapper from "$lib/components/base/DepthWrapper.svelte";
 	import BaseImage from "$lib/components/base/BaseImage.svelte";
 	import { scrollProgress } from "$lib/utilities/scrollProgress";
+	import { createLerpAnimation } from "$lib/utilities/lerpAnimation";
+	import { onMount } from "svelte";
 
 	let wrapperEl: HTMLDivElement;
 	let imagesEl: HTMLDivElement;
 	let wrapperWidth = $state(0);
 	let contentWidth = $state(0);
 	let progress = $state(0);
+
+	const scrollTracking = createLerpAnimation({
+		lerpFactor: 0.03,
+		onUpdate: (x) => (progress = x)
+});
+
+	onMount(() => {
+		scrollTracking.start();
+		return () => scrollTracking.stop();
+	});
 
 	$effect(() => {
 		const observer = new ResizeObserver((entries) => {
@@ -25,7 +37,10 @@
 	});
 </script>
 
-<div use:scrollProgress={{ onProgress: (p) => (progress = p) }}>
+<div use:scrollProgress={{
+	screenCoverage: 0.7,
+	onProgress: (p) => scrollTracking.updateTarget(p, 0) }
+}>
 	<BaseSection
 		type="primary"
 		class="image-gallery"
@@ -77,24 +92,20 @@
 		--max-shift: calc(var(--wrapper-width) - var(--content-width));
 		max-width: 100%;
 		transform: translateX(calc(var(--max-shift) * var(--scroll-progress)));
-		transition: 1s transform ease;
 	}
 
 	.image-gallery__images {
-		--images-count: 3;
 		--image-size: min(50rem, 80vw);
 		--shift-step: var(--image-size) / 2;
-		--gap: 2.5rem;
 
 		display: flex;
-		gap: var(--gap);
+		gap: 2.5rem;
 		inline-size: fit-content;
 	}
 
 	.image-gallery__image-wrapper {
 		display: flex;
 		justify-content: center;
-		align-items: center;
 		inline-size: var(--image-size);
 		margin-inline: auto;
 		flex-shrink: 0;
