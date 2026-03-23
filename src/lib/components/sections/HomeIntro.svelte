@@ -12,11 +12,11 @@
 </script>
 
 <BaseSection class="home-intro" onmousemove={handleMouseMove}>
-	<svelte:fragment slot="prepend">
+	{#snippet prepend()}
 		<MouseTrackingMask bind:this={mask} initialX="50%" initialY="15%">
 			<BaseImage name="intro" alt="Artist introduction background" />
 		</MouseTrackingMask>
-	</svelte:fragment>
+	{/snippet}
 
 	<div class="home-intro__text-container">
 		<p class="heading heading--lg home-intro__text">

@@ -8,10 +8,12 @@
     name,
     alt,
     class: className = '',
-    sizes = [...IMAGES[name].sizes],
+    sizes: sizesProp,
     loading = 'lazy',
     sizesAttr = '100vw'
   }: BaseImageProps = $props();
+
+  const sizes = $derived(sizesProp ?? [...IMAGES[name].sizes]);
 
   // Sort sizes in descending order for proper srcset
   const sortedSizes = $derived(sizes.toSorted((a: Size, b: Size) => b - a)) satisfies number[];

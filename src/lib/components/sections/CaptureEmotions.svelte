@@ -11,12 +11,12 @@
 	}
 </script>
 
-<BaseSection class="capture-emotions" onmousemove={handleMouseMove}>
-	<svelte:fragment slot="prepend">
+<BaseSection type="secondary" class="capture-emotions" onmousemove={handleMouseMove}>
+	{#snippet prepend()}
 		<MouseTrackingMask bind:this={mask} initialX="20%" initialY="5%">
 			<BaseImage name="capture-emotions" alt="Abstract digital art" />
 		</MouseTrackingMask>
-	</svelte:fragment>
+	{/snippet}
 
 	<div class="capture-emotions__text-container">
 		<p class="heading heading--lg capture-emotions__text">

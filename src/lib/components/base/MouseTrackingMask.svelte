@@ -1,7 +1,8 @@
 <script lang="ts">
+	import type { Snippet } from 'svelte';
 	import type { MouseTrackingMaskProps } from '$lib/types';
 	import { createLerpAnimation } from '$lib/utilities/lerpAnimation';
-	import { onMount } from 'svelte';
+	import { onMount, untrack } from 'svelte';
 
 	let {
 		maskSize = 600,
@@ -9,17 +10,18 @@
 		initialX = '50%',
 		initialY = '50%',
 		maskImage = 'linear-gradient(black, black)',
-		class: className = ''
-	}: MouseTrackingMaskProps = $props();
+		class: className = '',
+		children
+	}: MouseTrackingMaskProps & { children: Snippet } = $props();
 
 	// State for CSS custom properties
-	let maskX = $state(initialX);
-	let maskY = $state(initialY);
+	let maskX = $state(untrack(() => initialX));
+	let maskY = $state(untrack(() => initialY));
 	let isAnimating = $state(false);
 
 	// Create tracking instance
 	const tracking = createLerpAnimation({
-		lerpFactor,
+		lerpFactor: untrack(() => lerpFactor),
 		offsetX: 0,
 		offsetY: 0,
 		onUpdate: (x: number, y: number) => {
@@ -78,7 +80,7 @@
 	class="mouse-tracking-mask {className}"
 	style="--mask-x: {maskX}; --mask-y: {maskY}; --mask-size: {maskSize}px; --mask-image: {maskImage};"
 >
-	<slot />
+	{@render children()}
 </div>
 
 <style>

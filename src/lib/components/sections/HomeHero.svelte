@@ -106,9 +106,9 @@
 
 <BaseSection type="secondary"
 >
-	<svelte:fragment slot="prepend">
+	{#snippet prepend()}
 		<ImagesSlider images={images} currentImage={hoveredImageId}/>
-	</svelte:fragment>
+	{/snippet}
 	<ul class="home-hero__badges" style="--items-count: {artworks.length};">
 		{#each artworks as artwork}
 			<li class="home-hero__badge">

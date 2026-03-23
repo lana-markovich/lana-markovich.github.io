@@ -16,9 +16,3 @@ import CaptureEmotions from "$lib/components/sections/CaptureEmotions.svelte";
 	<CaptureEmotions/>
 	<Footer/>
 </BasePage>
-
-<style>
-  .home {
-    padding: 2rem;
-  }
-</style>

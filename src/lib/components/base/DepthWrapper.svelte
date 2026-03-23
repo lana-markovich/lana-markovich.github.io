@@ -1,7 +1,7 @@
 <script lang="ts">
 	import type { DepthWrapperProps } from '$lib/types';
 	import { createLerpAnimation } from '$lib/utilities/lerpAnimation';
-	import { onMount } from 'svelte';
+	import { onMount, untrack } from 'svelte';
 
 	let {
 		parallax = true,
@@ -23,7 +23,7 @@
 
 	// Create tracking instance for translation
 	const tracking = createLerpAnimation({
-		lerpFactor,
+		lerpFactor: untrack(() => lerpFactor),
 		offsetX: 0,
 		offsetY: 0,
 		offsetZ: 0,
@@ -36,7 +36,7 @@
 
 	// Create tracking instance for rotation
 	const rotationTracking = createLerpAnimation({
-		lerpFactor,
+		lerpFactor: untrack(() => lerpFactor),
 		onUpdate: (x: number, y: number) => {
 			rotateY = x;
 			rotateX = y;

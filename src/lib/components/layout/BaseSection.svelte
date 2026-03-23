@@ -1,4 +1,5 @@
 <script lang="ts">
+	import type { Snippet } from 'svelte';
 	import BaseContainer from "$lib/components/layout/BaseContainer.svelte";
 
 	type SectionType = 'primary' | 'secondary';
@@ -6,18 +7,22 @@
 	let {
 		type = 'primary',
 		class: className = '',
+		children,
+		prepend,
 		...restProps
 	}: {
 		type?: SectionType;
 		class?: string;
+		children?: Snippet;
+		prepend?: Snippet;
 		[key: string]: any;
 	} = $props();
 </script>
 
 <section class="section {className}" class:section--secondary={type === 'secondary'} {...restProps}>
-	<slot name="prepend" />
+	{#if prepend}{@render prepend()}{/if}
 	<BaseContainer>
-		<slot />
+		{@render children?.()}
 	</BaseContainer>
 </section>
 
