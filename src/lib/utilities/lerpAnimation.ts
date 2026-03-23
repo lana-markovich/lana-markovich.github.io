@@ -1,4 +1,4 @@
-export interface MouseTrackingConfig {
+export interface LerpAnimationConfig {
 	/** Interpolation factor (0-1, lower = smoother) */
 	lerpFactor?: number;
 	/** Offset from cursor position X */
@@ -11,7 +11,7 @@ export interface MouseTrackingConfig {
 	onUpdate?: (x: number, y: number, z?: number) => void;
 }
 
-export interface MouseTrackingState {
+export interface LerpAnimationState {
 	targetX: number;
 	targetY: number;
 	targetZ: number;
@@ -33,11 +33,11 @@ export function lerp(start: number, end: number, factor: number): number {
 }
 
 /**
- * Creates a mouse tracking instance with smooth interpolation
+ * Creates a lerp animation instance with smooth interpolation via requestAnimationFrame
  * @param config - Configuration options
  * @returns Object with control methods
  */
-export function createMouseTracking(config: MouseTrackingConfig = {}) {
+export function createLerpAnimation(config: LerpAnimationConfig = {}) {
 	const {
 		lerpFactor = 0.03,
 		offsetX = 0,
@@ -46,7 +46,7 @@ export function createMouseTracking(config: MouseTrackingConfig = {}) {
 		onUpdate
 	} = config;
 
-	const state: MouseTrackingState = {
+	const state: LerpAnimationState = {
 		targetX: 0,
 		targetY: 0,
 		targetZ: 0,

@@ -1,5 +1,6 @@
 <script lang="ts">
   import type { BaseImageProps } from '$lib/types';
+  import { IMAGES } from '$lib/generated/constants.js';
 
   type Size = NonNullable<BaseImageProps['sizes']>[number];
 
@@ -7,10 +8,12 @@
     name,
     alt,
     class: className = '',
-    sizes = [2560, 1280, 720],
+    sizes: sizesProp,
     loading = 'lazy',
     sizesAttr = '100vw'
   }: BaseImageProps = $props();
+
+  const sizes = $derived(sizesProp ?? [...IMAGES[name].sizes]);
 
   // Sort sizes in descending order for proper srcset
   const sortedSizes = $derived(sizes.toSorted((a: Size, b: Size) => b - a)) satisfies number[];

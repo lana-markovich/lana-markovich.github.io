@@ -1,7 +1,7 @@
 <script lang="ts">
 	import type { DepthWrapperProps } from '$lib/types';
-	import { createMouseTracking } from '$lib/utilities/mouseTracking';
-	import { onMount } from 'svelte';
+	import { createLerpAnimation } from '$lib/utilities/lerpAnimation';
+	import { onMount, untrack } from 'svelte';
 
 	let {
 		parallax = true,
@@ -22,8 +22,8 @@
 	let isTracking = $state(false);
 
 	// Create tracking instance for translation
-	const tracking = createMouseTracking({
-		lerpFactor,
+	const tracking = createLerpAnimation({
+		lerpFactor: untrack(() => lerpFactor),
 		offsetX: 0,
 		offsetY: 0,
 		offsetZ: 0,
@@ -35,8 +35,8 @@
 	});
 
 	// Create tracking instance for rotation
-	const rotationTracking = createMouseTracking({
-		lerpFactor,
+	const rotationTracking = createLerpAnimation({
+		lerpFactor: untrack(() => lerpFactor),
 		onUpdate: (x: number, y: number) => {
 			rotateY = x;
 			rotateX = y;

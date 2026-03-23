@@ -17,9 +17,9 @@ const contacts = [
 ]
 </script>
 
-<BaseSection type="section" class="footer">
+<BaseSection class="footer">
 	<h2 class="heading heading--md footer__subheading">Contacts</h2>
-	<p class="text footer__text">You can ask anything about my work and how you can coloborate with me</p>
+	<p class="text footer__text">You can ask anything about my work and how you can collaborate with me</p>
 	<div class="contacts-section">
 		{#each contacts as contact}
 			<div>

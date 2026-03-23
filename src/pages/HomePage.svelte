@@ -5,6 +5,7 @@ import HomeIntro from "$lib/components/sections/HomeIntro.svelte";
 import AboutMe from "$lib/components/sections/AboutMe.svelte";
 import ImageGallery from "$lib/components/sections/ImageGallery.svelte";
 import Footer from "$lib/components/sections/Footer.svelte";
+import CaptureEmotions from "$lib/components/sections/CaptureEmotions.svelte";
 </script>
 
 <BasePage>
@@ -12,11 +13,6 @@ import Footer from "$lib/components/sections/Footer.svelte";
 	<HomeIntro/>
 	<AboutMe/>
 	<ImageGallery/>
+	<CaptureEmotions/>
 	<Footer/>
 </BasePage>
-
-<style>
-  .home {
-    padding: 2rem;
-  }
-</style>

@@ -1,5 +1,6 @@
 <script lang="ts">
 	import type { Snippet } from 'svelte';
+	import type { Corner } from "$lib/types";
 
 	let {
 		decorationPosition,
@@ -8,7 +9,7 @@
 		width = '2.5em',
 		height = '8.125em'
 	}: {
-		decorationPosition: `${"top" | "bottom"}-${"left" | "right"}`;
+		decorationPosition: Corner;
 		class?: string;
 		children: Snippet;
 		width?: string;

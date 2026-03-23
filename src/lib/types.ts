@@ -1,7 +1,10 @@
 import type { Snippet } from 'svelte';
+import type { ImageId } from './generated/types.js';
+
+export type { ImageId };
 
 export interface ImageItem {
-	id: string;
+	id: ImageId;
 	alt: string;
 	sizes?: number[];
 }
@@ -13,9 +16,11 @@ export interface ArtPiece {
 	image: ImageItem;
 }
 
+export type Corner = `${"top" | "bottom"}-${"left" | "right"}`;
+
 export interface BaseImageProps {
 	/** Base image name (without size suffix or extension) */
-	name: string;
+	name: ImageId;
 	/** Alt text for accessibility */
 	alt: string;
 	/** Optional CSS class */

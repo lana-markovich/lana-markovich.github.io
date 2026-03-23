@@ -11,26 +11,26 @@
 	}
 </script>
 
-<BaseSection class="home-intro" onmousemove={handleMouseMove}>
+<BaseSection type="secondary" class="capture-emotions" onmousemove={handleMouseMove}>
 	{#snippet prepend()}
-		<MouseTrackingMask bind:this={mask} initialX="50%" initialY="15%">
-			<BaseImage name="intro" alt="Artist introduction background" />
+		<MouseTrackingMask bind:this={mask} initialX="20%" initialY="5%">
+			<BaseImage name="capture-emotions" alt="Abstract digital art" />
 		</MouseTrackingMask>
 	{/snippet}
 
-	<div class="home-intro__text-container">
-		<p class="heading heading--lg home-intro__text">
-			I create art across painting, graphics, and sculpture
+	<div class="capture-emotions__text-container">
+		<p class="heading heading--lg capture-emotions__text">
+			Through charcoal, pastel, and ink, I capture raw human emotions and inner states
 		</p>
-		<p class="heading heading--lg home-intro__text">
-			exploring complex themes while preserving beauty in every piece.
+		<p class="heading heading--lg capture-emotions__text">
+			translating psychological depth into visual narratives
 		</p>
 	</div>
 
 </BaseSection>
 
 <style>
-	.home-intro__text-container {
+	.capture-emotions__text-container {
 		margin-top: 45rem;
 		display: grid;
 		grid-template-columns: var(--lines-columns-grid);
@@ -39,7 +39,7 @@
 		                     ".     text2 text2";
 	}
 
-	.home-intro__text {
+	.capture-emotions__text {
 		max-inline-size: 26ch;
 		text-wrap-style: balance;
 		&:nth-child(1) {
