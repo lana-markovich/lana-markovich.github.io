@@ -6,7 +6,6 @@
 
 	let {
 		maskSize = 600,
-		lerpFactor = 0.03,
 		initialX = '50%',
 		initialY = '50%',
 		maskImage = 'linear-gradient(black, black)',
@@ -21,7 +20,6 @@
 
 	// Create tracking instance
 	const tracking = createLerpAnimation({
-		lerpFactor: untrack(() => lerpFactor),
 		offsetX: 0,
 		offsetY: 0,
 		onUpdate: (x: number, y: number) => {

@@ -6,6 +6,7 @@ import AboutMe from "$lib/components/sections/AboutMe.svelte";
 import ImageGallery from "$lib/components/sections/ImageGallery.svelte";
 import Footer from "$lib/components/sections/Footer.svelte";
 import CaptureEmotions from "$lib/components/sections/CaptureEmotions.svelte";
+import Services from "$lib/components/sections/Services.svelte";
 </script>
 
 <BasePage>
@@ -14,5 +15,6 @@ import CaptureEmotions from "$lib/components/sections/CaptureEmotions.svelte";
 	<AboutMe/>
 	<ImageGallery/>
 	<CaptureEmotions/>
+	<Services/>
 	<Footer/>
 </BasePage>
