@@ -8,12 +8,13 @@
 
 	let { open = $bindable(false), children }: Props = $props();
 
-	let dialog: HTMLDialogElement;
+	let dialog: HTMLDialogElement | undefined;
 
 	$effect(() => {
+		if (!dialog) return;
 		if (open) {
 			dialog.showModal();
-		} else {
+		} else if (dialog.open) {
 			dialog.close();
 		}
 	});
