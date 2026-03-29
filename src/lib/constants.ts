@@ -1,7 +1,7 @@
-export * from "./generated/constants";
-
 import type { ArtPiece } from './types.js';
 import type { ImageId } from './generated/types.js';
+
+export * from "./generated/constants";
 
 export const ART_PIECES: Partial<Record<ImageId, ArtPiece>> = {
 	'melancholy': {
