@@ -106,7 +106,7 @@ export const ART_PIECES = {
 		image: { id: "abstract-3", alt: "abstract-3" }
 	},
 	'jacket-1': {
-		name: "jacket-1",
+		name: "The hand-painted jacket",
 		year: 2024,
 		shortDescription: "acrylic for custom",
 		description: `
