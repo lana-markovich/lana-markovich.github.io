@@ -7,6 +7,7 @@ import ImageGallery from "$lib/components/sections/ImageGallery.svelte";
 import Footer from "$lib/components/sections/Footer.svelte";
 import CaptureEmotions from "$lib/components/sections/CaptureEmotions.svelte";
 import Services from "$lib/components/sections/Services.svelte";
+import Portfolio from "$lib/components/sections/Portfolio.svelte";
 </script>
 
 <BasePage>
@@ -16,5 +17,6 @@ import Services from "$lib/components/sections/Services.svelte";
 	<ImageGallery/>
 	<CaptureEmotions/>
 	<Services/>
+	<Portfolio/>
 	<Footer/>
 </BasePage>
