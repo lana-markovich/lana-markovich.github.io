@@ -1,7 +1,7 @@
 import type { Snippet } from 'svelte';
 import type { ImageId } from './generated/types.js';
 
-export type { ImageId };
+export * from './generated/types'
 
 export interface ImageItem {
 	id: ImageId;
@@ -11,8 +11,8 @@ export interface ImageItem {
 
 export interface ArtPiece {
 	name: string;
-	year: number;
-	description: string;
+	year?: number;
+	description?: string;
 	image: ImageItem;
 }
 
