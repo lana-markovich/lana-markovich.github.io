@@ -6,17 +6,24 @@
 	import { scrollProgress } from "$lib/utilities/scrollProgress";
 	import { createLerpAnimation } from "$lib/utilities/lerpAnimation";
 	import { onMount } from "svelte";
-	import type { Corner, ImageItem } from "$lib/types";
+	import type { Corner, ArtPiece } from "$lib/types";
+	import type { ImageId } from "$lib/types";
+	import { ART_PIECES } from "$lib/constants";
 
-	interface GalleryItem extends ImageItem {
+	interface GalleryItem extends ArtPiece {
 		decorationPosition: Corner;
 	}
 
-	const items: GalleryItem[] = [
-		{ id: "abstract-1", alt: "Abstract artwork 1", decorationPosition: "top-right"},
-		{ id: "abstract-2", alt: "Abstract artwork 2", decorationPosition: "bottom-left"},
-		{ id: "abstract-3", alt: "Abstract artwork 3", decorationPosition: "top-left"},
+	const galleryConfig: { id: ImageId; decorationPosition: Corner }[] = [
+		{ id: 'abstract-1', decorationPosition: 'top-right' },
+		{ id: 'abstract-2', decorationPosition: 'bottom-left' },
+		{ id: 'abstract-3', decorationPosition: 'top-left' },
 	];
+
+	const items: GalleryItem[] = galleryConfig.map(({ id, decorationPosition }) => ({
+		...ART_PIECES[id]!,
+		decorationPosition,
+	}));
 
 	let wrapperEl: HTMLDivElement;
 	let imagesEl: HTMLDivElement;
@@ -64,8 +71,8 @@
 						<DecorationWrapper decorationPosition={item.decorationPosition}>
 							<DepthWrapper>
 								<BaseImage
-									name={item.id}
-									alt={item.alt}
+									name={item.image.id}
+									alt={item.image.alt}
 								/>
 							</DepthWrapper>
 						</DecorationWrapper>
