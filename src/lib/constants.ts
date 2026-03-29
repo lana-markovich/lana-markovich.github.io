@@ -105,4 +105,17 @@ export const ART_PIECES = {
 		name: "abstract-3",
 		image: { id: "abstract-3", alt: "abstract-3" }
 	},
-};
+	'jacket-1': {
+		name: "jacket-1",
+		year: 2024,
+		shortDescription: "acrylic for custom",
+		description: `
+			<p>A hand-painted jacket, inspired by the work “The Great Wave” by the artist Utagawa Hiroshige. In the original print, Mount Fuji appears in the background, a sacred symbol of Japan.</p>
+			<p>Despite the threatening wave, the sky remains calm and bright, reflecting the Zen idea of maintaining serenity even amid storms. The design of the jacket conveys this same message: staying calm and centered even in the face of life’s difficulties.</p>
+		`,
+		image: { id: "jacket-1-1", alt: "jacket-1-1" },
+		additionalImages: [{ id: "jacket-1-2", alt: "jacket-1-2" }, { id: "jacket-1-3", alt: "jacket-1-3" }],
+	}
+} satisfies Record<string, ArtPiece>;
+
+export type ArtPieceId = keyof typeof ART_PIECES;
