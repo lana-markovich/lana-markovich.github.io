@@ -3,13 +3,13 @@
 	import BaseBadge from "$lib/components/base/BaseBadge.svelte";
 	import BaseNav from "$lib/components/base/BaseNav.svelte";
 	import ImagesSlider from "$lib/components/base/ImagesSlider.svelte";
-	import type { ImageItem } from "$lib/types";
-	import type { ImageId } from "$lib/types";
+	import type { ImageItem, ArtPiece } from "$lib/types";
 	import { ART_PIECES } from "$lib/constants";
+	import type { ArtPieceId } from "$lib/constants";
 
 	let hoveredImageId: ImageItem["id"] | null = null;
 
-	const heroIds: ImageId[] = [
+	const heroIds: ArtPieceId[] = [
 		'melancholy',
 		'nostalgia',
 		'isolation',
@@ -27,7 +27,7 @@
 		'deer',
 	];
 
-	const artworks = heroIds.map(id => ART_PIECES[id]!);
+	const artworks: ArtPiece[] = heroIds.map(id => ART_PIECES[id]);
 	const images = artworks.map(artwork => artwork.image);
 
 </script>
@@ -51,7 +51,7 @@
 					<BaseBadge>
 						{artwork.name} ({artwork.year})
 						<svelte:fragment slot="text">
-							{artwork.description}
+							{artwork.shortDescription}
 						</svelte:fragment>
 					</BaseBadge>
 				</button>

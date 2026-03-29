@@ -7,21 +7,21 @@
 	import { createLerpAnimation } from "$lib/utilities/lerpAnimation";
 	import { onMount } from "svelte";
 	import type { Corner, ArtPiece } from "$lib/types";
-	import type { ImageId } from "$lib/types";
 	import { ART_PIECES } from "$lib/constants";
+	import type { ArtPieceId } from "$lib/constants";
 
 	interface GalleryItem extends ArtPiece {
 		decorationPosition: Corner;
 	}
 
-	const galleryConfig: { id: ImageId; decorationPosition: Corner }[] = [
+	const galleryConfig: { id: ArtPieceId; decorationPosition: Corner }[] = [
 		{ id: 'abstract-1', decorationPosition: 'top-right' },
 		{ id: 'abstract-2', decorationPosition: 'bottom-left' },
 		{ id: 'abstract-3', decorationPosition: 'top-left' },
 	];
 
 	const items: GalleryItem[] = galleryConfig.map(({ id, decorationPosition }) => ({
-		...ART_PIECES[id]!,
+		...ART_PIECES[id],
 		decorationPosition,
 	}));
 

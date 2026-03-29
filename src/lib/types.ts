@@ -12,8 +12,10 @@ export interface ImageItem {
 export interface ArtPiece {
 	name: string;
 	year?: number;
+	shortDescription?: string;
 	description?: string;
 	image: ImageItem;
+	additionalImages?: ImageItem[];
 }
 
 export type Corner = `${"top" | "bottom"}-${"left" | "right"}`;
