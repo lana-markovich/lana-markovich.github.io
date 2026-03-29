@@ -3,104 +3,32 @@
 	import BaseBadge from "$lib/components/base/BaseBadge.svelte";
 	import BaseNav from "$lib/components/base/BaseNav.svelte";
 	import ImagesSlider from "$lib/components/base/ImagesSlider.svelte";
-	import type { ArtPiece, ImageItem } from "$lib/types";
+	import type { ImageItem } from "$lib/types";
+	import type { ImageId } from "$lib/types";
+	import { ART_PIECES } from "$lib/constants";
 
 	let hoveredImageId: ImageItem["id"] | null = null;
 
-	const artworks: ArtPiece[] = [
-		{
-			name: "Melancholy",
-			year: 2020,
-			description: "100*70 cm, charcoal on paper",
-			image: { id: "melancholy", alt: "Melancholy" }
-		},
-		{
-			name: "nostalgia",
-			year: 2020,
-			description: "100*70 cm, mixed media",
-			image: { id: "nostalgia", alt: "nostalgia" }
-		},
-		{
-			name: "isolation",
-			year: 2020,
-			description: "100*140 cm, mixed media",
-			image: { id: "isolation", alt: "isolation" }
-		},
-		{
-			name: "confusion",
-			year: 2020,
-			description: "100*70 cm, charcoal on paper",
-			image: { id: "confusion", alt: "confusion" }
-		},
-		{
-			name: "what does it mean",
-			year: 2020,
-			description: "100*70 cm, mixed media",
-			image: { id: "what-does-it-mean", alt: "what does it mean" }
-		},
-		{
-			name: "there is no more reality",
-			year: 2020,
-			description: "100*70 cm, mixed media",
-			image: { id: "there-is-no-more-reality", alt: "there is no more reality" }
-		},
-		{
-			name: "time is fleeting",
-			year: 2019,
-			description: "70*50 cm, mixed media",
-			image: { id: "time-is-fleeting", alt: "time is fleeting" }
-		},
-		{
-			name: "reality doesn't exist",
-			year: 2020,
-			description: "100*70 cm, charcoal on paper",
-			image: { id: "reality-doesnt-exist", alt: "reality doesn't exist" }
-		},
-		{
-			name: "nothing",
-			year: 2018,
-			description: "100*140 cm, mixed media",
-			image: { id: "nothing", alt: "nothing" }
-		},
-		{
-			name: "forbidden fruit is the sweetest",
-			year: 2015,
-			description: "120*60 cm, mixed media",
-			image: { id: "forbidden-fruit-is-the-sweetest", alt: "forbidden fruit is the sweetest" }
-		},
-		{
-			name: "portrait 1",
-			year: 2021,
-			description: "100*70 cm, mixed media",
-			image: { id: "portrait-1", alt: "portrait 1" }
-		},
-		{
-			name: "portrait 2",
-			year: 2022,
-			description: "21*29,7 cm, pencil",
-			image: { id: "portrait-2", alt: "portrait 2" }
-		},
-		{
-			name: "anatomy 1",
-			year: 2022,
-			description: "21*29,7 cm, mixed media",
-			image: { id: "anatomy-1", alt: "anatomy 1" }
-		},
-		{
-			name: "anatomy 2",
-			year: 2023,
-			description: "21*29,7 cm, mixed media",
-			image: { id: "anatomy-2", alt: "anatomy 2" }
-		},
-		{
-			name: "deer",
-			year: 2022,
-			description: "140*200 cm, mixed media",
-			image: { id: "deer", alt: "deer" }
-		},
+	const heroIds: ImageId[] = [
+		'melancholy',
+		'nostalgia',
+		'isolation',
+		'confusion',
+		'what-does-it-mean',
+		'there-is-no-more-reality',
+		'time-is-fleeting',
+		'reality-doesnt-exist',
+		'nothing',
+		'forbidden-fruit-is-the-sweetest',
+		'portrait-1',
+		'portrait-2',
+		'anatomy-1',
+		'anatomy-2',
+		'deer',
 	];
 
-	const images = artworks.map((artwork) => artwork.image);
+	const artworks = heroIds.map(id => ART_PIECES[id]!);
+	const images = artworks.map(artwork => artwork.image);
 
 </script>
 
