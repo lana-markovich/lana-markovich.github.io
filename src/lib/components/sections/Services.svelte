@@ -1,6 +1,7 @@
 <script lang="ts">
 	import BaseSection from "$lib/components/layout/BaseSection.svelte";
-	import BaseImage from "$lib/components/base/BaseImage.svelte";
+	import FramedImage from "$lib/components/base/FramedImage.svelte";
+	import { IMAGES } from "$lib/images";
 
 </script>
 
@@ -12,11 +13,7 @@
 				<h3>Custom Paintings</h3>
 			</header>
 			<div class="service__main">
-				<BaseImage
-					class="service__image"
-					name="deer"
-					alt="Deer painting"
-				/>
+				<FramedImage class="service__image" image={IMAGES['deer']} />
 				<div class="service__text">
 					<p class="text text--secondary">
 						I bring interiors to life through custom hand-painted designs on furniture, walls, clothing,
