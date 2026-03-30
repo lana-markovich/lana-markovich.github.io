@@ -1,18 +1,21 @@
 <script lang="ts">
-	import BaseImage from "$lib/components/base/BaseImage.svelte";
-	import type { ImageItem, ImageId } from "$lib/types";
+	import FramedImage from "$lib/components/base/FramedImage.svelte";
+	import type { ImageEntry, ImageId } from "$lib/types";
 
-	export let images: ImageItem[] = [];
-	export let currentImage: ImageId | null = null;
+	let {
+		images = [],
+		currentImage = null,
+	}: {
+		images: ImageEntry[];
+		currentImage: ImageId | null;
+	} = $props();
 </script>
 
 <div class="images-slider">
 	{#each images as image (image.id)}
-		<BaseImage
-			name={image.id}
-			alt={image.alt}
+		<FramedImage
+			image={image}
 			class={`images-slider__image ${image.id === currentImage ? 'images-slider__image--is-active' : 'images-slider__image--is-hidden'}`}
-			sizes={image.sizes}
 		/>
 	{/each}
 </div>

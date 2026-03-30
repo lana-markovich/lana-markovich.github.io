@@ -3,11 +3,11 @@
 	import BaseBadge from "$lib/components/base/BaseBadge.svelte";
 	import BaseNav from "$lib/components/base/BaseNav.svelte";
 	import ImagesSlider from "$lib/components/base/ImagesSlider.svelte";
-	import type { ImageItem, ArtPiece } from "$lib/types";
+	import type { ImageEntry, ArtPiece } from "$lib/types";
 	import { ART_PIECES } from "$lib/constants";
 	import type { ArtPieceId } from "$lib/constants";
 
-	let hoveredImageId: ImageItem["id"] | null = null;
+	let hoveredImageId: ImageEntry["id"] | null = null;
 
 	const heroIds: ArtPieceId[] = [
 		'melancholy',
