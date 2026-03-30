@@ -1,6 +1,7 @@
 <script lang="ts">
 	import BaseSection from "$lib/components/layout/BaseSection.svelte";
-	import BaseImage from "$lib/components/base/BaseImage.svelte";
+	import FramedImage from "$lib/components/base/FramedImage.svelte";
+	import { IMAGES } from "$lib/images";
 	import MouseTrackingMask from "$lib/components/base/MouseTrackingMask.svelte";
 	import type { MouseTrackingMaskInstance } from "$lib/types";
 
@@ -14,7 +15,7 @@
 <BaseSection class="home-intro" onmousemove={handleMouseMove}>
 	{#snippet prepend()}
 		<MouseTrackingMask bind:this={mask} initialX="50%" initialY="15%">
-			<BaseImage name="intro" alt="Artist introduction background" />
+			<FramedImage image={IMAGES['intro']} />
 		</MouseTrackingMask>
 	{/snippet}
 
