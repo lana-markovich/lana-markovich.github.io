@@ -3,10 +3,17 @@ import type { ImageId } from './generated/types.js';
 
 export * from './generated/types'
 
-export interface ImageItem {
+export interface FocalPoint {
+	x: number;  // 0..1
+	y: number;  // 0..1
+}
+
+export interface ImageEntry {
 	id: ImageId;
 	alt: string;
-	sizes?: number[];
+	sizes: readonly number[];
+	focalPoint: FocalPoint;
+	zoom: number;  // 1..5
 }
 
 export interface ArtPiece {
@@ -14,8 +21,8 @@ export interface ArtPiece {
 	year?: number;
 	shortDescription?: string;
 	description?: string;
-	image: ImageItem;
-	additionalImages?: ImageItem[];
+	image: ImageEntry;
+	additionalImages?: ImageEntry[];
 }
 
 export type Corner = `${"top" | "bottom"}-${"left" | "right"}`;
