@@ -2,7 +2,7 @@
 	import BaseSection from "$lib/components/layout/BaseSection.svelte";
 	import DecorationWrapper from "$lib/components/base/DecorationWrapper.svelte";
 	import DepthWrapper from "$lib/components/base/DepthWrapper.svelte";
-	import BaseImage from "$lib/components/base/BaseImage.svelte";
+	import FramedImage from "$lib/components/base/FramedImage.svelte";
 	import { scrollProgress } from "$lib/utilities/scrollProgress";
 	import { createLerpAnimation } from "$lib/utilities/lerpAnimation";
 	import { onMount } from "svelte";
@@ -70,10 +70,7 @@
 					<div class="image-gallery__image-wrapper">
 						<DecorationWrapper decorationPosition={item.decorationPosition}>
 							<DepthWrapper>
-								<BaseImage
-									name={item.image.id}
-									alt={item.image.alt}
-								/>
+								<FramedImage image={item.image} />
 							</DepthWrapper>
 						</DecorationWrapper>
 					</div>
