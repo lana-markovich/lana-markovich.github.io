@@ -1,6 +1,6 @@
 <script lang="ts">
 	import DepthWrapper from "$lib/components/base/DepthWrapper.svelte";
-	import BaseImage from "$lib/components/base/BaseImage.svelte";
+	import FramedImage from "$lib/components/base/FramedImage.svelte";
 	import BaseBadge from "$lib/components/base/BaseBadge.svelte";
 	import ArtPieceButton from "$lib/components/artpiece/ArtPieceButton.svelte";
 	import ArtPieceDialog from "$lib/components/artpiece/ArtPieceDialog.svelte";
@@ -23,7 +23,7 @@
 	>
 		<ArtPieceButton bind:this={button} />
 		<DepthWrapper>
-			<BaseImage name={artPiece.image.id} alt={artPiece.image.alt} />
+			<FramedImage image={artPiece.image} />
 		</DepthWrapper>
 	</div>
 	<BaseBadge>
