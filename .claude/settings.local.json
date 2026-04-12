@@ -18,7 +18,13 @@
       "WebSearch",
       "WebFetch(domain:svelte.dev)",
       "Bash(npm run process-images:*)",
-      "Bash(ls:*)"
+      "Bash(ls:*)",
+      "Bash(git add:*)",
+      "Bash(git commit:*)",
+      "Bash(find /c/git/sviatlanamarkovich.gihtub.io/src/lib/generated -type f -name *.ts)",
+      "Bash(bash \"C:/Users/kiril/.claude/plugins/cache/claude-plugins-official/superpowers/5.0.6/skills/brainstorming/scripts/start-server.sh\" --project-dir \"C:/git/sviatlanamarkovich.gihtub.io\")",
+      "Bash(npx tsx:*)",
+      "Bash(npm run:*)"
     ],
     "deny": [],
     "ask": []

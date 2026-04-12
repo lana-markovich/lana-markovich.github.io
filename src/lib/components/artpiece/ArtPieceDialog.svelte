@@ -1,6 +1,6 @@
 <script lang="ts">
 	import BaseDialog from "$lib/components/base/BaseDialog.svelte";
-	import FramedImage from "$lib/components/base/FramedImage.svelte";
+	import BaseImage from "$lib/components/base/BaseImage.svelte";
 	import type { ArtPiece } from "$lib/types";
 
 	interface Props {
@@ -15,7 +15,12 @@
 	<div class="art-piece-dialog">
 		<button class="art-piece-dialog__close" onclick={() => (open = false)}>×</button>
 		<div class="art-piece-dialog__images">
-			<FramedImage image={artPiece.image} zoom={1} loading="eager" />
+			<BaseImage
+				name={artPiece.image.id}
+				alt={artPiece.image.alt}
+				sizes={[...artPiece.image.sizes]}
+				loading="eager"
+			/>
 		</div>
 		<div class="art-piece-dialog__content">
 			<header class="art-piece-dialog__header">

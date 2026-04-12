@@ -53,13 +53,13 @@ export const IMAGES = {
 	'deer': {
 		...IMAGE_SOURCES['deer'],
 		alt: 'Deer painting',
-		focalPoint: { x: 0.5, y: 0.5 },
+		focalPoint: { x: 0.5, y: 0.18 },
 		zoom: 1.0,
 	},
 	'forbidden-fruit-is-the-sweetest': {
 		...IMAGE_SOURCES['forbidden-fruit-is-the-sweetest'],
 		alt: 'Forbidden fruit is the sweetest',
-		focalPoint: { x: 0.5, y: 0.5 },
+		focalPoint: { x: 0.5, y: 0.53 },
 		zoom: 1.0,
 	},
 	'intro': {
@@ -107,13 +107,13 @@ export const IMAGES = {
 	'nothing': {
 		...IMAGE_SOURCES['nothing'],
 		alt: 'Nothing',
-		focalPoint: { x: 0.5, y: 0.5 },
+		focalPoint: { x: 0.5, y: 0.32 },
 		zoom: 1.0,
 	},
 	'portrait-1': {
 		...IMAGE_SOURCES['portrait-1'],
 		alt: 'Portrait 1',
-		focalPoint: { x: 0.5, y: 0.5 },
+		focalPoint: { x: 0.5, y: 0.25 },
 		zoom: 1.0,
 	},
 	'portrait-2': {
@@ -125,14 +125,14 @@ export const IMAGES = {
 	'reality-doesnt-exist': {
 		...IMAGE_SOURCES['reality-doesnt-exist'],
 		alt: "Reality doesn't exist",
-		focalPoint: { x: 0.5, y: 0.5 },
+		focalPoint: { x: 0.5, y: 0.18 },
 		zoom: 1.0,
 	},
 	'there-is-no-more-reality': {
 		...IMAGE_SOURCES['there-is-no-more-reality'],
 		alt: 'There is no more reality',
-		focalPoint: { x: 0.5, y: 0.5 },
-		zoom: 1.0,
+		focalPoint: { x: 0.5, y: 0.25 },
+		zoom: 1,
 	},
 	'time-is-fleeting': {
 		...IMAGE_SOURCES['time-is-fleeting'],

@@ -12,6 +12,7 @@ export interface ImageEntry {
 	id: ImageId;
 	alt: string;
 	sizes: readonly number[];
+	aspectRatio: number;  // width / height
 	focalPoint: FocalPoint;
 	zoom: number;  // 1..5
 }
