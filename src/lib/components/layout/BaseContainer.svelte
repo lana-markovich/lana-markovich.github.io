@@ -22,7 +22,6 @@
 	.section__lines {
 		position: absolute;
 		inset: 0;
-		opacity: 0.1;
 		pointer-events: none;
 		display: flex;
 		justify-content: space-between;
@@ -33,6 +32,6 @@
 		display: block;
 		height: 100%;
 		width: calc(100% / 3);
-		border-inline: var(--black-800) 1px solid;
+		border-inline: var(--border--secondary);
 	}
 </style>

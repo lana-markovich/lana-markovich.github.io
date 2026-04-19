@@ -27,4 +27,8 @@
 	/* Text Colors */
 	--text-primary: var(--black-800);
 	--text-secondary: color-mix(in srgb, var(--text-primary) 80%, transparent);
+
+	/* Borders */
+	--border--primary: 1px solid color-mix(in srgb, var(--black-800) 50%, transparent);
+	--border--secondary: 1px solid color-mix(in srgb, var(--black-800) 10%, transparent);
 }

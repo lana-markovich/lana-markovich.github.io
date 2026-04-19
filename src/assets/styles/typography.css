@@ -29,6 +29,7 @@ body {
 	font-size: 1.5rem; /* 24px */
 	font-weight: 600;
 	line-height: 1.25em; /* 30px / 24px */
+	margin-block-end: 2em;
 	&::before {
 		content: "•";
 		margin-right: 0.5em;

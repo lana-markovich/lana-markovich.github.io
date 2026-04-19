@@ -36,8 +36,7 @@
 			position: absolute;
 			block-size: var(--decoration-height);
 			inline-size: var(--decoration-width);
-			border: 1px solid var(--text-primary);
-			opacity: 0.5;
+			border: var(--border--primary);
 		}
 
 		&.decoration-wrapper--top-left {
