@@ -1,7 +1,7 @@
 <script lang="ts">
 	import BaseSection from "$lib/components/layout/BaseSection.svelte";
 	import DecorationWrapper from "$lib/components/base/DecorationWrapper.svelte";
-	import FramedImage from "$lib/components/base/FramedImage.svelte";
+	import BaseImage from "$lib/components/base/BaseImage.svelte";
 	import { IMAGES } from "$lib/images";
 </script>
 
@@ -20,7 +20,7 @@
 
 		<div class="about-me__image-wrapper">
 			<DecorationWrapper decorationPosition="bottom-left">
-				<FramedImage image={IMAGES['about-me']} />
+				<BaseImage name={IMAGES['about-me'].id} alt={IMAGES['about-me'].alt} />
 			</DecorationWrapper>
 		</div>
 	</div>
@@ -66,6 +66,11 @@
 		height: var(--fluid-height);
 		max-height: var(--max-height);
 		width: min(46.5rem, calc(var(--container-colunm-width) + var(--container-to-screen-side-width)));
+
+		:global(.image--about-me) {
+			object-fit: cover;
+			object-position: 50% 76%;
+		}
 	}
 
 </style>
