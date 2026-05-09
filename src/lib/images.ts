@@ -38,6 +38,30 @@ export const IMAGES = {
 		focalPoint: { x: 0.5, y: 0.5 },
 		zoom: 1.0,
 	},
+	'body-1': {
+		...IMAGE_SOURCES['body-1'],
+		alt: 'Body study 1',
+		focalPoint: { x: 0.5, y: 0.5 },
+		zoom: 1.0,
+	},
+	'body-2': {
+		...IMAGE_SOURCES['body-2'],
+		alt: 'Body study 2',
+		focalPoint: { x: 0.5, y: 0.5 },
+		zoom: 1.0,
+	},
+	'body-3': {
+		...IMAGE_SOURCES['body-3'],
+		alt: 'Body study 3',
+		focalPoint: { x: 0.5, y: 0.5 },
+		zoom: 1.0,
+	},
+	'body-4': {
+		...IMAGE_SOURCES['body-4'],
+		alt: 'Body study 4',
+		focalPoint: { x: 0.5, y: 0.5 },
+		zoom: 1.0,
+	},
 	'capture-emotions': {
 		...IMAGE_SOURCES['capture-emotions'],
 		alt: 'Abstract digital art',
@@ -50,10 +74,22 @@ export const IMAGES = {
 		focalPoint: { x: 0.5, y: 0.5 },
 		zoom: 1.0,
 	},
+	'copy-la-grenouillere': {
+		...IMAGE_SOURCES['copy-la-grenouillere'],
+		alt: 'Copy of La Grenouillere',
+		focalPoint: { x: 0.5, y: 0.5 },
+		zoom: 1.0,
+	},
 	'deer': {
 		...IMAGE_SOURCES['deer'],
 		alt: 'Deer painting',
 		focalPoint: { x: 0.5, y: 0.18 },
+		zoom: 1.0,
+	},
+	'dresser-decoration-storks': {
+		...IMAGE_SOURCES['dresser-decoration-storks'],
+		alt: 'Dresser decoration with storks',
+		focalPoint: { x: 0.5, y: 0.5 },
 		zoom: 1.0,
 	},
 	'forbidden-fruit-is-the-sweetest': {
@@ -62,9 +98,21 @@ export const IMAGES = {
 		focalPoint: { x: 0.5, y: 0.53 },
 		zoom: 1.0,
 	},
+	'imagination': {
+		...IMAGE_SOURCES['imagination'],
+		alt: 'Imagination',
+		focalPoint: { x: 0.5, y: 0.5 },
+		zoom: 1.0,
+	},
 	'intro': {
 		...IMAGE_SOURCES['intro'],
 		alt: 'Artist introduction background',
+		focalPoint: { x: 0.5, y: 0.5 },
+		zoom: 1.0,
+	},
+	'iris': {
+		...IMAGE_SOURCES['iris'],
+		alt: 'Iris',
 		focalPoint: { x: 0.5, y: 0.5 },
 		zoom: 1.0,
 	},
@@ -92,6 +140,12 @@ export const IMAGES = {
 		focalPoint: { x: 0.5, y: 0.5 },
 		zoom: 1.0,
 	},
+	'landscape-1': {
+		...IMAGE_SOURCES['landscape-1'],
+		alt: 'Landscape study 1',
+		focalPoint: { x: 0.5, y: 0.5 },
+		zoom: 1.0,
+	},
 	'melancholy': {
 		...IMAGE_SOURCES['melancholy'],
 		alt: 'Melancholy',
@@ -110,6 +164,24 @@ export const IMAGES = {
 		focalPoint: { x: 0.5, y: 0.32 },
 		zoom: 1.0,
 	},
+	'pikoala-1': {
+		...IMAGE_SOURCES['pikoala-1'],
+		alt: 'Pikoala illustration 1',
+		focalPoint: { x: 0.5, y: 0.5 },
+		zoom: 1.0,
+	},
+	'pikoala-2': {
+		...IMAGE_SOURCES['pikoala-2'],
+		alt: 'Pikoala illustration 2',
+		focalPoint: { x: 0.5, y: 0.5 },
+		zoom: 1.0,
+	},
+	'pikoala-3': {
+		...IMAGE_SOURCES['pikoala-3'],
+		alt: 'Pikoala illustration 3',
+		focalPoint: { x: 0.5, y: 0.5 },
+		zoom: 1.0,
+	},
 	'portrait-1': {
 		...IMAGE_SOURCES['portrait-1'],
 		alt: 'Portrait 1',
@@ -126,6 +198,30 @@ export const IMAGES = {
 		...IMAGE_SOURCES['reality-doesnt-exist'],
 		alt: "Reality doesn't exist",
 		focalPoint: { x: 0.5, y: 0.18 },
+		zoom: 1.0,
+	},
+	'shopper-bag-design-noise-1': {
+		...IMAGE_SOURCES['shopper-bag-design-noise-1'],
+		alt: 'Shopper bag design "Noise" front',
+		focalPoint: { x: 0.5, y: 0.5 },
+		zoom: 1.0,
+	},
+	'shopper-bag-design-noise-2': {
+		...IMAGE_SOURCES['shopper-bag-design-noise-2'],
+		alt: 'Shopper bag design "Noise" detail 1',
+		focalPoint: { x: 0.5, y: 0.5 },
+		zoom: 1.0,
+	},
+	'shopper-bag-design-noise-3': {
+		...IMAGE_SOURCES['shopper-bag-design-noise-3'],
+		alt: 'Shopper bag design "Noise" detail 2',
+		focalPoint: { x: 0.5, y: 0.5 },
+		zoom: 1.0,
+	},
+	'still-life': {
+		...IMAGE_SOURCES['still-life'],
+		alt: 'Still life',
+		focalPoint: { x: 0.5, y: 0.5 },
 		zoom: 1.0,
 	},
 	'there-is-no-more-reality': {

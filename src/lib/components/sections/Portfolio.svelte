@@ -3,7 +3,7 @@
 	import ArtPiecePreview from "$lib/components/artpiece/ArtPiecePreview.svelte";
 	import { ART_PIECES } from "$lib/constants";
 
-	const piece = ART_PIECES['jacket-1'];
+	const decorPieces = [ART_PIECES['jacket-1'], ART_PIECES[]];
 </script>
 
 <BaseSection type="primary" class="portfolio">
