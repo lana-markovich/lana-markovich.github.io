@@ -53,8 +53,8 @@
 					class="service__inner"
 					role="button"
 					tabindex="0"
-					onclick={() => (activeIndex = i)}
-					onkeydown={(e) => (e.key === 'Enter' || e.key === ' ') && (activeIndex = i)}
+					onmouseenter={() => (activeIndex = i)}
+					onfocus={() => (activeIndex = i)}
 				>
 					<header class="service__header">
 						<span class="service__index text text--secondary">-{i + 1}</span>
