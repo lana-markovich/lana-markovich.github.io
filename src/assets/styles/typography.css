@@ -14,55 +14,47 @@ body {
 
 .heading {
 	font-family: var(--font-heading);
-	letter-spacing: -0.02em;
+	letter-spacing: -0.04em;
 	color: var(--text-primary);
 }
 
 .heading--lg {
-	font-size: 2rem; /* 32px */
+	font-size: 2.75rem;
 	font-weight: 400;
-	line-height: 1.25em; /* 40px / 32px */
+	line-height: 1.16em;
 	text-transform: uppercase;
 }
 
 .heading--md {
-	font-size: 1.5rem; /* 24px */
-	font-weight: 600;
-	line-height: 1.25em; /* 30px / 24px */
+	font-size: 1.5rem;
+	font-weight: 500;
+	line-height: 1.25em;
 	margin-block-end: 2em;
-	&::before {
-		content: "•";
-		margin-right: 0.5em;
-		margin-left: 0.5em;
-	}
 }
 
 .heading--sm {
-	font-size: 1.25rem; /* 20px */
+	font-size: 1.25rem;
 	font-weight: 400;
-	line-height: 1.4em; /* 28px / 20px */
+	line-height: normal;
 }
 
 .heading--xs {
-	font-size: 0.875rem; /* 14px */
-	font-weight: 600;
+	font-size: 0.875rem;
+	font-weight: 500;
 	line-height: normal;
-	letter-spacing: -0.01em;
 	text-transform: uppercase;
 }
 
 .text {
 	font-size: 1rem; /* 16px */
 	font-weight: 400;
-	line-height: 1.5em; /* 24px / 16px */
-	letter-spacing: -0.02em;
+	line-height: 1.4em; /* 24px / 16px */
+	letter-spacing: -0.03em;
 	color: var(--text-primary);
 }
 
 .text--secondary {
 	font-weight: 300;
-	line-height: normal;
-	letter-spacing: 0;
 	color: var(--text-secondary);
 }
 

@@ -1,7 +1,7 @@
 <script lang="ts">
 	export let isInverted: boolean = false;
 	const links = [
-		{ title: "about", href: "/#about" },
+		{ title: "about me", href: "/#about" },
 		{ title: "services", href: "/#services" },
 		{ title: "portfolio", href: "/#portfolio" },
 		{ title: "contacts", href: "/#contacts" },

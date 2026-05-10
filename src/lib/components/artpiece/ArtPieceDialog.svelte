@@ -51,7 +51,7 @@
 	}
 	.art-piece-dialog__close {
 		position: absolute;
-		top: 1.25rem;
+		top: 0.85rem;
 		right: 1.25rem;
 		background: none;
 		border: none;
@@ -68,19 +68,13 @@
 		overflow: hidden;
 	}
 
-	/*.art-piece-dialog__image :global(img) {*/
-	/*	width: 100%;*/
-	/*	height: 100%;*/
-	/*	object-fit: cover;*/
-	/*}*/
-
-
 	.art-piece-dialog__header {
 		margin-block-end: 2.5rem;
 	}
 
 	.art-piece-dialog__heading {
 		margin-block: 0 1rem;
+		padding-inline-end: 1.5rem;
 	}
 	.art-piece-dialog__short-description {
 		margin-block: 0;

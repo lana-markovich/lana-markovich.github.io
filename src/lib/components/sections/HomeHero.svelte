@@ -63,7 +63,7 @@
 		<BaseNav isInverted={Boolean(hoveredImageId)}/>
 	</div>
 
-	<h1 class="heading home-hero__heading {Boolean(hoveredImageId) ? 'home-hero__heading--is-inverted' : ''}">Sviatlana Markovich</h1>
+	<h1 class="heading home-hero__heading {Boolean(hoveredImageId) ? 'home-hero__heading--is-inverted' : ''}">sviatlana markovich</h1>
 </BaseSection>
 
 <style>
@@ -93,11 +93,13 @@
 	}
 
 	.home-hero__nav-wrapper {
+		position: relative;
+		z-index: 2;
 		margin-block: 7.5rem 1.5rem;
 	}
 
 	.home-hero__heading {
-		font-size: 12.75cqw;
+		font-size: 13.7cqw;
 		font-weight: 400;
 		line-height: 1;
 		margin: 0;
