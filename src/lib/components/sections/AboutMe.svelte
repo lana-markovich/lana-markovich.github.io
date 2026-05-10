@@ -5,7 +5,7 @@
 	import { IMAGES } from "$lib/images";
 </script>
 
-<BaseSection type="secondary" class="about-me">
+<BaseSection type="secondary" class="about-me" id="about">
 	<div class="about-me__container-inner">
 		<h2 class="heading heading--md about-me__subheading">About me</h2>
 		<h3 class="heading heading--lg about-me__heading">

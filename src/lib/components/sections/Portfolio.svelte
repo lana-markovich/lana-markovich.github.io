@@ -22,7 +22,7 @@
 	];
 </script>
 
-<BaseSection type="primary" class="portfolio">
+<BaseSection type="primary" class="portfolio" id="portfolio">
 	<h2 class="heading heading--md">Portfolio</h2>
 	<ul class="portfolio__items">
 		{#each ITEMS as item}

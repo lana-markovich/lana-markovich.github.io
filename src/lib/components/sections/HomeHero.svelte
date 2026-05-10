@@ -32,7 +32,7 @@
 
 </script>
 
-<BaseSection type="secondary"
+<BaseSection type="secondary" id="hero"
 >
 	{#snippet prepend()}
 		<ImagesSlider images={images} currentImage={hoveredImageId}/>

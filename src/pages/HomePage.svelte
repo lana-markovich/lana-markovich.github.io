@@ -1,5 +1,6 @@
 <script lang="ts">
 import BasePage from "$lib/components/layout/BasePage.svelte";
+import StickyNav from "$lib/components/layout/StickyNav.svelte";
 import HomeHero from "$lib/components/sections/HomeHero.svelte";
 import HomeIntro from "$lib/components/sections/HomeIntro.svelte";
 import AboutMe from "$lib/components/sections/AboutMe.svelte";
@@ -11,6 +12,7 @@ import Portfolio from "$lib/components/sections/Portfolio.svelte";
 </script>
 
 <BasePage>
+	<StickyNav target="#hero"/>
 	<HomeHero/>
 	<HomeIntro/>
 	<AboutMe/>

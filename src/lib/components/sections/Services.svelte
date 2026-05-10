@@ -44,7 +44,7 @@
 	let activeIndex = $state(0);
 </script>
 
-<BaseSection class="services">
+<BaseSection class="services" id="services">
 	<h2 class="heading heading--md">Services</h2>
 	<ol class="services__list">
 		{#each services as service, i}
