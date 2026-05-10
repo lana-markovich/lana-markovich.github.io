@@ -6,6 +6,7 @@ export { IMAGES } from './images.js';
 
 export const ART_PIECES = {
 	'melancholy': {
+		id: 'melancholy',
 		name: "Melancholy",
 		year: 2020,
 		shortDescription: "100*70 cm, charcoal on paper",
@@ -16,6 +17,7 @@ export const ART_PIECES = {
 		image: IMAGES['melancholy'],
 	},
 	'nostalgia': {
+		id: 'nostalgia',
 		name: "nostalgia",
 		year: 2020,
 		shortDescription: "100*70 cm, mixed media",
@@ -26,6 +28,7 @@ export const ART_PIECES = {
 		image: IMAGES['nostalgia'],
 	},
 	'isolation': {
+		id: 'isolation',
 		name: "isolation",
 		year: 2018,
 		shortDescription: "100*140 cm, mixed media",
@@ -39,6 +42,7 @@ and a distance from the external world</p>
 		image: IMAGES['isolation'],
 	},
 	'confusion': {
+		id: 'confusion',
 		name: "confusion",
 		year: 2020,
 		shortDescription: "100*70 cm, charcoal on paper",
@@ -49,6 +53,7 @@ and a distance from the external world</p>
 		image: IMAGES['confusion'],
 	},
 	'what-does-it-mean': {
+		id: 'what-does-it-mean',
 		name: "what does it mean to see",
 		year: 2019,
 		shortDescription: "100*70 cm, mixed media",
@@ -66,6 +71,7 @@ the eye but also the mind, moving the viewer from a simple act of seeing to a pr
 		image: IMAGES['what-does-it-mean'],
 	},
 	'there-is-no-more-reality': {
+		id: 'there-is-no-more-reality',
 		name: "there is no more reality",
 		year: 2020,
 		shortDescription: "100*70 cm, mixed media",
@@ -76,6 +82,7 @@ the eye but also the mind, moving the viewer from a simple act of seeing to a pr
 		image: IMAGES['there-is-no-more-reality'],
 	},
 	'time-is-fleeting': {
+		id: 'time-is-fleeting',
 		name: "time is fleeting",
 		year: 2019,
 		shortDescription: "70*50 cm, mixed media",
@@ -86,6 +93,7 @@ the eye but also the mind, moving the viewer from a simple act of seeing to a pr
 		image: IMAGES['time-is-fleeting'],
 	},
 	'reality-doesnt-exist': {
+		id: 'reality-doesnt-exist',
 		name: "reality doesn't exist",
 		year: 2020,
 		shortDescription: "100*70 cm, charcoal on paper",
@@ -100,6 +108,7 @@ where is reality, and where is illusion?</p>
 		image: IMAGES['reality-doesnt-exist'],
 	},
 	'nothing': {
+		id: 'nothing',
 		name: "nothing",
 		year: 2018,
 		shortDescription: "100*140 cm, mixed media",
@@ -114,6 +123,7 @@ the search for explanations, but a direct encounter with a sense of emptiness th
 		image: IMAGES['nothing'],
 	},
 	'forbidden-fruit-is-the-sweetest': {
+		id: 'forbidden-fruit-is-the-sweetest',
 		name: "forbidden fruit is the sweetest",
 		year: 2015,
 		shortDescription: "120*60 cm, mixed media",
@@ -124,6 +134,7 @@ the search for explanations, but a direct encounter with a sense of emptiness th
 		image: IMAGES['forbidden-fruit-is-the-sweetest'],
 	},
 	'portrait-1': {
+		id: 'portrait-1',
 		name: "portrait 1",
 		year: 2021,
 		shortDescription: "100*70 cm, mixed media",
@@ -134,6 +145,7 @@ the search for explanations, but a direct encounter with a sense of emptiness th
 		image: IMAGES['portrait-1'],
 	},
 	'portrait-2': {
+		id: 'portrait-2',
 		name: "portrait 2",
 		year: 2022,
 		shortDescription: "21*29,7 cm, pencil",
@@ -144,6 +156,7 @@ the search for explanations, but a direct encounter with a sense of emptiness th
 		image: IMAGES['portrait-2'],
 	},
 	'anatomy-1': {
+		id: 'anatomy-1',
 		name: "anatomy 1",
 		year: 2022,
 		shortDescription: "21*29,7 cm, mixed media",
@@ -154,6 +167,7 @@ the search for explanations, but a direct encounter with a sense of emptiness th
 		image: IMAGES['anatomy-1'],
 	},
 	'anatomy-2': {
+		id: 'anatomy-2',
 		name: "anatomy 2",
 		year: 2023,
 		shortDescription: "21*29,7 cm, mixed media",
@@ -164,6 +178,7 @@ the search for explanations, but a direct encounter with a sense of emptiness th
 		image: IMAGES['anatomy-2'],
 	},
 	'deer': {
+		id: 'deer',
 		name: "deer",
 		year: 2022,
 		shortDescription: "140*200 cm, mixed media",
@@ -174,18 +189,22 @@ the search for explanations, but a direct encounter with a sense of emptiness th
 		image: IMAGES['deer'],
 	},
 	'abstract-1': {
+		id: 'abstract-1',
 		name: "abstract-1",
 		image: IMAGES['abstract-1'],
 	},
 	'abstract-2': {
+		id: 'abstract-2',
 		name: "abstract-2",
 		image: IMAGES['abstract-2'],
 	},
 	'abstract-3': {
+		id: 'abstract-3',
 		name: "abstract-3",
 		image: IMAGES['abstract-3'],
 	},
 	'body-1': {
+		id: 'body-1',
 		name: "body",
 		year: 2025,
 		shortDescription: "mixed media",
@@ -196,6 +215,7 @@ the search for explanations, but a direct encounter with a sense of emptiness th
 		additionalImages: [IMAGES['body-2'], IMAGES['body-3'], IMAGES['body-4']],
 	},
 	'copy-la-grenouillere': {
+		id: 'copy-la-grenouillere',
 		name: "copy of \"La Grenouillere\"",
 		year: 2019,
 		shortDescription: "50*70  cm, acrylic",
@@ -205,6 +225,7 @@ the search for explanations, but a direct encounter with a sense of emptiness th
 		image: IMAGES['copy-la-grenouillere'],
 	},
 	'dresser-decoration-storks': {
+		id: 'dresser-decoration-storks',
 		name: "dresser decoration \"storks\"",
 		year: 2025,
 		shortDescription: "200*60  cm, acrylic",
@@ -216,6 +237,7 @@ In Belarus, the stork symbolizes purity and rebirth.</p>
 		image: IMAGES['dresser-decoration-storks'],
 	},
 	'imagination': {
+		id: 'imagination',
 		name: "imagination",
 		year: 2015,
 		shortDescription: "100*30 cm, oil",
@@ -225,6 +247,7 @@ In Belarus, the stork symbolizes purity and rebirth.</p>
 		image: IMAGES['imagination'],
 	},
 	'iris': {
+		id: 'iris',
 		name: "iris",
 		year: 2023,
 		shortDescription: "50*50 cm, oil",
@@ -234,6 +257,7 @@ In Belarus, the stork symbolizes purity and rebirth.</p>
 		image: IMAGES['iris'],
 	},
 	'landscape-1': {
+		id: 'landscape-1',
 		name: "landscape 1",
 		year: 2022,
 		shortDescription: "50*70  cm, acrylic",
@@ -243,6 +267,7 @@ In Belarus, the stork symbolizes purity and rebirth.</p>
 		image: IMAGES['landscape-1'],
 	},
 	'pikoala': {
+		id: 'pikoala',
 		name: "children's art set packaging \"Pikoala\"",
 		year: 2000,
 		shortDescription: "illustrator and photoshop",
@@ -257,6 +282,7 @@ were developed for children in a Cubist style. A bright color palette was select
 		additionalImages: [IMAGES['pikoala-2'], IMAGES['pikoala-3']],
 	},
 	'still-life': {
+		id: 'still-life',
 		name: "still life",
 		year: 2016,
 		shortDescription: "100*100  cm, oil",
@@ -266,6 +292,7 @@ were developed for children in a Cubist style. A bright color palette was select
 		image: IMAGES['still-life'],
 	},
 	'jacket-1': {
+		id: 'jacket-1',
 		name: "The hand-painted jacket",
 		year: 2024,
 		shortDescription: "acrylic for custom",
@@ -277,6 +304,7 @@ were developed for children in a Cubist style. A bright color palette was select
 		additionalImages: [IMAGES['jacket-1-2'], IMAGES['jacket-1-3']],
 	},
 	'shopper-bag-design-noise': {
+		id: 'shopper-bag-design-noise',
 		name: "Shopper bag design \"Noise\"",
 		year: 2025,
 		shortDescription: "35*38 cm, illustrator and photoshop",

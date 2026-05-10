@@ -6,16 +6,17 @@
 	import ArtPieceDialog from "$lib/components/artpiece/ArtPieceDialog.svelte";
 	import type { ArtPiece } from "$lib/types";
 
-	let { artPiece }: { artPiece: ArtPiece } = $props();
+	let { artPiece, aspectRatio = 408 / 600 }: { artPiece: ArtPiece; aspectRatio?: number } = $props();
 
 	let button: ArtPieceButton;
 	let dialogOpen = $state(false);
 </script>
 
-<div class="art-piece-preview">
+<div class="art-piece-preview art-piece-preview--{artPiece.id}">
 	<div
 		class="art-piece-preview__image"
 		role="figure"
+		style="aspect-ratio: {aspectRatio}; --focal-x: {artPiece.image.focalPoint.x * 100}%; --focal-y: {artPiece.image.focalPoint.y * 100}%;"
 		onclick={() => (dialogOpen = true)}
 		onmouseenter={(e) => button.handleMouseEnter(e)}
 		onmousemove={(e) => button.handleMouseMove(e)}
@@ -51,5 +52,19 @@
 
 	.art-piece-preview__image:hover {
 		cursor: none;
+	}
+
+	.art-piece-preview__image :global(.depth-wrapper),
+	.art-piece-preview__image :global(.depth-wrapper__content) {
+		width: 100%;
+		height: 100%;
+	}
+
+	.art-piece-preview__image :global(picture),
+	.art-piece-preview__image :global(img) {
+		width: 100%;
+		height: 100%;
+		object-fit: cover;
+		object-position: var(--focal-x, 50%) var(--focal-y, 50%);
 	}
 </style>

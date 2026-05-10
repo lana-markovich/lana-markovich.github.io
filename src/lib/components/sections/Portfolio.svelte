@@ -4,60 +4,57 @@
 	import { ART_PIECES } from "$lib/constants";
 	import type { ArtPieceId } from "$lib/constants";
 
-	const CATEGORIES: { label: string; items: ArtPieceId[] }[] = [
-		{
-			label: 'Paintings',
-			items: [
-				'melancholy', 'copy-la-grenouillere',
-				'forbidden-fruit-is-the-sweetest', 'isolation',
-				'portrait-1', 'confusion', 'nostalgia',
-				'anatomy-1', 'anatomy-2', 'nothing', 'reality-doesnt-exist',
-			],
-		},
-		{
-			label: 'Decor',
-			items: ['dresser-decoration-storks', 'jacket-1'],
-		},
-		{
-			label: 'Graphic Works',
-			items: ['body-1', 'pikoala', 'shopper-bag-design-noise'],
-		},
+	const ITEMS: { id: ArtPieceId; aspectRatio?: number; centerBadge?: boolean }[] = [
+		{ id: 'reality-doesnt-exist' },
+		{ id: 'landscape-1', aspectRatio: 384 / 450 },
+		{ id: 'copy-la-grenouillere', centerBadge: true },
+		{ id: 'iris', aspectRatio: 408 / 450 },
+		{ id: 'imagination', aspectRatio: 384 / 600 },
+		{ id: 'still-life', centerBadge: true },
+		{ id: 'nothing' },
+		{ id: 'what-does-it-mean', aspectRatio: 384 / 450 },
+		{ id: 'isolation', centerBadge: true },
+		{ id: 'jacket-1' },
+		{ id: 'dresser-decoration-storks', aspectRatio: 384 / 450 },
+		{ id: 'body-1', centerBadge: true },
+		{ id: 'pikoala', aspectRatio: 408 / 450 },
+		{ id: 'shopper-bag-design-noise', aspectRatio: 384 / 600 },
 	];
 </script>
 
 <BaseSection type="primary" class="portfolio">
 	<h2 class="heading heading--md">Portfolio</h2>
-	{#each CATEGORIES as category}
-		<div class="portfolio__category">
-			<h3 class="portfolio__category-label heading heading--xs">{category.label}</h3>
-			<div class="portfolio__grid">
-				{#each category.items as id}
-					<ArtPiecePreview artPiece={ART_PIECES[id]} />
-				{/each}
-			</div>
-		</div>
-	{/each}
+	<ul class="portfolio__items">
+		{#each ITEMS as item}
+			<li
+				class="portfolio__item"
+				class:portfolio__item--center-badge={item.centerBadge}
+				style="grid-area: {item.id}"
+			>
+				<ArtPiecePreview artPiece={ART_PIECES[item.id]} aspectRatio={item.aspectRatio}/>
+			</li>
+		{/each}
+	</ul>
 </BaseSection>
 
 <style>
-	.portfolio__category {
-		display: flex;
-		flex-direction: column;
-		gap: 2rem;
+	.portfolio__item--center-badge :global(.badge) {
+		align-self: center;
 	}
 
-	.portfolio__category + .portfolio__category {
-		margin-block-start: 5rem;
-	}
-
-	.portfolio__category-label {
-		color: var(--text-secondary);
-	}
-
-	.portfolio__grid {
+	.portfolio__items {
 		display: grid;
-		grid-template-columns: 1fr 1fr;
-		gap: 2.5rem;
-		align-items: start;
+		list-style: none;
+		grid-template-columns: var(--lines-columns-grid);
+		row-gap: 2.5rem;
+		grid-template-areas: "reality-doesnt-exist .                    landscape-1      "
+		                     ".                    copy-la-grenouillere .                "
+		                     "iris                 .                    imagination      "
+		                     ".                    still-life           .                "
+		                     "nothing              .                    what-does-it-mean"
+		                     ".                    isolation            .                "
+		                     "jacket-1             .                    dresser-decoration-storks"
+		                     ".                    body-1               .                "
+		                     "pikoala              .                    shopper-bag-design-noise";
 	}
 </style>

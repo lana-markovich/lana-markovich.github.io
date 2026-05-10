@@ -17,7 +17,8 @@ export interface ImageEntry {
 	zoom: number;  // 1..5
 }
 
-export interface ArtPiece {
+export interface ArtPiece<Id extends string = string> {
+	id: Id;
 	name: string;
 	year?: number;
 	shortDescription?: string;
