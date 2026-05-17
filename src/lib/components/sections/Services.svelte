@@ -19,7 +19,7 @@
 				'I create original paintings on commission, working closely with you to capture the subject, mood, and palette you have in mind.',
 				'Each piece is crafted with care and attention to detail, resulting in a one-of-a-kind artwork made just for you.',
 			],
-			tags: ['/portrait', '/abstract', '/canvas'],
+			tags: ['portrait', 'abstract', 'canvas'],
 		},
 		{
 			title: 'Print Design',
@@ -28,7 +28,7 @@
 				'I design prints for posters, apparel, and editorial use, blending illustration and typography into bold, distinctive visuals.',
 				'From concept to final file, I deliver print-ready artwork tailored to your brand and intended medium.',
 			],
-			tags: ['/poster', '/apparel', '/editorial'],
+			tags: ['poster', 'apparel', 'editorial'],
 		},
 		{
 			title: 'Interior Design',
@@ -37,7 +37,7 @@
 				'I bring interiors to life through custom hand-painted designs on furniture, walls, clothing, and various surfaces. From bold murals to delicate details.',
 				'I transform everyday objects into unique art pieces that add personality and character to your space. Each project is tailored to complement your style and vision.',
 			],
-			tags: ['/wallart', '/decor', '/interior'],
+			tags: ['wallart', 'decor', 'interior'],
 		},
 	];
 
@@ -98,7 +98,7 @@
 		position: relative;
 		flex: 1683 1 0;
 		overflow: hidden;
-		transition: flex-grow 0.7s cubic-bezier(0.645, 0.045, 0.355, 1);
+		transition: flex-grow 0.7s var(--easing-default);
 		cursor: pointer;
 		border-inline-start: var(--border--primary);
 		&::before {
@@ -136,7 +136,7 @@
 	:global(.service__image),
 	.service__text,
 	.service__tags {
-		transition: opacity 0.7s cubic-bezier(0.645, 0.045, 0.355, 1);
+		transition: opacity 0.7s var(--easing-default);
 	}
 	.service__inner {
 		width: calc(100cqw * 816 / 1200);
@@ -158,13 +158,15 @@
 	}
 	.service__text {
 		grid-area: text;
+		max-width: 25rem;
+		text-wrap: pretty;
 	}
 	.service__tags {
 		grid-area: tags;
 	}
 	.service__tag {
 		margin-block: 0;
-		color: var(--text-secondary);
+		color: var(--text-tertiary);
 	}
 
 	.service:not(.service--active) {
