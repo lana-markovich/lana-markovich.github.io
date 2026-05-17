@@ -23,6 +23,7 @@ body {
 	font-weight: 400;
 	line-height: 1.16em;
 	text-transform: uppercase;
+	margin-block: 0 0.25em;
 }
 
 .heading--md {
@@ -47,7 +48,7 @@ body {
 
 .text {
 	font-size: 1rem; /* 16px */
-	font-weight: 400;
+	font-weight: 300;
 	line-height: 1.4em; /* 24px / 16px */
 	letter-spacing: -0.03em;
 	color: var(--text-primary);
@@ -69,10 +70,13 @@ body {
 .color-secondary {
 	color: var(--text-secondary);
 }
+.color-tertiary {
+	color: var(--text-tertiary);
+}
 
 .reveal-letter {
 	opacity: 0.33;
-	transition: opacity var(--reveal-letter-duration, 300ms) ease-out;
+	transition: opacity var(--reveal-letter-duration, 300ms) var(--easing-default);;
 }
 
 .reveal-letter[data-revealed="true"] {

@@ -17,6 +17,9 @@
 	--lines-columns-grid: 408fr 408fr 384fr;
 	--lines-columns-grid-nav: 408fr 408fr 192fr 192fr;
 
+	/* Animation */
+	--easing-default: cubic-bezier(0.645, 0.045, 0.355, 1);
+
 	--breakpoint-sm: 50rem; /* Not used */
 	--breakpoint-md: 70rem; /* Not used */
 	--breakpoint-lg: 90rem;
@@ -30,6 +33,7 @@
 	/* Text Colors */
 	--text-primary: var(--black-800);
 	--text-secondary: color-mix(in srgb, var(--text-primary) 80%, transparent);
+	--text-tertiary: color-mix(in srgb, var(--text-primary) 20%, transparent);
 
 	/* Borders */
 	--border--primary: 1px solid color-mix(in srgb, var(--black-800) 50%, transparent);
