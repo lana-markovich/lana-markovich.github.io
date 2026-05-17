@@ -20,7 +20,6 @@
 
 <BaseSection class="footer" id="contacts">
 	<h2 class="heading heading--md footer__subheading">Contacts</h2>
-	<p class="text footer__text">You can ask anything about my work and how you can collaborate with me</p>
 	<div class="contacts-section" use:dockEffect={{ maxScale: 1.5, affectedNeighbors: 2, spreadFactor: 20 }}>
 		{#each contacts as contact}
 			<div>
@@ -41,12 +40,6 @@
 	.footer__subheading {
 		margin-block-end: 1.5em;
 		grid-area: subheading;
-	}
-
-	.footer__text {
-		grid-area: text;
-		max-width: 25ch;
-		margin-block-end: 4.7em;
 	}
 
 	.contacts-section {

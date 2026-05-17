@@ -10,7 +10,7 @@
 		<h2 class="heading heading--md about-me__subheading">About me</h2>
 		<h3 class="heading heading--lg about-me__heading">
 			Master of Fine Arts —<br>
-			Academy of Fine Arts in Venice
+			Academy in Venice
 		</h3>
 
 		<p class="text about-me__text">
@@ -20,7 +20,7 @@
 
 		<div class="about-me__image-wrapper">
 			<DecorationWrapper decorationPosition="bottom-left">
-				<BaseImage name={IMAGES['about-me'].id} alt={IMAGES['about-me'].alt} />
+				<BaseImage name={IMAGES['about-me'].id} alt={IMAGES['about-me'].alt}/>
 			</DecorationWrapper>
 		</div>
 	</div>
