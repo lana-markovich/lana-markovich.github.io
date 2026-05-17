@@ -39,10 +39,10 @@
 		opacity: 0;
 		transform: translateY(8px) scale(0.98);
 		transition:
-			opacity 200ms ease-out,
-			transform 200ms ease-out,
-			overlay 200ms ease-out allow-discrete,
-			display 200ms ease-out allow-discrete;
+			opacity 200ms var(--easing-default),
+			transform 200ms var(--easing-default),
+			overlay 200ms var(--easing-default) allow-discrete,
+			display 200ms var(--easing-default) allow-discrete;
 	}
 
 	dialog[open] {
@@ -60,9 +60,9 @@
 	dialog::backdrop {
 		background: rgba(0, 0, 0, 0);
 		transition:
-			background 200ms ease-out,
-			display 200ms ease-out allow-discrete,
-			overlay 200ms ease-out allow-discrete;
+			background 200ms var(--easing-default),
+			display 200ms var(--easing-default) allow-discrete,
+			overlay 200ms var(--easing-default) allow-discrete;
 	}
 
 	dialog[open]::backdrop {

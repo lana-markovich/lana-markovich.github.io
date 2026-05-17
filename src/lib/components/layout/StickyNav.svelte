@@ -43,8 +43,8 @@
 		transform: translateY(-8px);
 		pointer-events: none;
 		transition:
-			opacity 200ms ease-out,
-			transform 200ms ease-out;
+			opacity 200ms var(--easing-default),
+			transform 200ms var(--easing-default);
 	}
 
 	:global(.sticky-nav .container) {

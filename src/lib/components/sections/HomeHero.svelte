@@ -103,7 +103,7 @@
 		font-weight: 400;
 		line-height: 1;
 		margin: 0;
-		transition: color 0.7s ease;
+		transition: color 0.7s var(--easing-default);
 		margin-inline-end: -0.75cqw;
 		&.home-hero__heading--is-inverted {
 			color: var(--black-200);
