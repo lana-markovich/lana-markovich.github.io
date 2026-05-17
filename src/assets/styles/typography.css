@@ -69,3 +69,12 @@ body {
 .color-secondary {
 	color: var(--text-secondary);
 }
+
+.reveal-letter {
+	opacity: 0.33;
+	transition: opacity var(--reveal-letter-duration, 300ms) ease-out;
+}
+
+.reveal-letter[data-revealed="true"] {
+	opacity: 1;
+}

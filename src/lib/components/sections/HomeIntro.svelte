@@ -4,6 +4,7 @@
 	import { IMAGES } from "$lib/images";
 	import MouseTrackingMask from "$lib/components/base/MouseTrackingMask.svelte";
 	import type { MouseTrackingMaskInstance } from "$lib/types";
+	import { scrollColorReveal } from "$lib/utilities/scrollColorReveal";
 
 	let mask: MouseTrackingMaskInstance;
 
@@ -19,7 +20,7 @@
 		</MouseTrackingMask>
 	{/snippet}
 
-	<div class="home-intro__text-container">
+	<div class="home-intro__text-container" use:scrollColorReveal>
 		<p class="heading heading--lg home-intro__text">
 			I create art across painting, graphics, and sculpture
 		</p>

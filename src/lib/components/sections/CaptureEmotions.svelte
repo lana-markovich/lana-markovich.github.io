@@ -4,6 +4,7 @@
 	import { IMAGES } from "$lib/images";
 	import MouseTrackingMask from "$lib/components/base/MouseTrackingMask.svelte";
 	import type { MouseTrackingMaskInstance } from "$lib/types";
+	import { scrollColorReveal } from "$lib/utilities/scrollColorReveal";
 
 	let mask: MouseTrackingMaskInstance;
 
@@ -19,8 +20,8 @@
 		</MouseTrackingMask>
 	{/snippet}
 
-	<div class="capture-emotions__text-container">
-		<p class="heading heading--lg capture-emotions__text">
+	<div class="capture-emotions__text-container" use:scrollColorReveal>
+		<p class="heading heading--lg capture-emotions__text" >
 			Through charcoal, pastel, and ink, I capture raw human emotions and inner states
 		</p>
 		<p class="heading heading--lg capture-emotions__text">
