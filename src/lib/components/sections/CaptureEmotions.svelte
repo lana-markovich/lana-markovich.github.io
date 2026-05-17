@@ -16,18 +16,30 @@
 <BaseSection type="secondary" class="capture-emotions" onmousemove={handleMouseMove}>
 	{#snippet prepend()}
 		<MouseTrackingMask bind:this={mask} initialX="20%" initialY="5%">
-			<FramedImage image={IMAGES['capture-emotions']} />
+			<FramedImage image={IMAGES['capture-emotions']}/>
 		</MouseTrackingMask>
 	{/snippet}
 
-	<div class="capture-emotions__text-container" use:scrollColorReveal>
-		<p class="heading heading--lg capture-emotions__text" >
-			Through charcoal, pastel, and ink, I capture raw human emotions and inner states
-		</p>
-		<p class="heading heading--lg capture-emotions__text">
-			translating psychological depth into visual narratives
-		</p>
+	<div class="capture-emotions__text-container" use:scrollColorReveal={{ pxPerLetter: 4 }}>
+		<div class="capture-emotions__text">
+			<h2 class="heading heading--lg">
+				From canvas to clothing
+			</h2>
+			<p class="text text--secondary">
+				I paint furniture, objects, fabric. Not as a side project — it's the same thinking applied to the things people
+				actually live with every day.
+			</p>
+		</div>
+		<div class="capture-emotions__text">
+			<h2 class="heading heading--lg">
+				Raw emotions made visible
+			</h2>
+			<p class="text text--secondary">
+				Charcoal, pastel and ink for when something is more psychological than visual. These materials don't pretend.
+			</p>
+		</div>
 	</div>
+
 
 </BaseSection>
 
@@ -37,12 +49,12 @@
 		display: grid;
 		grid-template-columns: var(--lines-columns-grid);
 		row-gap: 2.5rem;
-		grid-template-areas: "text1 text1 .    "
-		                     ".     text2 text2";
+		grid-template-areas: ".     text1 text1"
+		                     "text2 text2 .    ";
 	}
 
 	.capture-emotions__text {
-		max-inline-size: 26ch;
+		max-inline-size: 32rem;
 		text-wrap-style: balance;
 		&:nth-child(1) {
 			grid-area: text1;
