@@ -9,10 +9,13 @@
 	--container-padding-block: 7.5rem;
 	--container-max-width: 82.5rem;
 
-	--container-lines-count: 3;
 	--container-width: min(var(--container-max-width), 100vw - (var(--section-padding-inline) * 2));
-	--container-colunm-width: calc(var(--container-width) / var(--container-lines-count));
+	--container-colunm-width: calc(var(--container-width) * 408 / 1200);
 	--container-to-screen-side-width: max(var(--section-padding-inline), calc((100vw - var(--container-width)) / 2));
+
+	--lines-columns-grid-column-count: 3;
+	--lines-columns-grid: 408fr 408fr 384fr;
+	--lines-columns-grid-nav: 408fr 408fr 192fr 192fr;
 
 	--breakpoint-sm: 50rem; /* Not used */
 	--breakpoint-md: 70rem; /* Not used */

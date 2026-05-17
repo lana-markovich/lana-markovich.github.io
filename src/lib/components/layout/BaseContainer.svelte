@@ -14,9 +14,6 @@
 		position: relative;
 		container-type: inline-size;
 		container-name: base-container;
-
-		--lines-columns-grid-column-count: 3;
-		--lines-columns-grid: repeat(var(--lines-columns-grid-column-count), 1fr);
 	}
 
 	.section__lines {
@@ -31,7 +28,12 @@
 		content: "";
 		display: block;
 		height: 100%;
-		width: calc(100% / 3);
 		border-inline: var(--border--secondary);
+	}
+	.section__lines::before {
+		width: calc(100% * 408 / 1200);
+	}
+	.section__lines::after {
+		width: calc(100% * 384 / 1200);
 	}
 </style>

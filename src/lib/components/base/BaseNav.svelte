@@ -21,7 +21,7 @@
 <style>
 	.nav__list {
 		display: grid;
-		grid-template-columns: 1fr 1fr 0.5fr 0.5fr;
+		grid-template-columns: var(--lines-columns-grid-nav);
 	}
 
 	.nav__item {

@@ -17,6 +17,6 @@
 <style>
 	.links {
 		display: grid;
-		grid-template-columns: 1fr 1fr 1fr;
+		grid-template-columns: var(--lines-columns-grid);
 	}
 </style>

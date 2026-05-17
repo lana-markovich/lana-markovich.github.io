@@ -96,9 +96,9 @@
 
 	.service {
 		position: relative;
-		flex: 4;
+		flex: 1683 1 0;
 		overflow: hidden;
-		transition: flex-grow 0.6s ease;
+		transition: flex-grow 0.7s cubic-bezier(0.645, 0.045, 0.355, 1);
 		cursor: pointer;
 		border-inline-start: var(--border--primary);
 		&::before {
@@ -109,6 +109,16 @@
 			width: 2.5rem;
 			border-block-end: var(--border--primary);
 		}
+	}
+	.service:nth-child(1):not(.service--active),
+	.service:nth-child(2):not(.service--active) {
+		flex: 408 1 0;
+	}
+	.service:nth-child(3):not(.service--active) {
+		flex: 384 1 0;
+	}
+	.service:nth-child(3).service--active {
+		flex: 1584 1 0;
 	}
 	.service__header {
 		padding: 0.5rem;
@@ -126,10 +136,13 @@
 	:global(.service__image),
 	.service__text,
 	.service__tags {
-		transition: opacity 0.4s ease;
+		transition: opacity 0.7s cubic-bezier(0.645, 0.045, 0.355, 1);
 	}
 	.service__inner {
-		width: calc(100cqw * 2 / 3);
+		width: calc(100cqw * 816 / 1200);
+	}
+	.service:nth-child(3) .service__inner {
+		width: calc(100cqw * 792 / 1200);
 	}
 	.service__main {
 		display: grid;
@@ -155,7 +168,6 @@
 	}
 
 	.service:not(.service--active) {
-		flex: 1;
 		:global(.service__image),
 		.service__text,
 		.service__tags {
