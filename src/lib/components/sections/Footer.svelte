@@ -3,6 +3,7 @@
 	import CopyrightInfo from "$lib/components/base/CopyrightInfo.svelte";
 	import DecorationWrapper from "$lib/components/base/DecorationWrapper.svelte";
 	import { dockEffect } from "$lib/utilities/dockEffect";
+	import { sectionHeading } from "$lib/utilities/sectionHeading";
 	import telegram from "../../../assets/images/contact-icons/telegram.svg";
 	import instagram from "../../../assets/images/contact-icons/instagram.svg";
 	import behance from "../../../assets/images/contact-icons/behance.svg";
@@ -19,7 +20,7 @@
 </script>
 
 <BaseSection class="footer" id="contacts">
-	<h2 class="heading heading--md footer__subheading">Contacts</h2>
+	<h2 class="heading heading--md footer__subheading" use:sectionHeading>Contacts</h2>
 	<div class="contacts-section" use:dockEffect={{ maxScale: 1.5, affectedNeighbors: 2, spreadFactor: 20 }}>
 		{#each contacts as contact}
 			<div>
@@ -33,7 +34,8 @@
 			</div>
 		{/each}
 	</div>
-	<CopyrightInfo/>
+	<p class="heading heading--xl footer__name">sviatlana markovich</p>
+<!--	<CopyrightInfo/>-->
 </BaseSection>
 
 <style>

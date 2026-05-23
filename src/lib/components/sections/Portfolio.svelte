@@ -3,6 +3,7 @@
 	import ArtPiecePreview from "$lib/components/artpiece/ArtPiecePreview.svelte";
 	import { ART_PIECES } from "$lib/constants";
 	import type { ArtPieceId } from "$lib/constants";
+	import { sectionHeading } from "$lib/utilities/sectionHeading";
 
 	const ITEMS: { id: ArtPieceId; aspectRatio?: number; centerBadge?: boolean }[] = [
 		{ id: 'reality-doesnt-exist' },
@@ -23,7 +24,7 @@
 </script>
 
 <BaseSection type="primary" class="portfolio" id="portfolio">
-	<h2 class="heading heading--md">Portfolio</h2>
+	<h2 class="heading heading--md" use:sectionHeading>Portfolio</h2>
 	<ul class="portfolio__items">
 		{#each ITEMS as item}
 			<li

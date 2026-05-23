@@ -3,6 +3,7 @@
 	import FramedImage from "$lib/components/base/FramedImage.svelte";
 	import { IMAGES } from "$lib/images";
 	import type { ImageEntry } from "$lib/types";
+	import { sectionHeading } from "$lib/utilities/sectionHeading";
 
 	type Service = {
 		title: string;
@@ -45,7 +46,7 @@
 </script>
 
 <BaseSection class="services" id="services">
-	<h2 class="heading heading--md">Services</h2>
+	<h2 class="heading heading--md" use:sectionHeading>Services</h2>
 	<ol class="services__list">
 		{#each services as service, i}
 			<li class="service" class:service--active={i === activeIndex}>

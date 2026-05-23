@@ -3,11 +3,12 @@
 	import DecorationWrapper from "$lib/components/base/DecorationWrapper.svelte";
 	import BaseImage from "$lib/components/base/BaseImage.svelte";
 	import { IMAGES } from "$lib/images";
+	import { sectionHeading } from "$lib/utilities/sectionHeading";
 </script>
 
 <BaseSection type="secondary" class="about-me" id="about">
 	<div class="about-me__container-inner">
-		<h2 class="heading heading--md about-me__subheading">About me</h2>
+		<h2 class="heading heading--md about-me__subheading" use:sectionHeading>About me</h2>
 		<h3 class="heading heading--lg about-me__heading">
 			Master of Fine Arts —<br>
 			Academy in Venice
