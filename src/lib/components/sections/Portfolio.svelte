@@ -31,7 +31,7 @@
 	];
 </script>
 
-<BaseSection type="primary" class="portfolio" id="portfolio">
+<BaseSection type="secondary" class="portfolio" id="portfolio">
 	<h2 class="heading heading--md" use:sectionHeading>Portfolio</h2>
 
 	<ul class="portfolio__items portfolio__items--painting">

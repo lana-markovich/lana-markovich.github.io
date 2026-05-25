@@ -39,8 +39,11 @@
 </BaseSection>
 
 <style>
+	:global(.footer .container) {
+		padding-block-end: 0;
+	}
 	.footer__subheading {
-		margin-block-end: 1.5em;
+		margin-block-end: 5rem;
 		grid-area: subheading;
 	}
 
@@ -48,7 +51,7 @@
 		display: flex;
 		justify-content: space-between;
 		align-items: center;
-		margin-block-end: 12em;
+		margin-block-end: 7.5rem;
 	}
 
 	.contacts-section > div {
