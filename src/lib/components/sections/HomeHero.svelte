@@ -6,6 +6,7 @@
 	import type { ImageEntry, ArtPiece } from "$lib/types";
 	import { ART_PIECES } from "$lib/constants";
 	import type { ArtPieceId } from "$lib/constants";
+	import BaseButton from "$lib/components/base/BaseButton.svelte";
 
 	let hoveredImageId: ImageEntry["id"] | null = null;
 
@@ -24,7 +25,7 @@
 		'portrait-2',
 		'anatomy-1',
 		'anatomy-2',
-		'deer',
+		// 'deer',
 	];
 
 	const artworks: ArtPiece[] = heroIds.map(id => ART_PIECES[id]);
@@ -57,6 +58,12 @@
 				</button>
 			</li>
 		{/each}
+		<BaseButton
+			href="#portfolio"
+			variant={Boolean(hoveredImageId) ? "white" : "black"}
+		>
+			View more
+		</BaseButton>
 	</ul>
 
 	<div class="home-hero__nav-wrapper">
@@ -76,6 +83,7 @@
 		grid-template-rows: repeat(var(--rows-count), 1fr);;
 		row-gap: 5rem;
 		width: 100%;
+		justify-items: start;
 	}
 
 	.home-hero__badge :global(.badge) {

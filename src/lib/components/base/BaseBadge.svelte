@@ -15,7 +15,7 @@
 		gap: 0.5rem;
 		padding: 0.5rem;
 		width: fit-content;
-		box-shadow: inset 2px 2px 15px 0px rgba(0, 0, 0, 0.45);
+		box-shadow: inset 2px 2px 6px 0px rgba(0, 0, 0, 0.45);
 	}
 
 	.heading--xs,

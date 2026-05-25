@@ -161,6 +161,7 @@
 		grid-area: text;
 		max-width: 25rem;
 		text-wrap: pretty;
+		padding-inline-end: 0.5em;
 	}
 	.service__tags {
 		grid-area: tags;
