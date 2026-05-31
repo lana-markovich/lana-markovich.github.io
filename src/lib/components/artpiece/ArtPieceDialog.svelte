@@ -51,6 +51,7 @@
 	}
 	.art-piece-dialog__close {
 		position: absolute;
+		z-index: 2;
 		top: 0.85rem;
 		right: 1.25rem;
 		background: none;

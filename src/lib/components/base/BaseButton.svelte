@@ -36,10 +36,10 @@
 		font-family: inherit;
 		box-shadow: 2px 2px 6px 0px rgba(0, 0, 0, 0.45);
 		transition:
-			background-color 300ms var(--easing-default),
-			color 300ms var(--easing-default),
-			transform 300ms var(--easing-default),
-			box-shadow 300ms var(--easing-default);
+			background-color 500ms ease,
+			color 500ms ease,
+			transform 500ms var(--easing-default),
+			box-shadow 500ms ease;
 	}
 
 	.button__label {
