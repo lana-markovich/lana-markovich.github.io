@@ -1,37 +1,71 @@
 import type { Action } from 'svelte/action';
-import { observeMidline } from './viewportMidline';
+import { seenSections } from '$lib/stores/seenSections.svelte';
 
 const CURRENT_CLASS = 'section-heading';
 
 const headings = new Map<Element, HTMLElement>();
-let stop: (() => void) | null = null;
+let rafId: number | null = null;
 
-function refresh(): void {
-	if (stop) {
-		stop();
-		stop = null;
+function recompute(): void {
+	rafId = null;
+	const viewportMid = window.innerHeight / 2;
+
+	for (const section of headings.keys()) {
+		const rect = section.getBoundingClientRect();
+		const sectionMid = rect.top + rect.height / 2;
+		const seen = sectionMid < viewportMid;
+		const id = (section as HTMLElement).id;
+		if (!id) continue;
+		if (seen) seenSections.add(id);
+		else seenSections.delete(id);
 	}
-	if (headings.size === 0) return;
 
-	stop = observeMidline(Array.from(headings.keys()), (current) => {
-		for (const [section, heading] of headings) {
-			heading.classList.toggle(CURRENT_CLASS, section === current);
-		}
-	});
+	for (const [section, heading] of headings) {
+		heading.classList.toggle(CURRENT_CLASS, seenSections.has((section as HTMLElement).id));
+	}
+}
+
+function schedule(): void {
+	if (rafId === null) {
+		rafId = requestAnimationFrame(recompute);
+	}
+}
+
+function attach(): void {
+	window.addEventListener('scroll', schedule, { passive: true });
+	window.addEventListener('resize', schedule, { passive: true });
+	schedule();
+}
+
+function detach(): void {
+	window.removeEventListener('scroll', schedule);
+	window.removeEventListener('resize', schedule);
+	if (rafId !== null) {
+		cancelAnimationFrame(rafId);
+		rafId = null;
+	}
 }
 
 export const sectionHeading: Action<HTMLElement> = (node) => {
 	const section = node.closest('section');
 	if (!section) return;
 
+	const wasEmpty = headings.size === 0;
 	headings.set(section, node);
-	refresh();
+
+	if (seenSections.has((section as HTMLElement).id)) {
+		node.classList.add(CURRENT_CLASS);
+	}
+
+	if (wasEmpty) attach();
+	else schedule();
 
 	return {
 		destroy() {
 			headings.delete(section);
 			node.classList.remove(CURRENT_CLASS);
-			refresh();
+			if (headings.size === 0) detach();
+			else schedule();
 		},
 	};
 };
