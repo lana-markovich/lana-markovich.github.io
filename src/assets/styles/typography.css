@@ -84,6 +84,17 @@ body {
 	color: var(--text-primary);
 }
 
+/* Phones only (container ≤ 33rem ⟺ viewport ≤ 560px) */
+@container base-container (width <= 33rem) {
+	.heading--xs {
+		font-size: 0.75rem; /* 12px */
+	}
+
+	.text {
+		font-size: 0.875rem; /* 14px */
+	}
+}
+
 .text--secondary {
 	font-weight: 300;
 	color: var(--text-secondary);

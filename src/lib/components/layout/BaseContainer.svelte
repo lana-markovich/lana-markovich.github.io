@@ -36,4 +36,16 @@
 	.section__lines::after {
 		width: calc(100% * 384 / 1200);
 	}
+
+	/* Tablets and below: only the two lines at the content edges */
+	@container base-container (width <= 60rem) {
+		.section__lines::before {
+			width: 0;
+			border-inline-end: none;
+		}
+		.section__lines::after {
+			width: 0;
+			border-inline-start: none;
+		}
+	}
 </style>

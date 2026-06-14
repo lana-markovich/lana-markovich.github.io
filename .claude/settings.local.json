@@ -25,7 +25,10 @@
       "Bash(bash \"C:/Users/kiril/.claude/plugins/cache/claude-plugins-official/superpowers/5.0.6/skills/brainstorming/scripts/start-server.sh\" --project-dir \"C:/git/sviatlanamarkovich.gihtub.io\")",
       "Bash(npx tsx:*)",
       "Bash(npm run:*)",
-      "Bash(npx svelte-check *)"
+      "Bash(npx svelte-check *)",
+      "PowerShell(Add-Type -AssemblyName System.Drawing; $img = [System.Drawing.Image]::FromFile\\('C:\\\\git\\\\sviatlanamarkovich.gihtub.io\\\\mobile\\\\sec_1.png'\\); \"$\\($img.Width\\) x $\\($img.Height\\)\"; $img.Dispose\\(\\))",
+      "PowerShell(npm run *)",
+      "PowerShell(git add *)"
     ],
     "deny": [],
     "ask": []

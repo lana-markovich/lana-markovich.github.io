@@ -63,4 +63,17 @@
 		}
 	}
 
+	@container base-container (width <= 60rem) {
+		.nav__list {
+			display: flex;
+			justify-content: space-between;
+			flex-wrap: wrap;
+			gap: 0.5rem 1rem;
+		}
+
+		.nav__link {
+			font-size: 0.875rem;
+		}
+	}
+
 </style>

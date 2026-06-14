@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { MediaQuery } from "svelte/reactivity";
 	import BaseSection from "$lib/components/layout/BaseSection.svelte";
 	import BaseBadge from "$lib/components/base/BaseBadge.svelte";
 	import BaseNav from "$lib/components/base/BaseNav.svelte";
@@ -8,7 +9,11 @@
 	import type { ArtPieceId } from "$lib/constants";
 	import BaseButton from "$lib/components/base/BaseButton.svelte";
 
-	let hoveredImageId: ImageEntry["id"] | null = null;
+	/* Must stay in sync with the 60rem container query below: container ≤ 60rem ⟺ viewport ≤ 65rem */
+	const isCompact = new MediaQuery("(max-width: 65rem)");
+
+	let hoveredImageId = $state<ImageEntry["id"] | null>(null);
+	let selectedImageId = $state<ImageEntry["id"] | null>(null);
 
 	const heroIds: ArtPieceId[] = [
 		'melancholy',
@@ -31,52 +36,129 @@
 	const artworks: ArtPiece[] = heroIds.map(id => ART_PIECES[id]);
 	const images = artworks.map(artwork => artwork.image);
 
+	const currentImageId = $derived(
+		hoveredImageId ?? (isCompact.current ? selectedImageId : null)
+	);
+	const isInverted = $derived(Boolean(currentImageId));
+
+	/* Fit as many badge rows as the target section height (max(100svh, 500px)) allows.
+	   Measured in an effect on mount — effects run before first paint, so the initial
+	   render never flashes the wrong count. */
+	let probeEl = $state<HTMLDivElement>();
+	let badgesEl = $state<HTMLUListElement>();
+	let headingEl = $state<HTMLHeadingElement>();
+	let navWrapperEl = $state<HTMLDivElement>();
+
+	let badgeCount = $state(artworks.length);
+	let gridCols = $state(3);
+
+	const visibleArtworks = $derived(artworks.slice(0, badgeCount));
+	const gridRows = $derived(Math.ceil((badgeCount + 1) / gridCols));
+
+	function outerBlockSize(el: HTMLElement): number {
+		const style = getComputedStyle(el);
+		return el.offsetHeight + parseFloat(style.marginBlockStart) + parseFloat(style.marginBlockEnd);
+	}
+
+	function recomputeBadgeCount() {
+		if (!probeEl || !badgesEl || !headingEl || !navWrapperEl) return;
+		const container = badgesEl.closest(".container") as HTMLElement | null;
+		const firstBadge = badgesEl.querySelector("li");
+		if (!container || !firstBadge) return;
+
+		const containerStyle = getComputedStyle(container);
+		const contentAvailable = probeEl.offsetHeight
+			- parseFloat(containerStyle.paddingBlockStart)
+			- parseFloat(containerStyle.paddingBlockEnd);
+		const badgesAvailable = contentAvailable - outerBlockSize(headingEl) - outerBlockSize(navWrapperEl);
+
+		const badgesStyle = getComputedStyle(badgesEl);
+		const gap = parseFloat(badgesStyle.rowGap) || 0;
+		const rowHeight = firstBadge.offsetHeight;
+
+		const rows = Math.max(1, Math.floor((badgesAvailable + gap) / (rowHeight + gap)));
+		gridCols = badgesStyle.gridTemplateColumns.split(" ").length;
+		/* −1 cell for the "View more" button */
+		badgeCount = Math.min(artworks.length, Math.max(1, rows * gridCols - 1));
+	}
+
+	$effect(() => {
+		recomputeBadgeCount();
+		const observer = new ResizeObserver(() => recomputeBadgeCount());
+		if (probeEl) observer.observe(probeEl); /* viewport height changes */
+		const container = badgesEl?.closest(".container");
+		if (container) observer.observe(container); /* width / tier changes */
+		document.fonts?.ready.then(() => recomputeBadgeCount());
+		return () => observer.disconnect();
+	});
 </script>
 
-<BaseSection type="secondary" id="hero"
+<BaseSection type="secondary" id="hero" class="home-hero"
 >
 	{#snippet prepend()}
-		<ImagesSlider images={images} currentImage={hoveredImageId}/>
+		<ImagesSlider images={images} currentImage={currentImageId}/>
 	{/snippet}
-	<ul class="home-hero__badges" style="--items-count: {artworks.length};">
-		{#each artworks as artwork}
-			<li class="home-hero__badge">
-				<button
-					type="button"
-					class="home-hero__badge-btn"
-					on:mouseenter={(e) => { (e.currentTarget as HTMLButtonElement).focus({ preventScroll: true }); }}
-					on:mouseleave={(e) => { (e.currentTarget as HTMLButtonElement).blur(); }}
-					on:focus={() => { hoveredImageId = artwork.image.id; }}
-					on:blur={() => { hoveredImageId = null; }}
+	<div class="home-hero__height-probe" bind:this={probeEl}></div>
+	<div class="home-hero__layout">
+		<ul class="home-hero__badges" style="--rows-count: {gridRows};" bind:this={badgesEl}>
+			{#each visibleArtworks as artwork (artwork.image.id)}
+				<li
+					class="home-hero__badge"
+					class:home-hero__badge--is-active={artwork.image.id === currentImageId}
 				>
-					<BaseBadge>
-						{artwork.name} ({artwork.year})
-						<svelte:fragment slot="text">
-							{artwork.shortDescription}
-						</svelte:fragment>
-					</BaseBadge>
-				</button>
+					<button
+						type="button"
+						class="home-hero__badge-btn"
+						onmouseenter={(e) => { (e.currentTarget as HTMLButtonElement).focus({ preventScroll: true }); }}
+						onmouseleave={(e) => { (e.currentTarget as HTMLButtonElement).blur(); }}
+						onfocus={() => { hoveredImageId = artwork.image.id; }}
+						onblur={() => { hoveredImageId = null; }}
+						onclick={() => { selectedImageId = artwork.image.id; }}
+					>
+						<BaseBadge>
+							{artwork.name} ({artwork.year})
+							<svelte:fragment slot="text">
+								{artwork.shortDescription}
+							</svelte:fragment>
+						</BaseBadge>
+					</button>
+				</li>
+			{/each}
+			<li class="home-hero__view-more-btn">
+				<BaseButton
+					href="#portfolio"
+					variant={isInverted ? "white" : "black"}
+				>
+					View more
+				</BaseButton>
 			</li>
-		{/each}
-		<BaseButton
-			href="#portfolio"
-			variant={Boolean(hoveredImageId) ? "white" : "black"}
-		>
-			View more
-		</BaseButton>
-	</ul>
+		</ul>
 
-	<div class="home-hero__nav-wrapper">
-		<BaseNav isInverted={Boolean(hoveredImageId)}/>
+		<div class="home-hero__nav-wrapper" bind:this={navWrapperEl}>
+			<BaseNav isInverted={isInverted}/>
+		</div>
+
+		<h1 class="heading heading--xl home-hero__heading {isInverted ? 'home-hero__heading--is-inverted' : ''}" bind:this={headingEl}>sviatlana markovich</h1>
 	</div>
-
-	<h1 class="heading heading--xl home-hero__heading {Boolean(hoveredImageId) ? 'home-hero__heading--is-inverted' : ''}">sviatlana markovich</h1>
 </BaseSection>
 
 <style>
-	.home-hero__badges {
-		--rows-count: calc(var(--items-count) / var(--lines-columns-grid-column-count));
+	/* svh keeps the height stable while the mobile URL bar collapses; vh is the fallback */
+	:global(.section.home-hero) {
+		--height: clamp(31.25rem, 100svh, 73.6rem);
+		min-block-size: var(--height);
+	}
 
+	.home-hero__height-probe {
+		position: absolute;
+		inset-block-start: 0;
+		inline-size: 0;
+		block-size: var(--height);
+		visibility: hidden;
+		pointer-events: none;
+	}
+
+	.home-hero__badges {
 		display: grid;
 		grid-auto-flow: column;
 		grid-template-columns: var(--lines-columns-grid);
@@ -86,12 +168,18 @@
 		justify-items: start;
 	}
 
+	.home-hero__view-more-btn {
+		display: flex;
+	}
+
 	.home-hero__badge :global(.badge) {
 		transition: opacity 0.7s ease;
 	}
 
-	.home-hero__badges:has(.home-hero__badge-btn:focus) .home-hero__badge-btn:not(:focus) :global(.badge) {
-		opacity: 0.2;
+	@container base-container (width > 60rem) {
+		.home-hero__badges:has(.home-hero__badge-btn:focus) .home-hero__badge-btn:not(:focus) :global(.badge) {
+			opacity: 0.2;
+		}
 	}
 
 	.home-hero__badge-btn {
@@ -113,4 +201,56 @@
 			color: var(--black-200);
 		}
 	}
+
+	/* Tablets and below: container ≤ 60rem ⟺ viewport ≤ 65rem (see MediaQuery in script).
+	   Keeps the desktop element order (badges → nav → heading), badges in 2 columns. */
+	@container base-container (width <= 60rem) {
+		.home-hero__badges {
+			grid-auto-flow: row;
+			grid-template-columns: repeat(2, 1fr);
+			grid-template-rows: none;
+			grid-auto-rows: 1fr;
+		}
+
+		.home-hero__badge :global(.badge) {
+			opacity: 0.35;
+		}
+
+		.home-hero__badge--is-active :global(.badge) {
+			opacity: 1;
+		}
+	}
+
+	/* Phones: container ≤ 33rem ⟺ viewport ≤ 35rem/560px (with the 1rem side padding).
+	   Reorders to heading → nav → badges, one alternating column. */
+	@container base-container (width <= 33rem) {
+		.home-hero__layout {
+			display: flex;
+			flex-direction: column;
+		}
+
+		.home-hero__heading {
+			order: 1;
+			align-self: center;
+			text-align: center;
+			font-size: 24cqw;
+			margin-inline-end: 0;
+		}
+
+		.home-hero__nav-wrapper {
+			order: 2;
+			margin-block: 1.5rem 3rem;
+		}
+
+		.home-hero__badges {
+			order: 3;
+			grid-template-columns: 1fr;
+			row-gap: 1.75rem;
+		}
+
+		.home-hero__badges > :nth-child(even) {
+			justify-self: end;
+		}
+	}
+
 </style>

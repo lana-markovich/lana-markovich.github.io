@@ -39,3 +39,18 @@
 	--border--primary: 1px solid color-mix(in srgb, var(--black-800) 50%, transparent);
 	--border--secondary: 1px solid color-mix(in srgb, var(--black-800) 10%, transparent);
 }
+
+/* Tablets and below (viewport ≤ 65rem ⟺ container ≤ 60rem) */
+@media (max-width: 65rem) {
+	:root {
+		--container-padding-block: 4rem;
+	}
+}
+
+/* Phones only: narrower side padding widens the container, so this must stay
+   well below the 65rem breakpoint to keep container ≤ 60rem ⟺ viewport ≤ 65rem true */
+@media (max-width: 50rem) {
+	:root {
+		--section-padding-inline: 1rem;
+	}
+}
