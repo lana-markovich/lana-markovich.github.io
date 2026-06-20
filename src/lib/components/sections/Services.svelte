@@ -56,6 +56,13 @@
 					tabindex="0"
 					onmouseenter={() => (activeIndex = i)}
 					onfocus={() => (activeIndex = i)}
+					onclick={() => (activeIndex = i)}
+					onkeydown={(e) => {
+						if (e.key === "Enter" || e.key === " ") {
+							e.preventDefault();
+							activeIndex = i;
+						}
+					}}
 				>
 					<header class="service__header">
 						<span class="service__index text text--secondary">-{i + 1}</span>
@@ -176,6 +183,76 @@
 		.service__text,
 		.service__tags {
 			opacity: 0;
+		}
+	}
+
+	/* Tablets and below: vertical tap-to-expand accordion instead of the horizontal one. */
+	@container base-container (width <= 60rem) {
+		.services__list {
+			flex-direction: column;
+		}
+
+		/* Neutralize the desktop horizontal flex sizing — a flex-basis:0 item in a column
+		   container with overflow:hidden collapses to height 0. Match the nth-child specificity. */
+		.service,
+		.service:nth-child(1):not(.service--active),
+		.service:nth-child(2):not(.service--active),
+		.service:nth-child(3):not(.service--active),
+		.service:nth-child(3).service--active {
+			flex: 0 0 auto;
+		}
+
+		.service {
+			border-inline-start: none;
+			border-block-start: var(--border--primary);
+			cursor: pointer;
+			&::before {
+				content: none;
+			}
+		}
+		.service:first-child {
+			border-block-start: none;
+		}
+
+		.service__header {
+			padding-block-end: 1.25rem;
+		}
+
+		/* Smooth collapse/expand: header stays (auto), content row animates 0fr -> 1fr.
+		   .service__main needs overflow:hidden + min-height:0 to clip while the track shrinks. */
+		.service__inner,
+		.service:nth-child(3) .service__inner {
+			width: 100%;
+			display: grid;
+			grid-template-rows: auto 0fr;
+			transition: grid-template-rows 0.7s var(--easing-default);
+		}
+		.service--active .service__inner {
+			grid-template-rows: auto 1fr;
+		}
+		.service__main {
+			overflow: hidden;
+			min-height: 0;
+		}
+
+		/* Keep image beside text, but shrink the image column to fit narrow screens. */
+		.service__main {
+			grid-template-columns: minmax(8rem, 32%) 1fr;
+			gap: 1rem;
+		}
+		:global(.service__image) {
+			min-height: 14rem;
+		}
+	}
+
+	/* Phones: tighten the side-by-side layout further. */
+	@container base-container (width <= 33rem) {
+		.service__main {
+			grid-template-columns: 7rem 1fr;
+			gap: 0.75rem;
+		}
+		:global(.service__image) {
+			min-height: 11rem;
 		}
 	}
 </style>
