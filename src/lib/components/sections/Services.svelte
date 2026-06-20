@@ -220,12 +220,16 @@
 
 		/* Smooth collapse/expand: header stays (auto), content row animates 0fr -> 1fr.
 		   .service__main needs overflow:hidden + min-height:0 to clip while the track shrinks. */
-		.service__inner,
-		.service:nth-child(3) .service__inner {
+		.service__inner {
 			width: 100%;
 			display: grid;
 			grid-template-rows: auto 0fr;
 			transition: grid-template-rows 0.7s var(--easing-default);
+		}
+		/* Width-only override for the 3rd item (its desktop rule sets a different cqw width).
+		   Kept separate from grid-template-rows so it doesn't out-specify the active rule below. */
+		.service:nth-child(3) .service__inner {
+			width: 100%;
 		}
 		.service--active .service__inner {
 			grid-template-rows: auto 1fr;
