@@ -43,7 +43,7 @@ body {
 .heading--xl {
 	font-size: 13.7cqw;
 	font-weight: 400;
-	line-height: 1em;
+	line-height: 0.75em;
 	margin: 0;
 	margin-inline-end: -0.75cqw;
 }
@@ -86,12 +86,15 @@ body {
 
 /* Phones only (container ≤ 33rem ⟺ viewport ≤ 560px) */
 @container base-container (width <= 33rem) {
+	.heading--lg {
+		font-size: 1.75rem;
+	}
 	.heading--xs {
-		font-size: 0.75rem; /* 12px */
+		font-size: 0.75rem;
 	}
 
 	.text {
-		font-size: 0.875rem; /* 14px */
+		font-size: 0.875rem;
 	}
 }
 

@@ -41,9 +41,10 @@
 	);
 	const isInverted = $derived(Boolean(currentImageId));
 
-	/* Fit as many badge rows as the target section height (max(100svh, 500px)) allows.
-	   Measured in an effect on mount — effects run before first paint, so the initial
-	   render never flashes the wrong count. */
+	/* The section is bounded by min 31.25rem / max 100svh (see styles). The probe
+	   carries that same fill ceiling so it tracks the viewport height; fit as many
+	   badge rows as it allows. Measured in an effect on mount — effects run before
+	   first paint, so the initial render never flashes the wrong count. */
 	let probeEl = $state<HTMLDivElement>();
 	let badgesEl = $state<HTMLUListElement>();
 	let headingEl = $state<HTMLHeadingElement>();
@@ -143,17 +144,24 @@
 </BaseSection>
 
 <style>
-	/* svh keeps the height stable while the mobile URL bar collapses; vh is the fallback */
-	:global(.section.home-hero) {
-		--height: clamp(31.25rem, 100svh, 73.6rem);
-		min-block-size: var(--height);
+	:global(.home-hero) {
+		min-block-size: 31.25rem;
+		max-block-size: 100svh;
 	}
 
+	:global(.home-hero .container) {
+		padding-block-end: 2.5rem;
+	}
+
+	/* Explicit viewport-based height (the section's fill ceiling: min 31.25rem / max 100svh)
+	   rather than 100% — the probe must track the viewport height so the ResizeObserver
+	   fires on window-height changes. With 100% it only mirrors the content-sized section,
+	   which doesn't change on resize once the badges fit. */
 	.home-hero__height-probe {
 		position: absolute;
 		inset-block-start: 0;
 		inline-size: 0;
-		block-size: var(--height);
+		block-size: max(100svh, 31.25rem);
 		visibility: hidden;
 		pointer-events: none;
 	}
