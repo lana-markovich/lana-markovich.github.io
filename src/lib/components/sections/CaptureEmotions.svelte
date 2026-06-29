@@ -78,10 +78,28 @@
 
 	/* Tablets and below: image becomes static at the end of the section, text stacks.
 	   Mirrors this section's desktop stagger — block 1 right-aligned, block 2 left-aligned. */
-	@container base-container (width <= 60rem) {
+	@media (width <= 65rem) {
 		.capture-emotions__text-container {
 			margin-top: 0;
-			grid-template-columns: 1fr;
+			grid-template-areas: ".     text2"
+			                     "text1 text2"
+			                     "text1 .    ";
+		}
+
+		.capture-emotions__text {
+			&:nth-child(1) {
+				padding-inline-end: 1rem;
+			}
+		}
+
+		.capture-emotions__static-image {
+			margin-block-start: 2rem;
+			aspect-ratio: 1.8;
+			width: 100%;
+		}
+	}
+	@media (width <= 35rem) {
+		.capture-emotions__text-container {
 			grid-template-areas: none;
 			row-gap: 3.5rem;
 		}
@@ -91,20 +109,15 @@
 
 			&:nth-child(1) {
 				grid-area: auto;
-				justify-self: end;
-				text-align: end;
+				justify-self: start;
+				text-align: start;
+				padding-inline-end: 0;
 			}
 			&:nth-child(2) {
 				grid-area: auto;
-				justify-self: start;
-				text-align: start;
+				justify-self: end;
+				text-align: end;
 			}
-		}
-
-		.capture-emotions__static-image {
-			margin-block-start: 4rem;
-			aspect-ratio: 1.2;
-			max-block-size: 32rem;
 		}
 	}
 </style>

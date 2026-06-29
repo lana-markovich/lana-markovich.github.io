@@ -184,11 +184,11 @@
 		transition: opacity 0.7s ease;
 	}
 
-	@container base-container (width > 60rem) {
-		.home-hero__badges:has(.home-hero__badge-btn:focus) .home-hero__badge-btn:not(:focus) :global(.badge) {
-			opacity: 0.2;
-		}
-	}
+	/*@container base-container (width > 60rem) {*/
+	/*	.home-hero__badges:has(.home-hero__badge-btn:focus) .home-hero__badge-btn:not(:focus) :global(.badge) {*/
+	/*		opacity: 0.2;*/
+	/*	}*/
+	/*}*/
 
 	.home-hero__badge-btn {
 		all: unset;
@@ -212,15 +212,12 @@
 
 	/* Tablets and below: container ≤ 60rem ⟺ viewport ≤ 65rem (see MediaQuery in script).
 	   Keeps the desktop element order (badges → nav → heading), badges in 2 columns. */
-	@container base-container (width <= 60rem) {
+	@media (width <= 65rem) {
 		.home-hero__badges {
 			grid-auto-flow: row;
-			grid-template-columns: repeat(2, 1fr);
-			grid-template-rows: none;
-			grid-auto-rows: 1fr;
 		}
 
-		.home-hero__badge :global(.badge) {
+		.home-hero__badges:has(.home-hero__badge--is-active) .home-hero__badge:not(.home-hero__badge--is-active) :global(.badge) {
 			opacity: 0.35;
 		}
 
@@ -231,7 +228,7 @@
 
 	/* Phones: container ≤ 33rem ⟺ viewport ≤ 35rem/560px (with the 1rem side padding).
 	   Reorders to heading → nav → badges, one alternating column. */
-	@container base-container (width <= 33rem) {
+	@media (width <= 35rem) {
 		.home-hero__layout {
 			display: flex;
 			flex-direction: column;

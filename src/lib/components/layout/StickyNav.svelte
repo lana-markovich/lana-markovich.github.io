@@ -118,7 +118,7 @@
 	.sticky-nav__subheading-text {
 		display: grid;
 		grid-template-areas: "cell";
-		min-height: 3.19rem; /* heading--lg: 2.75rem × 1.16 line-height */
+		min-height: calc(var(--heading-lg-font-size) * 1.16); /* heading--lg font-size × 1.16 line-height */
 	}
 
 	.sticky-nav__subheading-text > :global(*) {

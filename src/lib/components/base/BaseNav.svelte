@@ -63,7 +63,7 @@
 		}
 	}
 
-	@container base-container (width <= 60rem) {
+	@media (width <= 65rem) {
 		.nav__list {
 			display: flex;
 			justify-content: space-between;

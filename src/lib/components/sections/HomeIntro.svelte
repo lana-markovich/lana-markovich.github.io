@@ -65,11 +65,15 @@
 		row-gap: 2.5rem;
 		grid-template-areas: "text1 text1 .    "
 		                     ".     text2 text2";
+		grid-auto-rows: min-content min-content;
 	}
 
 	.home-intro__text {
 		max-inline-size: 32rem;
 		text-wrap-style: balance;
+		.text {
+			margin-block-end: 0;
+		}
 		&:nth-child(1) {
 			grid-area: text1;
 		}
@@ -79,10 +83,28 @@
 	}
 
 	/* Tablets and below: image becomes static at the end of the section, text stacks. */
-	@container base-container (width <= 60rem) {
+	@media (width <= 65rem) {
 		.home-intro__text-container {
 			margin-top: 0;
-			grid-template-columns: 1fr;
+			grid-template-areas: "text1 .    "
+			                     "text1 text2"
+			                     ".     text2";
+		}
+
+		.home-intro__text {
+			&:nth-child(1) {
+				padding-inline-end: 1rem;
+			}
+		}
+
+		.home-intro__static-image {
+			margin-block-start: 2rem;
+			aspect-ratio: 1.328;
+			width: 100%;
+		}
+	}
+	@media (width <= 35rem) {
+		.home-intro__text-container {
 			grid-template-areas: none;
 			row-gap: 3.5rem;
 		}
@@ -94,18 +116,13 @@
 				grid-area: auto;
 				justify-self: start;
 				text-align: start;
+				padding-inline-end: 0;
 			}
 			&:nth-child(2) {
 				grid-area: auto;
 				justify-self: end;
 				text-align: end;
 			}
-		}
-
-		.home-intro__static-image {
-			margin-block-start: 4rem;
-			aspect-ratio: 1.328;
-			max-block-size: 32rem;
 		}
 	}
 </style>

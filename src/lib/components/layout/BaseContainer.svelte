@@ -38,14 +38,18 @@
 	}
 
 	/* Tablets and below: only the two lines at the content edges */
-	@container base-container (width <= 60rem) {
+	@media (width <= 65rem) {
 		.section__lines::before {
-			width: 0;
-			border-inline-end: none;
+			width: 48%;
 		}
 		.section__lines::after {
 			width: 0;
 			border-inline-start: none;
+		}
+	}
+	@media (width <= 35rem) {
+		.section__lines::before {
+			border-inline-end: none;
 		}
 	}
 </style>

@@ -2,6 +2,7 @@
 	/* Typography */
 	--font-base: "Jost", system-ui, -apple-system, sans-serif;
 	--font-heading: var(--font-base);
+	--heading-lg-font-size: 2.75rem;
 
 	/* Layout */
 	--section-padding-inline: 2.5rem;
@@ -40,17 +41,27 @@
 	--border--secondary: 1px solid color-mix(in srgb, var(--black-800) 10%, transparent);
 }
 
-/* Tablets and below (viewport ≤ 65rem ⟺ container ≤ 60rem) */
 @media (max-width: 65rem) {
 	:root {
 		--container-padding-block: 4rem;
+		--lines-columns-grid-column-count: 2;
+		--lines-columns-grid: 48% 1fr;
+		--lines-columns-grid-nav: 24fr 24fr 26fr 26fr;
+		--heading-lg-font-size: 2.125rem;
 	}
 }
 
-/* Phones only: narrower side padding widens the container, so this must stay
-   well below the 65rem breakpoint to keep container ≤ 60rem ⟺ viewport ≤ 65rem true */
 @media (max-width: 50rem) {
 	:root {
 		--section-padding-inline: 1rem;
+	}
+}
+
+@media (width <= 35rem) {
+	:root {
+		--lines-columns-grid-column-count: 1;
+		--lines-columns-grid: 1fr;
+		--lines-columns-grid-nav: repeat(4, auto);
+		--heading-lg-font-size: 1.75rem;
 	}
 }

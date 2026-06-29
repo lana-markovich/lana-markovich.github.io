@@ -187,7 +187,7 @@
 	}
 
 	/* Tablets and below: vertical tap-to-expand accordion instead of the horizontal one. */
-	@container base-container (width <= 60rem) {
+	@media (width <= 65rem) {
 		.services__list {
 			flex-direction: column;
 		}
@@ -250,7 +250,7 @@
 	}
 
 	/* Phones: tighten the side-by-side layout further. */
-	@container base-container (width <= 33rem) {
+	@media (width <= 35rem) {
 		.service__main {
 			grid-template-columns: 7rem 1fr;
 			gap: 0.75rem;
