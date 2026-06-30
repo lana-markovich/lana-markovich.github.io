@@ -3,7 +3,6 @@
 	import ArtPiecePreview from "$lib/components/artpiece/ArtPiecePreview.svelte";
 	import { ART_PIECES } from "$lib/constants";
 	import type { ArtPieceId } from "$lib/constants";
-	import { sectionHeading } from "$lib/utilities/sectionHeading";
 	import { observeMidline } from "$lib/utilities/viewportMidline";
 	import { setPortfolioCategory } from "$lib/stores/portfolioCategory.svelte";
 
@@ -54,9 +53,7 @@
 	];
 </script>
 
-<BaseSection type="secondary" class="portfolio" id="portfolio">
-	<h2 class="heading heading--md" use:sectionHeading>Portfolio</h2>
-
+<BaseSection type="secondary" class="portfolio" id="portfolio" tracked>
 	<ul class="portfolio__items" bind:this={paintingsEl}>
 		{#each ITEMS as item}
 			<li

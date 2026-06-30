@@ -1,27 +1,19 @@
 import type { Action } from 'svelte/action';
 import { seenSections } from '$lib/stores/seenSections.svelte';
 
-const CURRENT_CLASS = 'section-heading';
-
-const headings = new Map<Element, HTMLElement>();
+const sections = new Set<HTMLElement>();
 let rafId: number | null = null;
 
 function recompute(): void {
 	rafId = null;
 	const viewportMid = window.innerHeight / 2;
 
-	for (const section of headings.keys()) {
-		const rect = section.getBoundingClientRect();
-		const sectionMid = rect.top + rect.height / 2;
-		const seen = sectionMid < viewportMid;
-		const id = (section as HTMLElement).id;
+	for (const section of sections) {
+		const id = section.id;
 		if (!id) continue;
-		if (seen) seenSections.add(id);
+		const rect = section.getBoundingClientRect();
+		if (rect.top < viewportMid) seenSections.add(id);
 		else seenSections.delete(id);
-	}
-
-	for (const [section, heading] of headings) {
-		heading.classList.toggle(CURRENT_CLASS, seenSections.has((section as HTMLElement).id));
 	}
 }
 
@@ -46,25 +38,27 @@ function detach(): void {
 	}
 }
 
-export const sectionHeading: Action<HTMLElement> = (node) => {
-	const section = node.closest('section');
-	if (!section) return;
+/**
+ * Tracks a `<section>` against the viewport midline and reflects its "seen"
+ * state into the {@link seenSections} store (keyed by the section's `id`).
+ * `BaseNav` reads that store reactively to highlight the matching nav link.
+ *
+ * Apply directly to the section element. Pass `false` to opt a section out.
+ */
+export const sectionHeading: Action<HTMLElement, boolean | undefined> = (node, enabled = true) => {
+	if (!enabled) return;
 
-	const wasEmpty = headings.size === 0;
-	headings.set(section, node);
-
-	if (seenSections.has((section as HTMLElement).id)) {
-		node.classList.add(CURRENT_CLASS);
-	}
+	const wasEmpty = sections.size === 0;
+	sections.add(node);
 
 	if (wasEmpty) attach();
 	else schedule();
 
 	return {
 		destroy() {
-			headings.delete(section);
-			node.classList.remove(CURRENT_CLASS);
-			if (headings.size === 0) detach();
+			sections.delete(node);
+			if (node.id) seenSections.delete(node.id);
+			if (sections.size === 0) detach();
 			else schedule();
 		},
 	};
