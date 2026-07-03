@@ -1,4 +1,5 @@
 import type { Action } from 'svelte/action';
+import { getScale } from './dockScale';
 
 export interface DockEffectParams {
 	/** Maximum scale factor for the hovered item (default: 1.4) */
@@ -7,20 +8,17 @@ export interface DockEffectParams {
 	affectedNeighbors?: number;
 	/** Extra horizontal margin in px added per unit of scale above 1.0 (default: 15) */
 	spreadFactor?: number;
-}
-
-function getScale(distance: number, maxScale: number, maxDistance: number): number {
-	if (maxDistance <= 0) return 1;
-	if (Math.abs(distance) >= maxDistance) return 1;
-	const ratio = distance / maxDistance;
-	return 1 + (maxScale - 1) * (1 + Math.cos(ratio * Math.PI)) / 2;
+	/** Media query — if provided, the effect is only active while it matches */
+	breakpoint?: string;
 }
 
 export const dockEffect: Action<HTMLElement, DockEffectParams> = (element, params) => {
 	let currentParams: DockEffectParams = params;
 	let childPositions: { centerX: number; width: number }[] = [];
 	let resizeObserver: ResizeObserver | null = null;
+	let mediaQuery: MediaQueryList | null = null;
 	let isHovering = false;
+	let isActive = false;
 
 	function cachePositions(): void {
 		if (isHovering) return;
@@ -64,8 +62,9 @@ export const dockEffect: Action<HTMLElement, DockEffectParams> = (element, param
 		});
 	}
 
-	function init(p: DockEffectParams): void {
-		currentParams = p;
+	function activate(): void {
+		if (isActive) return;
+		isActive = true;
 		cachePositions();
 		resizeObserver = new ResizeObserver(() => cachePositions());
 		resizeObserver.observe(element);
@@ -73,12 +72,37 @@ export const dockEffect: Action<HTMLElement, DockEffectParams> = (element, param
 		element.addEventListener('mouseleave', handleMouseLeave);
 	}
 
-	function cleanup(): void {
+	function deactivate(): void {
+		if (!isActive) return;
+		isActive = false;
 		element.removeEventListener('mousemove', handleMouseMove);
 		element.removeEventListener('mouseleave', handleMouseLeave);
 		resizeObserver?.disconnect();
 		resizeObserver = null;
 		handleMouseLeave();
+	}
+
+	function onBreakpointChange(): void {
+		if (!mediaQuery || mediaQuery.matches) {
+			activate();
+		} else {
+			deactivate();
+		}
+	}
+
+	function init(p: DockEffectParams): void {
+		currentParams = p;
+		if (p.breakpoint) {
+			mediaQuery = window.matchMedia(p.breakpoint);
+			mediaQuery.addEventListener('change', onBreakpointChange);
+		}
+		onBreakpointChange();
+	}
+
+	function cleanup(): void {
+		deactivate();
+		mediaQuery?.removeEventListener('change', onBreakpointChange);
+		mediaQuery = null;
 	}
 
 	init(params);

@@ -3,6 +3,7 @@
 	import CopyrightInfo from "$lib/components/base/CopyrightInfo.svelte";
 	import DecorationWrapper from "$lib/components/base/DecorationWrapper.svelte";
 	import { dockEffect } from "$lib/utilities/dockEffect";
+	import { scrollDockEffect } from "$lib/utilities/scrollDockEffect";
 	import telegram from "../../../assets/images/contact-icons/telegram.svg";
 	import instagram from "../../../assets/images/contact-icons/instagram.svg";
 	import behance from "../../../assets/images/contact-icons/behance.svg";
@@ -19,7 +20,11 @@
 </script>
 
 <BaseSection class="footer" id="contacts" tracked>
-	<div class="contacts-section" use:dockEffect={{ maxScale: 1.5, affectedNeighbors: 2, spreadFactor: 20 }}>
+	<div
+		class="contacts-section"
+		use:dockEffect={{ maxScale: 1.5, affectedNeighbors: 2, spreadFactor: 20, breakpoint: "(min-width: 65.0625rem)" }}
+		use:scrollDockEffect={{ maxScale: 1.5, minScale: 0.6, affectedNeighbors: 2, spreadFactor: 20, breakpoint: "(max-width: 65rem)" }}
+	>
 		{#each contacts as contact}
 			<div>
 				<DecorationWrapper decorationPosition="bottom-left" width="2.5em" height="2.5em">
@@ -55,7 +60,7 @@
 	.contacts-section > div {
 		transform-origin: center;
 		will-change: transform;
-		transition: transform 0.5s ease-out, margin-inline 0.5s ease-out;
+		transition: transform 0.5s ease-out, margin-inline 0.5s ease-out, margin-block 0.5s ease-out;
 	}
 
 	.contacts-section:hover > div {
@@ -65,5 +70,14 @@
 	.contact-img {
 		width: 8rem;
 		height: 8rem;
+	}
+
+	@media (width <= 65rem) {
+		.contacts-section {
+			flex-direction: column;
+			align-items: center;
+			gap: 2.5rem;
+			margin-block-end: 4rem;
+		}
 	}
 </style>
