@@ -6,25 +6,29 @@
 		decorationPosition,
 		class: className,
 		children,
-		width = '2.5em',
-		height = '8.125em'
+		size: size = "medium",
 	}: {
 		decorationPosition: Corner;
 		class?: string;
 		children: Snippet;
-		width?: string;
-		height?: string;
+		size: "medium" | "small";
 	} = $props();
 </script>
 
-<div class="decoration-wrapper decoration-wrapper--{decorationPosition} {className || ''}"
-	 style="--decoration-width: {width}; --decoration-height: {height};">
+<div class="decoration-wrapper decoration-wrapper--{decorationPosition} {className || ''} decoration-wrapper--size-{size}">
 	{@render children()}
 </div>
 
 <style>
 	.decoration-wrapper {
 		--padding-size: 1rem;
+		--decoration-width: 2.5em;
+		--decoration-height: 8.125em;
+
+		@media (max-width: 50rem) {
+			--padding-size: 0.5rem;
+		}
+
 		display: flex;
 		position: relative;
 		width: 100%;
@@ -39,6 +43,9 @@
 			border: var(--border--primary);
 		}
 
+		&.decoration-wrapper--size-small {
+			--decoration-height: 2.5em;
+		}
 		&.decoration-wrapper--top-left {
 			padding-top: var(--padding-size);
 			padding-left: var(--padding-size);

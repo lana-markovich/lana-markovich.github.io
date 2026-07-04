@@ -49,7 +49,7 @@
 	class:visible
 	style="left: {x}px; top: {y}px;"
 >
-	Tap for more info
+	Open
 </button>
 
 <style>

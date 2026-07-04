@@ -27,8 +27,8 @@
 	>
 		{#each contacts as contact}
 			<div>
-				<DecorationWrapper decorationPosition="bottom-left" width="2.5em" height="2.5em">
-					<DecorationWrapper decorationPosition="top-right" width="2.5em" height="2.5em">
+				<DecorationWrapper decorationPosition="bottom-left" size="small">
+					<DecorationWrapper decorationPosition="top-right" size="small">
 						<a class="contact-img" target="_blank" href={contact.href}>
 							<img class="contact-img" src={contact.src} alt={contact.alt}/>
 						</a>
@@ -43,11 +43,7 @@
 
 <style>
 	:global(.footer .container) {
-		padding-block-end: 0;
-	}
-	.footer__subheading {
-		margin-block-end: 5rem;
-		grid-area: subheading;
+		padding-block-end: 0.5rem;
 	}
 
 	.contacts-section {
@@ -78,6 +74,15 @@
 			align-items: center;
 			gap: 2.5rem;
 			margin-block-end: 4rem;
+		}
+	}
+
+	/* Phones: match the hero heading size (see HomeHero.svelte) */
+	@media (width <= 35rem) {
+		.footer__name {
+			text-align: center;
+			font-size: 24cqw;
+			margin-inline-end: 0;
 		}
 	}
 </style>

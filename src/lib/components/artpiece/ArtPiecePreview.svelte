@@ -54,6 +54,13 @@
 		cursor: none;
 	}
 
+	/* BaseBadge forces nowrap; here a long caption would widen the grid track
+	   and push the column past the viewport, so let it wrap instead. */
+	.art-piece-preview :global(.badge .heading--xs),
+	.art-piece-preview :global(.badge .text--secondary) {
+		white-space: normal;
+	}
+
 	.art-piece-preview__image :global(.depth-wrapper),
 	.art-piece-preview__image :global(.depth-wrapper__content) {
 		width: 100%;

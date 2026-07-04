@@ -1,8 +1,11 @@
 <script lang="ts">
+	import { MediaQuery } from "svelte/reactivity";
 	import BaseSection from "$lib/components/layout/BaseSection.svelte";
 	import DecorationWrapper from "$lib/components/base/DecorationWrapper.svelte";
 	import BaseImage from "$lib/components/base/BaseImage.svelte";
 	import { IMAGES } from "$lib/images";
+
+	const isCompact = new MediaQuery("(max-width: 65rem)");
 </script>
 
 <BaseSection type="secondary" class="about-me" id="about" tracked>
@@ -18,7 +21,7 @@
 		</p>
 
 		<div class="about-me__image-wrapper">
-			<DecorationWrapper decorationPosition="bottom-left">
+			<DecorationWrapper decorationPosition={isCompact.current ? "top-left" : "bottom-left"}>
 				<BaseImage name={IMAGES['about-me'].id} alt={IMAGES['about-me'].alt}/>
 			</DecorationWrapper>
 		</div>
@@ -26,11 +29,6 @@
 </BaseSection>
 
 <style>
-	.about-me__subheading {
-		margin-block-end: 2em;
-		grid-area: subheading;
-	}
-
 	.about-me__heading {
 		max-width: 28ch;
 		grid-area: heading;
@@ -45,9 +43,9 @@
 		position: relative;
 		display: grid;
 		grid-template-columns: var(--lines-columns-grid);
-		grid-template-areas: "subheading subheading image"
-		                     "heading    heading    ."
-		                     "text       text       .";
+		grid-template-areas: ".       .       image"
+		                     "heading heading ."
+		                     "text    text    .";
 	}
 
 	.about-me__image-wrapper {
@@ -64,11 +62,37 @@
 		margin-right: calc(-1 * var(--container-to-screen-side-width));
 		height: var(--fluid-height);
 		max-height: var(--max-height);
-		width: min(46.5rem, calc(var(--container-colunm-width) + var(--container-to-screen-side-width)));
+		width: min(46.5rem, calc(var(--container-right-column-width) + var(--container-to-screen-side-width)));
 
 		:global(.image--about-me) {
 			object-fit: cover;
 			object-position: 50% 76%;
+		}
+	}
+
+	@media (width <= 65rem) {
+		.about-me__container-inner {
+			/*grid-template-columns: 1fr;*/
+			grid-template-areas: "heading heading"
+			                     "text    text"
+			                     ".       image";
+		}
+		.about-me__image-wrapper {
+			margin-top: 5rem;
+			margin-bottom: calc(-1 * var(--container-padding-block));
+		}
+	}
+	@media (width <= 35rem) {
+		.about-me__container-inner {
+			/*grid-template-columns: 1fr;*/
+			--container-right-column-width: 100%;
+			grid-template-areas: "heading"
+			                     "text"
+			                     "image";
+		}
+		.about-me__image-wrapper {
+			max-width: 16.75rem;
+			margin-inline-start: auto;
 		}
 	}
 

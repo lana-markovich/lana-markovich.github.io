@@ -11,7 +11,7 @@
 	--container-max-width: 82.5rem;
 
 	--container-width: min(var(--container-max-width), 100vw - (var(--section-padding-inline) * 2));
-	--container-colunm-width: calc(var(--container-width) * 408 / 1200);
+	--container-right-column-width: calc(var(--container-width) * 384 / 1200);
 	--container-to-screen-side-width: max(var(--section-padding-inline), calc((100vw - var(--container-width)) / 2));
 
 	--lines-columns-grid-column-count: 3;
@@ -21,8 +21,8 @@
 	/* Animation */
 	--easing-default: cubic-bezier(0.645, 0.045, 0.355, 1);
 
-	--breakpoint-sm: 50rem; /* Not used */
-	--breakpoint-md: 70rem; /* Not used */
+	--breakpoint-sm: 35rem;
+	--breakpoint-md: 65rem;
 	--breakpoint-lg: 90rem;
 	--breakpoint-xl: 120rem;
 
@@ -44,6 +44,7 @@
 @media (max-width: 65rem) {
 	:root {
 		--container-padding-block: 4rem;
+		--container-right-column-width: calc(0.52 * var(--container-width));
 		--lines-columns-grid-column-count: 2;
 		--lines-columns-grid: 48% 1fr;
 		--lines-columns-grid-nav: 24fr 24fr 26fr 26fr;
