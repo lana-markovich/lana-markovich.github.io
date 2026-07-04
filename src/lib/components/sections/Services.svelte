@@ -67,7 +67,7 @@
 						<h3 class="service__heading heading heading--sm">{service.title}</h3>
 					</header>
 					<div class="service__main">
-						<FramedImage class="service__image" image={service.image} />
+						<FramedImage class="service__image" image={service.image}/>
 						<div class="service__text">
 							{#each service.paragraphs as paragraph}
 								<p class="text text--secondary">{paragraph}</p>
@@ -116,16 +116,20 @@
 			border-block-end: var(--border--primary);
 		}
 	}
+
 	.service:nth-child(1):not(.service--active),
 	.service:nth-child(2):not(.service--active) {
 		flex: 408 1 0;
 	}
+
 	.service:nth-child(3):not(.service--active) {
 		flex: 384 1 0;
 	}
+
 	.service:nth-child(3).service--active {
 		flex: 1584 1 0;
 	}
+
 	.service__header {
 		padding: 0.5rem;
 		padding-block-end: 2.5rem;
@@ -133,23 +137,29 @@
 		flex-direction: column;
 		gap: 0.25rem;
 	}
-	.service__index {
-		font-weight: 700;
-	}
+
+	/*.service__index {*/
+	/*	font-weight: 500;*/
+	/*}*/
+
 	.service__heading {
 		margin-block: 0;
 	}
+
 	:global(.service__image),
 	.service__text,
 	.service__tags {
 		transition: opacity 0.7s var(--easing-default);
 	}
+
 	.service__inner {
 		width: calc(100cqw * 816 / 1200);
 	}
+
 	.service:nth-child(3) .service__inner {
 		width: calc(100cqw * 792 / 1200);
 	}
+
 	.service__main {
 		display: grid;
 		grid-template-areas: "image text"
@@ -157,20 +167,26 @@
 		grid-template-columns: 17.625rem 1fr;
 		grid-template-rows: 1fr auto;
 		gap: 1.5rem;
+		padding-block-start: 0;
+		transition: padding-block-start 0.7s var(--easing-default);
 	}
+
 	:global(.service__image) {
 		grid-area: image;
 		min-height: 31rem;
 	}
+
 	.service__text {
 		grid-area: text;
 		max-width: 25rem;
 		text-wrap: pretty;
 		padding-inline-end: 0.5em;
 	}
+
 	.service__tags {
 		grid-area: tags;
 	}
+
 	.service__tag {
 		margin-block: 0;
 		color: var(--text-tertiary);
@@ -202,18 +218,23 @@
 
 		.service {
 			border-inline-start: none;
-			border-block-start: var(--border--primary);
+			border-block-start: none;
 			cursor: pointer;
 			&::before {
 				content: none;
 			}
 		}
-		.service:first-child {
-			border-block-start: none;
-		}
+
 
 		.service__header {
-			padding-block-end: 1.25rem;
+			padding-inline: 0;
+			padding-block-end: 0;
+			display: flex;
+			flex-direction: row-reverse;
+			justify-content: space-between;
+		}
+		.services__list:before {
+			content: none;
 		}
 
 		/* Smooth collapse/expand: header stays (auto), content row animates 0fr -> 1fr.
@@ -223,6 +244,17 @@
 			display: grid;
 			grid-template-rows: auto 0fr;
 			transition: grid-template-rows 0.7s var(--easing-default);
+			position: relative;
+			padding-block-end: 1.5rem;
+			padding-inline-end: 1rem;
+			&::before {
+				content: "";
+				position: absolute;
+				inset: auto 0 0 0;
+				height: 2.5rem;
+				border-block-end: var(--border--primary);
+				border-inline-end: var(--border--primary);
+			}
 		}
 		/* Width-only override for the 3rd item (its desktop rule sets a different cqw width).
 		   Kept separate from grid-template-rows so it doesn't out-specify the active rule below. */
@@ -232,29 +264,41 @@
 		.service--active .service__inner {
 			grid-template-rows: auto 1fr;
 		}
+
+
 		.service__main {
+			grid-template-columns: var(--lines-columns-grid);
+			grid-template-areas: "text image"
+			                     "tags image";
+			column-gap: 2.5rem;
 			overflow: hidden;
 			min-height: 0;
 		}
-
-		/* Keep image beside text, but shrink the image column to fit narrow screens. */
-		.service__main {
-			grid-template-columns: minmax(8rem, 32%) 1fr;
-			gap: 1rem;
+		.service--active .service__main{
+			padding-block-start: 1.5rem;
 		}
 		:global(.service__image) {
-			min-height: 14rem;
+			min-height: 25rem;
 		}
 	}
 
 	/* Phones: tighten the side-by-side layout further. */
 	@media (width <= 35rem) {
 		.service__main {
-			grid-template-columns: 7rem 1fr;
-			gap: 0.75rem;
+			grid-template-columns: 1fr 1.25fr;
+			grid-template-areas: "text  text"
+			                     "image tags";
+			column-gap: 1rem;
+		}
+		.service__tags {
+			align-self: end;
 		}
 		:global(.service__image) {
-			min-height: 11rem;
+			min-height: 18.75rem;
+		}
+		.service__inner {
+			padding-block-end: 1.25rem;
+			padding-inline-end: 0.75rem;
 		}
 	}
 </style>

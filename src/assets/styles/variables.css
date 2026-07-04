@@ -43,7 +43,7 @@
 
 @media (max-width: 65rem) {
 	:root {
-		--container-padding-block: 4rem;
+		--container-padding-block: 7.5rem;
 		--container-right-column-width: calc(0.52 * var(--container-width));
 		--lines-columns-grid-column-count: 2;
 		--lines-columns-grid: 48% 1fr;

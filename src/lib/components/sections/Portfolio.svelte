@@ -124,7 +124,7 @@
 		.portfolio__item:nth-child(2n + 1) :global(.badge) {
 			align-self: start;
 		}
-		.portfolio__item :global(.badge) {
+		.portfolio__item:nth-child(2n) :global(.badge) {
 			align-self: end;
 		}
 	}

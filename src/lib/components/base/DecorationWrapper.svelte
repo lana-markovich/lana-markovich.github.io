@@ -46,6 +46,9 @@
 		&.decoration-wrapper--size-small {
 			--decoration-height: 2.5em;
 		}
+		@media (width <= 35rem) {
+			--decoration-height: 2.5em;
+		}
 		&.decoration-wrapper--top-left {
 			padding-top: var(--padding-size);
 			padding-left: var(--padding-size);
