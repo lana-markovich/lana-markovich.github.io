@@ -234,8 +234,6 @@
 		.home-hero__heading {
 			order: 1;
 			align-self: center;
-			text-align: center;
-			font-size: 24cqw;
 			margin-inline-end: 0;
 		}
 

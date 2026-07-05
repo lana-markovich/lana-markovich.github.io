@@ -35,6 +35,8 @@
 		border: none;
 		padding: 0;
 		background: transparent;
+		overflow: auto;
+		overscroll-behavior: contain;
 
 		opacity: 0;
 		transform: translateY(8px) scale(0.98);

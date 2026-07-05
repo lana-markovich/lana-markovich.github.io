@@ -56,25 +56,27 @@
 	.art-piece-button {
 		font-family: var(--font-base);
 		color: var(--white);
-		font-weight: 600;
-		letter-spacing: -0.02em;
-		line-height: 1.25em;
+		text-transform: uppercase;
+		font-weight: 400;
+		background: none;
+		border: none;
+		letter-spacing: -0.04em;
 		font-size: 1rem;
 		position: absolute;
-		width: 6.25rem;
-		height: 6.25rem;
-		padding: 0.75em;
-		border-radius: 50%;
-		background-color: color-mix(in srgb, var(--white) 1%, transparent);
 		pointer-events: none;
 		opacity: 0;
 		transition: opacity 0.3s ease;
 		z-index: 10;
-		backdrop-filter: blur(40px);
-		border: 1px color-mix(in srgb, var(--white) 20%, transparent) solid;
+		mix-blend-mode: difference;
 	}
 
 	.art-piece-button.visible {
 		opacity: 1;
+	}
+
+	@media (hover: none) {
+		.art-piece-button {
+			display: none;
+		}
 	}
 </style>

@@ -80,8 +80,6 @@
 	/* Phones: match the hero heading size (see HomeHero.svelte) */
 	@media (width <= 35rem) {
 		.footer__name {
-			text-align: center;
-			font-size: 24cqw;
 			margin-inline-end: 0;
 		}
 	}

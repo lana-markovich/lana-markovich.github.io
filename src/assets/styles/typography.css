@@ -86,6 +86,11 @@ body {
 
 /* Phones only (container ≤ 33rem ⟺ viewport ≤ 560px) */
 @media (width <= 35rem) {
+	.heading--xl {
+		text-align: center;
+		font-size: 24cqw;
+		line-height: 0.82;
+	}
 	.heading--xs {
 		font-size: 0.75rem;
 	}

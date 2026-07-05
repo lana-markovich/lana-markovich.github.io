@@ -35,7 +35,7 @@
 	.nav__link {
 		font-weight: 600;
 		letter-spacing: -0.02em;
-		transition: color 0.7s ease;
+		transition: color 0.7s ease, opacity 800ms var(--easing-default);
 		position: relative;
 	}
 
@@ -51,6 +51,10 @@
 		transform-origin: left center;
 		pointer-events: none;
 		transition: transform 800ms var(--easing-default);
+	}
+
+	.nav__link.section-heading {
+		opacity: 0.2;
 	}
 
 	.nav__link.section-heading::after {
