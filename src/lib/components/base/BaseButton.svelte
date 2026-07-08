@@ -40,6 +40,9 @@
 			color 500ms ease,
 			transform 500ms var(--easing-default),
 			box-shadow 500ms ease;
+		@media (width <= 35rem) {
+			min-block-size: 2.5rem;
+		}
 	}
 
 	.button__label {

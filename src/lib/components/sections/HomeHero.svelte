@@ -251,7 +251,9 @@
 		:global(.home-hero .container) {
 			padding-block-start: 2rem;
 		}
-
+		:global(.home-hero .badge) {
+			min-inline-size: 11rem;
+		}
 		.home-hero__layout {
 			display: flex;
 			flex-direction: column;
