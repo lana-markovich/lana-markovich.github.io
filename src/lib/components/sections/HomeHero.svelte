@@ -203,6 +203,11 @@
 			color: var(--black-200);
 		}
 	}
+	@media (width > 65rem) {
+		.home-hero__badges:has(.home-hero__badge-btn:focus) .home-hero__badge-btn:not(:focus) :global(.badge) {
+			opacity: 0.2;
+		}
+	}
 
 	/* Tablets and below: container ≤ 60rem ⟺ viewport ≤ 65rem (see MediaQuery in script).
 	   Keeps the desktop element order (badges → nav → heading), badges in 2 columns. */
