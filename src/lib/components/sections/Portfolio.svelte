@@ -53,7 +53,7 @@
 	];
 </script>
 
-<BaseSection type="secondary" class="portfolio" id="portfolio" tracked>
+<BaseSection class="portfolio" id="portfolio" tracked>
 	<ul class="portfolio__items" bind:this={paintingsEl}>
 		{#each ITEMS as item}
 			<li

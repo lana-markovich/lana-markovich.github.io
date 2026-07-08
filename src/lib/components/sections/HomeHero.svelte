@@ -111,7 +111,7 @@
 	});
 </script>
 
-<BaseSection type="secondary" id="hero" class="home-hero"
+<BaseSection id="hero" class="home-hero"
 >
 	{#snippet prepend()}
 		<ImagesSlider images={images} currentImage={currentImageId}/>
@@ -164,6 +164,7 @@
 	:global(.home-hero) {
 		min-block-size: 31.25rem;
 		max-block-size: 100lvh;
+		background-color: var(--black-200) !important;
 	}
 
 	:global(.home-hero .container) {

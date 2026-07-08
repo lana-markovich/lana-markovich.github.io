@@ -18,7 +18,7 @@
 	}
 </script>
 
-<BaseSection class="home-intro" onmousemove={handleMouseMove}>
+<BaseSection type="secondary" class="home-intro" onmousemove={handleMouseMove}>
 	{#snippet prepend()}
 		{#if !isCompact.current}
 			<MouseTrackingMask bind:this={mask} initialX="50%" initialY="15%">
