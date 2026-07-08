@@ -98,7 +98,7 @@
 		}
 
 		.home-intro__static-image {
-			margin-block-start: 2rem;
+			margin-block-start: 6.25rem;
 			aspect-ratio: 1.328;
 			width: 100%;
 		}
@@ -106,7 +106,7 @@
 	@media (width <= 35rem) {
 		.home-intro__text-container {
 			grid-template-areas: none;
-			row-gap: 3.5rem;
+			row-gap: 3.75rem;
 		}
 
 		.home-intro__text {

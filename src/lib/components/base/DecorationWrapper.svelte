@@ -11,7 +11,7 @@
 		decorationPosition: Corner;
 		class?: string;
 		children: Snippet;
-		size: "medium" | "small";
+		size?: "medium" | "small";
 	} = $props();
 </script>
 

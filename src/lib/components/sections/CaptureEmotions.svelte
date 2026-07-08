@@ -93,15 +93,15 @@
 		}
 
 		.capture-emotions__static-image {
-			margin-block-start: 2rem;
-			aspect-ratio: 1.8;
+			margin-block-start: 6.25rem;
+			aspect-ratio: 1.328;
 			width: 100%;
 		}
 	}
 	@media (width <= 35rem) {
 		.capture-emotions__text-container {
 			grid-template-areas: none;
-			row-gap: 3.5rem;
+			row-gap: 3.75rem;
 		}
 
 		.capture-emotions__text {

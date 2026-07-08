@@ -4,8 +4,6 @@
 	import DecorationWrapper from "$lib/components/base/DecorationWrapper.svelte";
 	import BaseImage from "$lib/components/base/BaseImage.svelte";
 	import { IMAGES } from "$lib/images";
-
-	const isCompact = new MediaQuery("(max-width: 65rem)");
 </script>
 
 <BaseSection type="secondary" class="about-me" id="about" tracked>
@@ -21,7 +19,7 @@
 		</p>
 
 		<div class="about-me__image-wrapper">
-			<DecorationWrapper decorationPosition={isCompact.current ? "top-left" : "bottom-left"}>
+			<DecorationWrapper decorationPosition="bottom-left">
 				<BaseImage name={IMAGES['about-me'].id} alt={IMAGES['about-me'].alt}/>
 			</DecorationWrapper>
 		</div>
@@ -71,6 +69,9 @@
 	}
 
 	@media (width <= 65rem) {
+		:global(.about-me .container) {
+			padding-block-end: 2.5rem;
+		}
 		.about-me__container-inner {
 			/*grid-template-columns: 1fr;*/
 			grid-template-areas: "heading heading"
@@ -79,12 +80,11 @@
 		}
 		.about-me__image-wrapper {
 			margin-top: 5rem;
-			margin-bottom: calc(-1 * var(--container-padding-block));
+			margin-bottom: 0;
 		}
 	}
 	@media (width <= 35rem) {
 		.about-me__container-inner {
-			/*grid-template-columns: 1fr;*/
 			--container-right-column-width: 100%;
 			grid-template-areas: "heading"
 			                     "text"
