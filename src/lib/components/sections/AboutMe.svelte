@@ -69,10 +69,7 @@
 	}
 
 	@media (width <= 65rem) {
-		:global(.about-me .container) {
-			padding-block-end: 2.5rem;
-		}
-		.about-me__container-inner {
+	.about-me__container-inner {
 			/*grid-template-columns: 1fr;*/
 			grid-template-areas: "heading heading"
 			                     "text    text"
