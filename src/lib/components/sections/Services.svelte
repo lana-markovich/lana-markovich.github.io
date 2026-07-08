@@ -14,25 +14,25 @@
 	const services: Service[] = [
 		{
 			title: 'Custom Paintings',
-			image: IMAGES['portrait-1'],
+			image: IMAGES['iris'],
 			paragraphs: [
-				'I create original paintings on commission, working closely with you to capture the subject, mood, and palette you have in mind.',
-				'Each piece is crafted with care and attention to detail, resulting in a one-of-a-kind artwork made just for you.',
+				'I create unique custom paintings that reflect your story and emotions. From concept to final piece.',
+				'I work closely with clients, utilizing various techniques and styles — from realistic portraits to abstract compositions. I bring your ideas to life in works of art that become part of your space.',
 			],
-			tags: ['portrait', 'abstract', 'canvas'],
+			tags: ['portrait', 'abstract', 'customart'],
 		},
 		{
 			title: 'Print Design',
-			image: IMAGES['capture-emotions'],
+			image: IMAGES['body-1'],
 			paragraphs: [
-				'I design prints for posters, apparel, and editorial use, blending illustration and typography into bold, distinctive visuals.',
-				'From concept to final file, I deliver print-ready artwork tailored to your brand and intended medium.',
+				'I design prints for merchandise, posters, packaging, and branding materials that capture attention and tell your story. From logo development to full packaging design.',
+				'I create cohesive visual solutions that work across all mediums. Each design is crafted to reflect your brand\'s unique identity and connect with your audience..',
 			],
-			tags: ['poster', 'apparel', 'editorial'],
+			tags: ['merch', 'prints', 'posters'],
 		},
 		{
 			title: 'Interior Design',
-			image: IMAGES['deer'],
+			image: IMAGES['jacket-1-3'],
 			paragraphs: [
 				'I bring interiors to life through custom hand-painted designs on furniture, walls, clothing, and various surfaces. From bold murals to delicate details.',
 				'I transform everyday objects into unique art pieces that add personality and character to your space. Each project is tailored to complement your style and vision.',
