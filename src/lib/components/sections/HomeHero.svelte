@@ -13,9 +13,9 @@
 	const isCompact = new MediaQuery("(max-width: 65rem)");
 
 	let hoveredImageId = $state<ImageEntry["id"] | null>(null);
-	let selectedImageId = $state<ImageEntry["id"] | null>(null);
+	let selectedImageId = $state<ImageEntry["id"] | null>('abstract-3');
 
-	const heroIds: ArtPieceId[] = [
+	const desktopHeroIds: ArtPieceId[] = [
 		'melancholy',
 		'nostalgia',
 		'isolation',
@@ -31,6 +31,25 @@
 		'abstract-3',
 		'deer',
 	];
+
+	const compactHeroIds: ArtPieceId[] = [
+		'abstract-3',
+		'iris',
+		'nothing',
+		'isolation',
+		'deer',
+		'melancholy',
+		'nostalgia',
+		'confusion',
+		'what-does-it-mean',
+		'there-is-no-more-reality',
+		'time-is-fleeting',
+		'reality-doesnt-exist',
+		'forbidden-fruit-is-the-sweetest',
+		'portrait-1',
+	];
+
+	const heroIds = $derived(isCompact.current ? compactHeroIds : desktopHeroIds);
 
 	const artworks: ArtPiece[] = heroIds.map(id => ART_PIECES[id]);
 	const images = artworks.map(artwork => artwork.image);
