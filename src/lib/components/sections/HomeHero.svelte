@@ -27,10 +27,9 @@
 		'nothing',
 		'forbidden-fruit-is-the-sweetest',
 		'portrait-1',
-		'portrait-2',
-		'anatomy-1',
-		'anatomy-2',
-		// 'deer',
+		'iris',
+		'abstract-3',
+		'deer',
 	];
 
 	const artworks: ArtPiece[] = heroIds.map(id => ART_PIECES[id]);

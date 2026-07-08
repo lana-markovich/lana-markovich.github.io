@@ -135,7 +135,7 @@ the search for explanations, but a direct encounter with a sense of emptiness th
 	},
 	'portrait-1': {
 		id: 'portrait-1',
-		name: "portrait 1",
+		name: "portrait",
 		year: 2021,
 		shortDescription: "100*70 cm, mixed media",
 		description: `
@@ -200,7 +200,9 @@ the search for explanations, but a direct encounter with a sense of emptiness th
 	},
 	'abstract-3': {
 		id: 'abstract-3',
-		name: "abstract-3",
+		name: "The cracks",
+		year: 2019,
+		shortDescription: "100*70 cm, mixed media",
 		image: IMAGES['abstract-3'],
 	},
 	'body-1': {
