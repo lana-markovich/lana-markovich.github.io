@@ -41,10 +41,12 @@
 	);
 	const isInverted = $derived(Boolean(currentImageId));
 
-	/* The section is bounded by min 31.25rem / max 100svh (see styles). The probe
-	   carries that same fill ceiling so it tracks the viewport height; fit as many
-	   badge rows as it allows. Measured in an effect on mount — effects run before
-	   first paint, so the initial render never flashes the wrong count. */
+	/* The section is bounded by min 31.25rem / max 100lvh (see styles). The probe
+	   carries that same fill ceiling; fit as many badge rows as it allows.
+	   Measured once in an effect on mount — effects run before first paint, so the
+	   initial render never flashes the wrong count. Deliberately not re-measured on
+	   resize: on mobile the viewport height shifts as the browser chrome
+	   collapses/expands, and recomputing would make badges appear/disappear mid-scroll. */
 	let probeEl = $state<HTMLDivElement>();
 	let badgesEl = $state<HTMLUListElement>();
 	let headingEl = $state<HTMLHeadingElement>();
@@ -85,12 +87,9 @@
 
 	$effect(() => {
 		recomputeBadgeCount();
-		const observer = new ResizeObserver(() => recomputeBadgeCount());
-		if (probeEl) observer.observe(probeEl); /* viewport height changes */
-		const container = badgesEl?.closest(".container");
-		if (container) observer.observe(container); /* width / tier changes */
+		/* Fonts may still be loading on mount; re-measure once they're ready since
+		   font metrics change the badge row height. Still part of page load. */
 		document.fonts?.ready.then(() => recomputeBadgeCount());
-		return () => observer.disconnect();
 	});
 </script>
 
@@ -146,22 +145,22 @@
 <style>
 	:global(.home-hero) {
 		min-block-size: 31.25rem;
-		max-block-size: 100svh;
+		max-block-size: 100lvh;
 	}
 
 	:global(.home-hero .container) {
 		padding-block-end: 2.5rem;
 	}
 
-	/* Explicit viewport-based height (the section's fill ceiling: min 31.25rem / max 100svh)
-	   rather than 100% — the probe must track the viewport height so the ResizeObserver
-	   fires on window-height changes. With 100% it only mirrors the content-sized section,
-	   which doesn't change on resize once the badges fit. */
+	/* Explicit viewport-based height (the section's fill ceiling: min 31.25rem / max 100lvh)
+	   rather than 100% — the probe measures how tall the section is allowed to be, while
+	   the section itself is content-sized and may be shorter. 100lvh (large viewport) so
+	   the one-time measurement isn't skewed by mobile browser chrome being expanded on load. */
 	.home-hero__height-probe {
 		position: absolute;
 		inset-block-start: 0;
 		inline-size: 0;
-		block-size: max(100svh, 31.25rem);
+		block-size: max(100lvh, 31.25rem);
 		visibility: hidden;
 		pointer-events: none;
 	}
