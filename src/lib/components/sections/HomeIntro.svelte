@@ -99,7 +99,7 @@
 
 		.home-intro__static-image {
 			margin-block-start: 6.25rem;
-			aspect-ratio: 1.328;
+			aspect-ratio: 1.25;
 			width: 100%;
 		}
 	}
