@@ -208,7 +208,7 @@
 	   Keeps the desktop element order (badges → nav → heading), badges in 2 columns. */
 	@media (width <= 65rem) {
 		:global(.home-hero .container) {
-			padding-block-start: 5rem;
+			padding-block-start: 4rem;
 		}
 
 		.home-hero__badges {
@@ -225,6 +225,10 @@
 	}
 
 	@media (width <= 35rem) {
+		:global(.home-hero .container) {
+			padding-block-start: 2rem;
+		}
+
 		.home-hero__layout {
 			display: flex;
 			flex-direction: column;
