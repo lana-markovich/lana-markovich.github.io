@@ -21,6 +21,6 @@
 	.heading--xs,
 	.text--secondary {
 		white-space: nowrap;
-		line-height: 1em;
+		line-height: 0.70em;
 	}
 </style>
