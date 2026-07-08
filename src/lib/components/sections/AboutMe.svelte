@@ -81,6 +81,7 @@
 		.about-me__image-wrapper {
 			margin-top: 5rem;
 			margin-bottom: 0;
+			height: auto;
 		}
 	}
 	@media (width <= 35rem) {
