@@ -1,6 +1,5 @@
 <script>
 	import BaseSection from "$lib/components/layout/BaseSection.svelte";
-	import CopyrightInfo from "$lib/components/base/CopyrightInfo.svelte";
 	import DecorationWrapper from "$lib/components/base/DecorationWrapper.svelte";
 	import { dockEffect } from "$lib/utilities/dockEffect";
 	import { scrollDockEffect } from "$lib/utilities/scrollDockEffect";
@@ -38,7 +37,6 @@
 		{/each}
 	</div>
 	<p class="heading heading--xl footer__name">sviatlana markovich</p>
-<!--	<CopyrightInfo/>-->
 </BaseSection>
 
 <style>
