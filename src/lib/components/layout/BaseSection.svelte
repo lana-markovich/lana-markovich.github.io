@@ -44,7 +44,7 @@
 	}
 
 	.section--secondary {
-		box-shadow: inset 0 0 40px 0 color-mix(in srgb, var(--black-800) 8%, transparent);
+		box-shadow: inset 0 0 30px 0 color-mix(in srgb, var(--black-800) 6%, transparent);
 	}
 
 </style>
