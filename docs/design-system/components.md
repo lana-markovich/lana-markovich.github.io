@@ -87,16 +87,27 @@ Has `aria-hidden` bound to its visibility. Backdrop is `rgba(255,255,255,0.85)` 
 
 ### `BaseButton` — `src/lib/components/base/BaseButton.svelte`
 
-Renders `<button>` or `<a>` (when `href` is set). Two variants, tactile hover/focus states with multi-ring focus outline.
+Renders `<button>` or `<a>` (when `href` is set). Styled along two independent axes — `appearance` (how much chrome) and `variant` (which color scheme) — for four combinations.
 
 | Prop | Type | Default |
 |---|---|---|
 | `variant` | `'black' \| 'white'` | `'black'` |
+| `appearance` | `'filled' \| 'link'` | `'filled'` |
 | `href` | `string` | — (renders `<button>` if omitted) |
 | `children` | `Snippet` | required |
 | `...rest` | `HTMLButtonAttributes & HTMLAnchorAttributes` | spread onto the element |
 
-Fixed dimensions: `min-inline-size: 11.375rem`, `min-block-size: 2.875rem`. Label is uppercase, underlined, with hover-extending underline offset.
+`variant` names the color scheme the button sits in, not its background: `black` for light backgrounds, `white` for dark ones. Pick it the same way in both appearances — typically `variant={isInverted ? 'white' : 'black'}`.
+
+The label is uppercase, underlined, with hover-extending underline offset in every combination.
+
+`appearance="filled"` gives fixed dimensions — `min-inline-size: 11.375rem`, `min-block-size: 2.875rem` — plus a drop shadow that tightens on `:active`, and a multi-ring focus outline drawn with `box-shadow`.
+
+`appearance="link"` is chrome-free: transparent background, no padding, no shadow, sized to its label. It draws in `--text-primary` (`black`) or `--white` (`white`), fades to 80% opacity on hover, and takes a plain 1px `currentColor` outline on focus.
+
+```svelte
+<BaseButton appearance="link" variant="white" href="#portfolio">View more</BaseButton>
+```
 
 ### `BaseBadge` — `src/lib/components/base/BaseBadge.svelte`
 
