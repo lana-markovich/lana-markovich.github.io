@@ -145,6 +145,7 @@
 			<li class="home-hero__view-more-btn">
 				<BaseButton
 					href="#portfolio"
+					appearance="link"
 					variant={isInverted ? "white" : "black"}
 				>
 					View more
