@@ -281,6 +281,9 @@
 		.home-hero__badges > :nth-child(even) {
 			justify-self: end;
 		}
+		.home-hero__badges > .home-hero__view-more-btn {
+			justify-self: center;
+		}
 	}
 
 </style>
