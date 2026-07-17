@@ -1,4 +1,12 @@
-# Svelte + TS + Vite
+# Sviatlana Markovich — Portfolio
+
+Artist portfolio site. Live at **https://lana-markovich.github.io**.
+
+> **Updating the site?** If you're not a developer and you're making changes with Claude, start with **[docs/GUIDE.md](./docs/GUIDE.md)** — a plain-language walkthrough of running the site, publishing, adding images, and changing styles. The technical reference for the AI is in [CLAUDE.md](./CLAUDE.md).
+
+---
+
+## Svelte + TS + Vite
 
 This template should help get you started developing with Svelte and TypeScript in Vite.
 
