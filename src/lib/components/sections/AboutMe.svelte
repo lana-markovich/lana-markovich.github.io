@@ -30,9 +30,11 @@
 	.about-me__heading {
 		max-width: 28ch;
 		grid-area: heading;
+		align-self: end;
 	}
 
 	.about-me__text {
+		align-self: start;
 		grid-area: text;
 		max-width: 45ch;
 	}
@@ -44,28 +46,26 @@
 		/* The image spans every row so it can centre against the whole section;
 		   the 1fr spacers above and below centre the heading/text block against
 		   that same height. */
-		grid-template-areas: ".       .       image"
-		                     "heading heading image"
-		                     "text    text    image"
-		                     ".       .       image";
-		grid-template-rows: 1fr auto auto 1fr;
+		grid-template-areas: "heading heading image"
+		                     "text    text    image";
+		align-items: center;
 	}
 
 	.about-me__image-wrapper {
-		--min-height: calc(31rem + var(--container-padding-block));
-		--max-height: calc(37.25rem + var(--container-padding-block));
-		--fluid-height: clamp(
-			var(--min-height),
-			calc(var(--min-height) + (var(--max-height) - var(--max-height)) * ((100vw - var(--breakpoint-lg)) / (var(--breakpoint-xl) - var(--breakpoint-lg)))),
-			var(--max-height)
-		);
+		/*--min-height: calc(31rem + var(--container-padding-block));*/
+		/*--max-height: calc(37.25rem + var(--container-padding-block));*/
+		/*--fluid-height: clamp(*/
+		/*	var(--min-height),*/
+		/*	calc(var(--min-height) + (var(--max-height) - var(--max-height)) * ((100vw - var(--breakpoint-lg)) / (var(--breakpoint-xl) - var(--breakpoint-lg)))),*/
+		/*	var(--max-height)*/
+		/*);*/
 
 		grid-area: image;
-		align-self: center;
 		margin-right: calc(-1 * var(--container-to-screen-side-width));
-		height: var(--fluid-height);
-		max-height: var(--max-height);
+		/*height: ;*/
+		/*max-height: var(--max-height);*/
 		width: min(46.5rem, calc(var(--container-right-column-width) + var(--container-to-screen-side-width)));
+		aspect-ratio: 4 / 5;
 
 		:global(.image--about-me) {
 			object-fit: cover;
