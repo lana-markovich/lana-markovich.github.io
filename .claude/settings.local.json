@@ -28,7 +28,17 @@
       "Bash(npx svelte-check *)",
       "PowerShell(Add-Type -AssemblyName System.Drawing; $img = [System.Drawing.Image]::FromFile\\('C:\\\\git\\\\sviatlanamarkovich.gihtub.io\\\\mobile\\\\sec_1.png'\\); \"$\\($img.Width\\) x $\\($img.Height\\)\"; $img.Dispose\\(\\))",
       "PowerShell(npm run *)",
-      "PowerShell(git add *)"
+      "PowerShell(git add *)",
+      "Bash(node -e ' *)",
+      "Bash(ls -la \"/private/tmp/claude-501/-Users-palinamark-Claude-lana-markovich-github-io/e0727bbe-e228-49d2-99f0-91a95cea34dd/scratchpad\" 2>/dev/null; echo \"--- recent images in tmp ---\"; find /private/tmp/claude-501 /tmp -type f \\\\\\( -iname \"*.png\" -o -iname \"*.jpg\" -o -iname \"*.jpeg\" -o -iname \"*.webp\" \\\\\\) -mmin -60 2>/dev/null | head -20; echo \"--- src/assets/images ---\"; ls -la src/assets/images | head)",
+      "Bash(file src/assets/images/particles-of-memory.*)",
+      "Bash(md5 -q src/assets/images/nothing.png src/assets/images/forbidden-fruit-is-the-sweetest.png \"src/assets/images/reality-doesn't-exist.png\")",
+      "Bash(md5 -q)",
+      "Bash(sips -g pixelWidth -g pixelHeight -g orientation \"public/images/about-me-new.JPG\")",
+      "Bash(sips -r 270 src/assets/images/about-me.jpg)",
+      "Bash(sips -g pixelWidth -g pixelHeight src/assets/images/about-me.jpg)",
+      "Bash(git checkout *)",
+      "Bash(git status *)"
     ],
     "deny": [],
     "ask": []
