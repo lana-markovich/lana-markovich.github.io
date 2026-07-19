@@ -16,14 +16,14 @@
 	let selectedImageId = $state<ImageEntry["id"] | null>('abstract-3');
 
 	const desktopHeroIds: ArtPieceId[] = [
-		'melancholy',
+		'particles-of-memory',
 		'nostalgia',
 		'isolation',
 		'confusion',
-		'what-does-it-mean',
+		'do-not-look',
 		'there-is-no-more-reality',
 		'time-is-fleeting',
-		'reality-doesnt-exist',
+		'melancholy',
 		'nothing',
 		'portrait-1',
 		'iris',
@@ -37,13 +37,13 @@
 		'nothing',
 		'isolation',
 		'deer',
-		'melancholy',
+		'particles-of-memory',
 		'nostalgia',
 		'confusion',
-		'what-does-it-mean',
+		'do-not-look',
 		'there-is-no-more-reality',
 		'time-is-fleeting',
-		'reality-doesnt-exist',
+		'melancholy',
 		'portrait-1',
 	];
 
