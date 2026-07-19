@@ -12,9 +12,10 @@ export interface ImageEntry {
 	id: ImageId;
 	alt: string;
 	sizes: readonly number[];
-	aspectRatio: number;  // width / height
+	aspectRatio: number;  // width / height, as stored on disk
 	focalPoint: FocalPoint;
 	zoom: number;  // 1..5
+	rotate?: 0 | 90 | 180 | 270;  // display rotation; 90/270 swap the effective aspect ratio
 }
 
 export interface ArtPiece<Id extends string = string> {
