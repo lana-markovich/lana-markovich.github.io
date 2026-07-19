@@ -73,6 +73,7 @@ export const IMAGES = {
 		alt: 'Confusion',
 		focalPoint: { x: 0.5, y: 0.5 },
 		zoom: 1.0,
+		rotate: 270,
 	},
 	'copy-la-grenouillere': {
 		...IMAGE_SOURCES['copy-la-grenouillere'],
@@ -229,6 +230,7 @@ export const IMAGES = {
 		alt: 'There is no more reality',
 		focalPoint: { x: 0.5, y: 0.25 },
 		zoom: 1,
+		rotate: 270,
 	},
 	'time-is-fleeting': {
 		...IMAGE_SOURCES['time-is-fleeting'],

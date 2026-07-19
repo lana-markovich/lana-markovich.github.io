@@ -5,6 +5,7 @@
 		image,
 		focalPoint: focalPointOverride,
 		zoom: zoomOverride,
+		rotate: rotateOverride,
 		class: className = '',
 		loading = 'lazy',
 		sizesAttr = '100vw',
@@ -12,6 +13,7 @@
 		image: ImageEntry;
 		focalPoint?: FocalPoint;
 		zoom?: number;
+		rotate?: 0 | 90 | 180 | 270;
 		class?: string;
 		loading?: 'lazy' | 'eager';
 		sizesAttr?: string;
@@ -20,13 +22,18 @@
 	const focalX = $derived(focalPointOverride?.x ?? image.focalPoint.x);
 	const focalY = $derived(focalPointOverride?.y ?? image.focalPoint.y);
 	const zoom = $derived(zoomOverride ?? image.zoom);
+	const rotate = $derived(rotateOverride ?? image.rotate ?? 0);
+	/* Quarter turns swap the image's width and height on screen. */
+	const isQuarterTurn = $derived(rotate % 180 !== 0);
 
 	let contW = $state(0);
 	let contH = $state(0);
 
+	/* Layout is computed in on-screen space: w/h describe the box the image
+	   occupies after rotation, so cover-fitting stays correct for quarter turns. */
 	const layout = $derived.by(() => {
 		if (!contW || !contH) return { w: 0, h: 0, x: 0, y: 0 };
-		const imgAspect = image.aspectRatio;
+		const imgAspect = isQuarterTurn ? 1 / image.aspectRatio : image.aspectRatio;
 		const contAspect = contW / contH;
 		// cover: fit to whichever dimension constrains the image, then apply zoom
 		let w: number;
@@ -45,6 +52,15 @@
 		y = Math.min(0, Math.max(contH - h, y));
 		return { w, h, x, y };
 	});
+
+	/* The element itself is sized in its own unrotated space, so a quarter turn
+	   takes the layout box's dimensions swapped back. Rotating about the centre
+	   keeps that box in place, so the translation only has to move the centres
+	   together — which reduces to plain translate(x, y) when rotate is 0. */
+	const imgW = $derived(isQuarterTurn ? layout.h : layout.w);
+	const imgH = $derived(isQuarterTurn ? layout.w : layout.h);
+	const offsetX = $derived(layout.x + (layout.w - imgW) / 2);
+	const offsetY = $derived(layout.y + (layout.h - imgH) / 2);
 
 	const sortedSizes = $derived([...image.sizes].sort((a, b) => b - a));
 	const srcset = $derived(
@@ -65,7 +81,7 @@
 			alt={image.alt}
 			{loading}
 			decoding="async"
-			style="width: {layout.w}px; height: {layout.h}px; transform: translate({layout.x}px, {layout.y}px);"
+			style="width: {imgW}px; height: {imgH}px; transform: translate({offsetX}px, {offsetY}px) rotate({rotate}deg);"
 		/>
 	</picture>
 </div>
@@ -84,7 +100,7 @@
 	}
 	.framed-image__picture img {
 		display: block;
-		transform-origin: 0 0;
+		transform-origin: center;
 		will-change: transform;
 		max-width: none;
 		max-height: none;
