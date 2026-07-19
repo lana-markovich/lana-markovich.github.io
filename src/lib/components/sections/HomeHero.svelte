@@ -12,9 +12,6 @@
 	/* Must stay in sync with the 60rem container query below: container ≤ 60rem ⟺ viewport ≤ 65rem */
 	const isCompact = new MediaQuery("(max-width: 65rem)");
 
-	let hoveredImageId = $state<ImageEntry["id"] | null>(null);
-	let selectedImageId = $state<ImageEntry["id"] | null>('abstract-3');
-
 	const desktopHeroIds: ArtPieceId[] = [
 		'particles-of-memory',
 		'nostalgia',
@@ -52,10 +49,12 @@
 	const artworks: ArtPiece[] = heroIds.map(id => ART_PIECES[id]);
 	const images = artworks.map(artwork => artwork.image);
 
-	const currentImageId = $derived(
-		hoveredImageId ?? (isCompact.current ? selectedImageId : null)
-	);
-	const isInverted = $derived(Boolean(currentImageId));
+	/* Default to the first badge of the current layout — it is always rendered,
+	   so one badge is always active (a fixed id could fall outside the visible
+	   slice, leaving nothing highlighted and every badge looking active). */
+	let selectedImageId = $state<ImageEntry["id"] | null>(artworks[0].image.id);
+
+	const isInverted = $derived(Boolean(selectedImageId));
 
 	/* The section is bounded by min 31.25rem / max 100lvh (see styles). The probe
 	   carries that same fill ceiling; fit as many badge rows as it allows.
@@ -112,7 +111,7 @@
 <BaseSection id="hero" class="home-hero"
 >
 	{#snippet prepend()}
-		<ImagesSlider images={images} currentImage={currentImageId}/>
+		<ImagesSlider images={images} currentImage={selectedImageId}/>
 	{/snippet}
 	<div class="home-hero__height-probe" bind:this={probeEl}></div>
 	<div class="home-hero__layout">
@@ -120,15 +119,13 @@
 			{#each visibleArtworks as artwork (artwork.image.id)}
 				<li
 					class="home-hero__badge"
-					class:home-hero__badge--is-active={artwork.image.id === currentImageId}
+					class:home-hero__badge--is-active={artwork.image.id === selectedImageId}
 				>
 					<button
 						type="button"
 						class="home-hero__badge-btn"
-						onmouseenter={(e) => { (e.currentTarget as HTMLButtonElement).focus({ preventScroll: true }); }}
-						onmouseleave={(e) => { (e.currentTarget as HTMLButtonElement).blur(); }}
-						onfocus={() => { hoveredImageId = artwork.image.id; }}
-						onblur={() => { hoveredImageId = null; }}
+						onmouseenter={() => { selectedImageId = artwork.image.id; }}
+						onfocus={() => { selectedImageId = artwork.image.id; }}
 						onclick={() => { selectedImageId = artwork.image.id; }}
 					>
 						<BaseBadge>
@@ -221,10 +218,15 @@
 			color: var(--black-200);
 		}
 	}
-	@media (width > 65rem) {
-		.home-hero__badges:has(.home-hero__badge-btn:focus) .home-hero__badge-btn:not(:focus) :global(.badge) {
-			opacity: 0.2;
-		}
+	/* One badge is always selected (default image shown), so its badge stays lit
+	   while the rest dim — same behaviour on desktop and mobile, driven by the
+	   persistent selection rather than transient :focus. */
+	.home-hero__badges:has(.home-hero__badge--is-active) .home-hero__badge:not(.home-hero__badge--is-active) :global(.badge) {
+		opacity: 0.2;
+	}
+
+	.home-hero__badge--is-active :global(.badge) {
+		opacity: 1;
 	}
 
 	/* Tablets and below: container ≤ 60rem ⟺ viewport ≤ 65rem (see MediaQuery in script).
@@ -240,10 +242,6 @@
 
 		.home-hero__badges:has(.home-hero__badge--is-active) .home-hero__badge:not(.home-hero__badge--is-active) :global(.badge) {
 			opacity: 0.35;
-		}
-
-		.home-hero__badge--is-active :global(.badge) {
-			opacity: 1;
 		}
 	}
 
