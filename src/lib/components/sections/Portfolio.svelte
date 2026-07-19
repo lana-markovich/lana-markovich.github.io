@@ -37,11 +37,11 @@
 
 	const ITEMS: Item[] = [
 		{ id: 'reality-doesnt-exist', category: "PAINTINGS" },
-		{ id: 'landscape-1', aspectRatio: 384 / 450, category: "PAINTINGS" },
+		{ id: 'particles-of-memory', aspectRatio: 384 / 450, category: "PAINTINGS" },
 		{ id: 'copy-la-grenouillere', category: "PAINTINGS" },
 		{ id: 'iris', aspectRatio: 408 / 450, category: "PAINTINGS" },
 		{ id: 'imagination', aspectRatio: 384 / 600, category: "PAINTINGS" },
-		{ id: 'still-life', category: "PAINTINGS" },
+		{ id: 'do-not-look', category: "PAINTINGS" },
 		{ id: 'nothing', category: "PAINTINGS" },
 		{ id: 'what-does-it-mean', aspectRatio: 384 / 450, category: "PAINTINGS" },
 		{ id: 'isolation', category: "PAINTINGS" },
@@ -71,10 +71,10 @@
 		display: grid;
 		list-style: none;
 		grid-template-columns: var(--lines-columns-grid);
-		grid-template-areas: "reality-doesnt-exist .                        landscape-1              "
+		grid-template-areas: "reality-doesnt-exist .                        particles-of-memory      "
 		                     ".                    copy-la-grenouillere     .                        "
 		                     "iris                 .                        imagination              "
-		                     ".                    still-life               .                        "
+		                     ".                    do-not-look              .                        "
 		                     "nothing              .                        what-does-it-mean        "
 		                     ".                    isolation                .                        "
 		                     "jacket-1             .                        dresser-decoration-storks"
@@ -93,17 +93,17 @@
 		.portfolio__items {
 			grid-column-gap: 2.5rem;
 			grid-template-areas: "reality-doesnt-exist      ."
-			                     "reality-doesnt-exist      landscape-1"
-			                     ".                         landscape-1"
-			                     "copy-la-grenouillere      landscape-1"
+			                     "reality-doesnt-exist      particles-of-memory"
+			                     ".                         particles-of-memory"
+			                     "copy-la-grenouillere      particles-of-memory"
 			                     "copy-la-grenouillere      ."
 			                     "copy-la-grenouillere      iris"
 			                     ".                         iris"
 			                     "imagination               iris"
 			                     "imagination               ."
-			                     "imagination               still-life"
-			                     ".                         still-life"
-			                     "nothing                   still-life"
+			                     "imagination               do-not-look"
+			                     ".                         do-not-look"
+			                     "nothing                   do-not-look"
 			                     "nothing                   ."
 			                     "nothing                   what-does-it-mean"
 			                     ".                         what-does-it-mean"
@@ -133,11 +133,11 @@
 	@media (width <= 35rem) {
 		.portfolio__items {
 			grid-template-areas: "reality-doesnt-exist"
-			                     "landscape-1"
+			                     "particles-of-memory"
 			                     "copy-la-grenouillere"
 			                     "iris"
 			                     "imagination"
-			                     "still-life"
+			                     "do-not-look"
 			                     "nothing"
 			                     "what-does-it-mean"
 			                     "isolation"

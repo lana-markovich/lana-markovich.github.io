@@ -87,6 +87,12 @@ export const IMAGES = {
 		focalPoint: { x: 0.5, y: 0.18 },
 		zoom: 1.0,
 	},
+	'do-not-look': {
+		...IMAGE_SOURCES['do-not-look'],
+		alt: 'Do not look',
+		focalPoint: { x: 1, y: 0.5 },
+		zoom: 1.0,
+	},
 	'dresser-decoration-storks': {
 		...IMAGE_SOURCES['dresser-decoration-storks'],
 		alt: 'Dresser decoration with storks',
@@ -156,6 +162,12 @@ export const IMAGES = {
 	'nothing': {
 		...IMAGE_SOURCES['nothing'],
 		alt: 'Nothing',
+		focalPoint: { x: 0.5, y: 0.5 },
+		zoom: 1.0,
+	},
+	'particles-of-memory': {
+		...IMAGE_SOURCES['particles-of-memory'],
+		alt: 'Particles of memory',
 		focalPoint: { x: 0.5, y: 0.5 },
 		zoom: 1.0,
 	},

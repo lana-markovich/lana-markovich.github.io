@@ -16,6 +16,16 @@ export const ART_PIECES = {
 		`,
 		image: IMAGES['melancholy'],
 	},
+	'particles-of-memory': {
+		id: 'particles-of-memory',
+		name: "particles of memory",
+		year: 2018,
+		shortDescription: "100*100 cm, mixed media on canvas",
+		description: `
+			<p>Memories are dead particles extracted from the past; with time, they turn to dust.</p>
+		`,
+		image: IMAGES['particles-of-memory'],
+	},
 	'nostalgia': {
 		id: 'nostalgia',
 		name: "nostalgia",
@@ -51,6 +61,17 @@ and a distance from the external world</p>
 			<p></p>
 		`,
 		image: IMAGES['confusion'],
+	},
+	'do-not-look': {
+		id: 'do-not-look',
+		name: "Do not look",
+		year: 2019,
+		shortDescription: "100*100 cm, oil on canvas",
+		description: `
+			<p></p>
+			<p></p>
+		`,
+		image: IMAGES['do-not-look'],
 	},
 	'what-does-it-mean': {
 		id: 'what-does-it-mean',
