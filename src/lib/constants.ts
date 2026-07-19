@@ -281,7 +281,7 @@ In Belarus, the stork symbolizes purity and rebirth.</p>
 	'pikoala': {
 		id: 'pikoala',
 		name: "children's art set packaging \"Pikoala\"",
-		year: 2000,
+		year: 2025,
 		shortDescription: "illustrator and photoshop",
 		description: `
 			<p>The project involved designing a children's art set packaging 

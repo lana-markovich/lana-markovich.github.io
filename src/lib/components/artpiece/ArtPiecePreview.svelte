@@ -28,7 +28,7 @@
 		</DepthWrapper>
 	</div>
 	<BaseBadge>
-		{artPiece.name}{#if artPiece.year} ({artPiece.year}){/if}
+		{artPiece.name}{#if artPiece.year}&nbsp;({artPiece.year}){/if}
 		<svelte:fragment slot="text">
 			{#if artPiece.shortDescription}
 				{artPiece.shortDescription}

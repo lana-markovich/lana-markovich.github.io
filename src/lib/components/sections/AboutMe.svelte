@@ -41,9 +41,14 @@
 		position: relative;
 		display: grid;
 		grid-template-columns: var(--lines-columns-grid);
+		/* The image spans every row so it can centre against the whole section;
+		   the 1fr spacers above and below centre the heading/text block against
+		   that same height. */
 		grid-template-areas: ".       .       image"
-		                     "heading heading ."
-		                     "text    text    .";
+		                     "heading heading image"
+		                     "text    text    image"
+		                     ".       .       image";
+		grid-template-rows: 1fr auto auto 1fr;
 	}
 
 	.about-me__image-wrapper {
@@ -56,7 +61,7 @@
 		);
 
 		grid-area: image;
-		margin-top: calc(-1 * var(--container-padding-block));
+		align-self: center;
 		margin-right: calc(-1 * var(--container-to-screen-side-width));
 		height: var(--fluid-height);
 		max-height: var(--max-height);
@@ -74,6 +79,8 @@
 			grid-template-areas: "heading heading"
 			                     "text    text"
 			                     ".       image";
+			/* Stacked layout: drop the desktop centring spacers. */
+			grid-template-rows: auto;
 		}
 		.about-me__image-wrapper {
 			margin-top: 5rem;
