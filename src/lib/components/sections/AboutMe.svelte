@@ -64,7 +64,7 @@
 
 		:global(.image--about-me) {
 			object-fit: cover;
-			object-position: 50% 76%;
+			object-position: 50% 20%;
 		}
 	}
 
