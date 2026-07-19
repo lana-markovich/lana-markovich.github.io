@@ -94,11 +94,11 @@ the eye but also the mind, moving the viewer from a simple act of seeing to a pr
 	},
 	'reality-doesnt-exist': {
 		id: 'reality-doesnt-exist',
-		name: "reality doesn't exist",
+		name: "Reality doesn't exist",
 		year: 2020,
 		shortDescription: "100*70 cm, charcoal on paper",
 		description: `
-			<p>“Reality doesn't exist” establishes a dialogue between the viewer and the image, calling into question the very notion of reality. 
+			<p>“Reality doesn't exist” establishes a dialogue between the viewer and the image, calling into question the very notion of reality.
 It prompts reflection on what can be considered real today 
 and what is merely an image, projection, or interpretation.</p>
 			<p>Through a melancholic portrait of a person 
@@ -121,17 +121,6 @@ in which identity loses its definition and becomes almost anonymous.
 the search for explanations, but a direct encounter with a sense of emptiness that can be both unsettling and strangely familiar</p>
 		`,
 		image: IMAGES['nothing'],
-	},
-	'forbidden-fruit-is-the-sweetest': {
-		id: 'forbidden-fruit-is-the-sweetest',
-		name: "forbidden fruit is the sweetest",
-		year: 2015,
-		shortDescription: "120*60 cm, mixed media",
-		description: `
-			<p></p>
-			<p></p>
-		`,
-		image: IMAGES['forbidden-fruit-is-the-sweetest'],
 	},
 	'portrait-1': {
 		id: 'portrait-1',

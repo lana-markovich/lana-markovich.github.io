@@ -5,7 +5,7 @@ export const IMAGES = {
 	'about-me': {
 		...IMAGE_SOURCES['about-me'],
 		alt: 'Sviatlana Markovich portrait',
-		focalPoint: { x: 0.5, y: 0.76 },
+		focalPoint: { x: 0.5, y: 0.2 },
 		zoom: 1.0,
 	},
 	'abstract-1': {
@@ -93,12 +93,6 @@ export const IMAGES = {
 		focalPoint: { x: 0.5, y: 0.5 },
 		zoom: 1.0,
 	},
-	'forbidden-fruit-is-the-sweetest': {
-		...IMAGE_SOURCES['forbidden-fruit-is-the-sweetest'],
-		alt: 'Forbidden fruit is the sweetest',
-		focalPoint: { x: 0.5, y: 0.53 },
-		zoom: 1.0,
-	},
 	'imagination': {
 		...IMAGE_SOURCES['imagination'],
 		alt: 'Imagination',
@@ -162,7 +156,7 @@ export const IMAGES = {
 	'nothing': {
 		...IMAGE_SOURCES['nothing'],
 		alt: 'Nothing',
-		focalPoint: { x: 0.5, y: 0.32 },
+		focalPoint: { x: 0.5, y: 0.5 },
 		zoom: 1.0,
 	},
 	'pikoala-1': {

@@ -25,7 +25,6 @@
 		'time-is-fleeting',
 		'reality-doesnt-exist',
 		'nothing',
-		'forbidden-fruit-is-the-sweetest',
 		'portrait-1',
 		'iris',
 		'abstract-3',
@@ -45,7 +44,6 @@
 		'there-is-no-more-reality',
 		'time-is-fleeting',
 		'reality-doesnt-exist',
-		'forbidden-fruit-is-the-sweetest',
 		'portrait-1',
 	];
 
