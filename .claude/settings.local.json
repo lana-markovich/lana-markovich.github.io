@@ -38,7 +38,9 @@
       "Bash(sips -r 270 src/assets/images/about-me.jpg)",
       "Bash(sips -g pixelWidth -g pixelHeight src/assets/images/about-me.jpg)",
       "Bash(git checkout *)",
-      "Bash(git status *)"
+      "Bash(git status *)",
+      "Bash(sips -g pixelWidth -g pixelHeight public/images/abstract-section-3.png)",
+      "Bash(git reset *)"
     ],
     "deny": [],
     "ask": []
