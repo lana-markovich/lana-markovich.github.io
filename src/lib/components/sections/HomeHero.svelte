@@ -31,10 +31,10 @@
 	const compactHeroIds: ArtPieceId[] = [
 		'abstract-3',
 		'iris',
+		'particles-of-memory',
 		'nothing',
 		'isolation',
 		'deer',
-		'particles-of-memory',
 		'nostalgia',
 		'confusion',
 		'do-not-look',
@@ -163,7 +163,12 @@
 		background-color: var(--black-200) !important;
 	}
 
+	/* Kept at the original 7.5rem rather than following --container-padding-block:
+	   this is the top of the page, not a gap between sections, and
+	   recomputeBadgeCount() subtracts this padding from the height it fits badge
+	   rows into. */
 	:global(.home-hero .container) {
+		padding-block-start: 7.5rem;
 		padding-block-end: 2.5rem;
 	}
 

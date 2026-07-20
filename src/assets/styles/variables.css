@@ -7,7 +7,9 @@
 	/* Layout */
 	--section-padding-inline: 2.5rem;
 
-	--container-padding-block: 7.5rem;
+	/* Each section contributes this above and below its content, so the gap
+	   between two adjacent sections is twice this value. */
+	--container-padding-block: 12rem;
 	--container-max-width: 82.5rem;
 
 	--container-width: min(var(--container-max-width), 100vw - (var(--section-padding-inline) * 2));
