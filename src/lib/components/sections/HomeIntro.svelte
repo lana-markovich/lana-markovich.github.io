@@ -58,6 +58,13 @@
 </BaseSection>
 
 <style>
+	/* Kept at the original 7.5rem rather than following --container-padding-block,
+	   so the gap up to the hero stays as it was; only the gaps below this
+	   section grew. */
+	:global(.home-intro .container) {
+		padding-block-start: 7.5rem;
+	}
+
 	.home-intro__text-container {
 		margin-top: 45rem;
 		display: grid;

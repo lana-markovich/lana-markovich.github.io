@@ -14,9 +14,6 @@
 </BaseSection>
 
 <style>
-	:global(.exploring-mediums .container) {
-		padding-block: 0;
-	}
 	.exploring-mediums__text {
 		display: grid;
 		grid-template-columns: var(--lines-columns-grid);
