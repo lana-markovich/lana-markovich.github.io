@@ -68,8 +68,8 @@ and a distance from the external world</p>
 		year: 2019,
 		shortDescription: "100*100 cm, oil on canvas",
 		description: `
-			<p></p>
-			<p></p>
+			<p>The title “Do Not Look” addresses the viewer as a command, but this very prohibition becomes an invitation to pay attention. By concealing the woman’s fingernail through the title itself, the work plays with human curiosity: what is hidden often attracts even greater interest.</p>
+			<p>The title does not restrict the viewer’s gaze; instead, it directs it, encouraging reflection on the nature of curiosity, prohibition, and perception.</p>
 		`,
 		image: IMAGES['do-not-look'],
 	},
