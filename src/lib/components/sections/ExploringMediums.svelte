@@ -37,7 +37,7 @@
 		}
 		.text {
 			grid-area: text;
-			max-width: 52ch;
+			max-width: 500px;
 			margin-block: 0;
 		}
 	}
