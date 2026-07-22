@@ -51,10 +51,10 @@
 
 	/* Default to the first badge of the current layout — it is always rendered,
 	   so one badge is always active (a fixed id could fall outside the visible
-	   slice, leaving nothing highlighted and every badge looking active). */
-	let selectedImageId = $state<ImageEntry["id"] | null>(artworks[0].image.id);
-
-	const isInverted = $derived(Boolean(selectedImageId));
+	   slice, leaving nothing highlighted and every badge looking active). A
+	   selection is never cleared, so the hero always renders in its inverted
+	   (image-backed) state. */
+	let selectedImageId = $state<ImageEntry["id"]>(artworks[0].image.id);
 
 	/* The section is bounded by min 31.25rem / max 100lvh (see styles). The probe
 	   carries that same fill ceiling; fit as many badge rows as it allows.
@@ -141,7 +141,7 @@
 				<BaseButton
 					href="#portfolio"
 					appearance="link"
-					variant={isInverted ? "white" : "black"}
+					variant="white"
 				>
 					View more
 				</BaseButton>
@@ -149,10 +149,10 @@
 		</ul>
 
 		<div class="home-hero__nav-wrapper" bind:this={navWrapperEl}>
-			<BaseNav isInverted={isInverted}/>
+			<BaseNav isInverted/>
 		</div>
 
-		<h1 class="heading heading--xl home-hero__heading {isInverted ? 'home-hero__heading--is-inverted' : ''}" bind:this={headingEl}>sviatlana markovich</h1>
+		<h1 class="heading heading--xl home-hero__heading home-hero__heading--is-inverted" bind:this={headingEl}>sviatlana markovich</h1>
 	</div>
 </BaseSection>
 
