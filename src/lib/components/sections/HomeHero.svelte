@@ -152,7 +152,7 @@
 			<BaseNav isInverted/>
 		</div>
 
-		<h1 class="heading heading--xl home-hero__heading home-hero__heading--is-inverted" bind:this={headingEl}>sviatlana markovich</h1>
+		<h1 class="heading heading--xl home-hero__heading" bind:this={headingEl}>sviatlana markovich</h1>
 	</div>
 </BaseSection>
 
@@ -217,11 +217,7 @@
 	}
 
 	.home-hero__heading {
-		transition: color 0.7s var(--easing-default);
-
-		&.home-hero__heading--is-inverted {
-			color: var(--black-200);
-		}
+		color: var(--black-200);
 	}
 	/* One badge is always selected (default image shown), so its badge stays lit
 	   while the rest dim — same behaviour on desktop and mobile, driven by the
