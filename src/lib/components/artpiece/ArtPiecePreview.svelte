@@ -28,7 +28,7 @@
 		</DepthWrapper>
 	</div>
 	<BaseBadge>
-		{artPiece.name}{#if artPiece.year}&nbsp;({artPiece.year}){/if}
+		{artPiece.name}{#if artPiece.year} <span class="art-piece-preview__year">({artPiece.year})</span>{/if}
 		<svelte:fragment slot="text">
 			{#if artPiece.shortDescription}
 				{artPiece.shortDescription}
@@ -59,6 +59,12 @@
 	.art-piece-preview :global(.badge .heading--xs),
 	.art-piece-preview :global(.badge .text--secondary) {
 		white-space: normal;
+	}
+
+	/* Keep "(year)" from breaking apart, but let it wrap onto its own line as a
+	   whole when the badge is too narrow (e.g. on mobile). */
+	.art-piece-preview__year {
+		white-space: nowrap;
 	}
 
 	.art-piece-preview__image :global(.depth-wrapper),
