@@ -59,7 +59,7 @@ async function processImage(filename: string): Promise<ProcessedImage> {
 				withoutEnlargement: true,
 				fit: "inside",
 			})
-			.webp({ quality: config.quality })
+			.webp({ quality: config.quality[width] ?? config.fallbackQuality })
 			.toFile(outputPath);
 
 		outputs.push(outputFilename);
@@ -76,7 +76,11 @@ async function main(): Promise<void> {
 	console.log(`Input: ${config.inputDir}`);
 	console.log(`Output: ${config.outputDir}`);
 	console.log(`Sizes: ${config.sizes.join(", ")}px`);
-	console.log(`Quality: ${config.quality}%`);
+	console.log(
+		`Quality: ${config.sizes
+			.map((w) => `${w}px→${config.quality[w] ?? config.fallbackQuality}%`)
+			.join(", ")}`,
+	);
 	console.log("");
 
 	await ensureOutputDir();
